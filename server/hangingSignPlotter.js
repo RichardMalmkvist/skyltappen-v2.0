@@ -4,6 +4,7 @@ const {createSignArtworkStore}=require('./signArtwork');
 const {hangingFaceAppearance}=require('../src/data/additionalHangingArticles');
 const {createProjectSignFileStore}=require('./projectSignFiles');
 const {hangingTargetLayout,hangingWithoutTextError}=require('../src/data/hangingTargetLayout');
+const {largeHangingArrow}=require('../src/data/largeHangingArrow');
 const {isParking,makeParkingPdf}=require("./parkingProduction");
 const fs=require('fs'),path=require('path'),sax=require('sax');
 const PDFDocument=require('pdfkit'),SVGtoPDF=require('svg-to-pdfkit');
@@ -125,10 +126,11 @@ function faceLayout(product,form,assets,{back=false}={}){
   }
   for(const [side,direction] of [['left',left],['right',right]]){
     if(direction==='none')continue;
-    const asset=vectorAsset(fs.readFileSync(path.join(PUBLIC,{'left':'pil-vanster.svg','right':'pil-hoger.svg','up':'pil-upp.svg','down':'pil-ner.svg'}[direction]),'utf8'),'Pil');
-    const scale=Math.min(arrowW/asset.viewBox[2],arrowH/asset.viewBox[3]);const w=asset.viewBox[2]*scale,h=asset.viewBox[3]*scale;
+    const asset=large?largeHangingArrow(direction):vectorAsset(fs.readFileSync(path.join(PUBLIC,{'left':'pil-vanster.svg','right':'pil-hoger.svg','up':'pil-upp.svg','down':'pil-ner.svg'}[direction]),'utf8'),'Pil');
+    const scale=large?1:Math.min(arrowW/asset.viewBox[2],arrowH/asset.viewBox[3]);
+    const w=asset.viewBox[2]*scale,h=asset.viewBox[3]*scale;
     const refH=double?Math.min(height,large?140:93):height;
-    const y=(refH-arrowH)/2+(double?8:0)+(arrowH-h)/2;
+    const y=(refH-h)/2+(double?8:0);
     const x=(side==='left'?arrowEdge:width-arrowEdge-arrowW)+(arrowW-w)/2;
     if(side==='left'&&x+w>textX)fail('Vänsterpilen överlappar texten.');
     if(symbols.items.some(item=>x<item.x+item.width&&x+w>item.x&&y<item.y+item.height&&y+h>item.y))fail('Pilen överlappar en målpunkt eller symbol.');

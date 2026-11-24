@@ -37,6 +37,9 @@ server/project-proof-workflow.json
 server/drawing-library.json
 server/badge-production-settings.json
 server/dibond-symbols.json
+server/hanging-sign-symbols-v1.json
+server/door-sign-symbols-v1.json
+server/homepage-notice-v1.json
 server/article-production-files/
 server/dibond-symbol-assets/
 server/order-attachments/

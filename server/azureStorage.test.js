@@ -12,6 +12,23 @@ test("startup requires an Azure storage connection", () => {
   const result = spawnSync(process.execPath, [path.join(__dirname, "server.js")], {env, encoding:"utf8"});
   assert.equal(result.status, 1);
   assert.match(result.stderr, /AZURE_STORAGE_CONNECTION_STRING saknas/);
+  const production = spawnSync(process.execPath, [path.join(__dirname, "server.js"), "--development"], {
+    env:{...env, NODE_ENV:"production"}, encoding:"utf8",
+  });
+  assert.equal(production.status, 1);
+  assert.match(production.stderr, /AZURE_STORAGE_CONNECTION_STRING saknas/);
+});
+
+test("temporary development storage supports conditional updates and is isolated between runs", async () => {
+  const {createDevBlobStorage} = require("./devBlobStorage");
+  const storage = createDevBlobStorage();
+  const blob = storage.getBlockBlobClient("test.json");
+  const {etag} = await blob.uploadData("first", {conditions:{ifNoneMatch:"*"}});
+  await assert.rejects(blob.uploadData("overwrite", {conditions:{ifNoneMatch:"*"}}), {statusCode:412});
+  await blob.uploadData("second", {conditions:{ifMatch:etag}});
+  await assert.rejects(blob.uploadData("stale", {conditions:{ifMatch:etag}}), {statusCode:412});
+  assert.equal((await blob.downloadToBuffer()).toString(), "second");
+  assert.equal(await createDevBlobStorage().getBlockBlobClient("test.json").exists(), false);
 });
 
 test("account, catalog and symbols use blob storage without falling back to local files", async t => {
@@ -28,7 +45,9 @@ test("account, catalog and symbols use blob storage without falling back to loca
       return {
         async downloadToBuffer() {
           if (unavailable) throw Object.assign(new Error("Storage unavailable"),{code:"Unavailable"});
-          if (!blobs.has(key)) throw Object.assign(new Error("Blob not found"),{code:"BlobNotFound"});
+          if (!blobs.has(key)) throw Object.assign(new Error("Blob not found"),{
+            statusCode:404, details:{errorCode:"BlobNotFound"},
+          });
           return blobs.get(key);
         },
         async uploadData(bytes, options) {

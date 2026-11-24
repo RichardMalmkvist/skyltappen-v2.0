@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import HomepageImagesEditor from "./HomepageImagesEditor";
+import HomepageNoticeEditor from "./HomepageNoticeEditor";
 import PageContainer from "../../components/layout/PageContainer";
 import { AdminLayout } from "../../components/admin/AdminNavigation";
 import AdminCategoryTile from "../../components/admin/AdminCategoryTile";
@@ -139,6 +140,7 @@ export default function AdminArticleGroupsPage({
         <button type="button" className="groups-featured-save" disabled={featuredSaving||eligible.length<4} onClick={saveFeatured}>{featuredSaving?"Sparar...":"Spara utvalda produkter"}</button>
         {eligible.length<4&&<p>Det behövs minst fyra aktiva artiklar i öppna kategorier.</p>}
       </section>
+      <HomepageNoticeEditor adminPassword={adminPassword}/>
       <HomepageImagesEditor adminPassword={adminPassword} onCatalogChanged={onCatalogChanged}/>
       <section className="groups-section">
         <div className="kicker">ADMINISTRATION</div>

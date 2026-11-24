@@ -19,13 +19,14 @@ function hangingTargetLayout(product,form,symbols=[],{strict=true}={}) {
  const large=width>=1500,size=large?117:70,gap=Number(rules.symbolGapMm)||5,edge=Number(rules.symbolRightMm)||(large?190:125),start=Number(rules.textStartMm)||(large?190:130);
  const double=(product.hangingSignTextMode||form.hangingSignTextMode)==='double'||String(product.articleNumber)==='0305';
  const rows=double?options.hangingTargetRows:1;
- if(rows===2&&height<2*size+gap)problem('Målpunkterna får inte plats i två rader på denna skylt.');
+ const singleLineHeight=large?140:93;
+ const symbolTop=((double?Math.min(height,singleLineHeight):height)-size)/2;
+ if(rows===2&&height<symbolTop+2*size+gap)problem('Målpunkterna får inte plats i två rader på denna skylt.');
  // Preview, validation and production share the same per-row target limit.
  if(symbols.length>48)problem('Använd högst 48 symboler eller målpunkter per skylt.');
  const maxTargets=large?9:10,targetCounts=Array(rows).fill(0);
  for(const symbol of symbols){if(hangingSymbolKind(symbol)!=='target')continue;const row=rows===2?(options.hangingTargetRowAssignments[symbol.id]||1)-1:0;if(++targetCounts[row]>maxTargets){problem('Använd högst '+maxTargets+' målpunkter i bredd per rad på denna skylt.');break;}}
  const items=[],cursors=[width-edge,width-edge],leftCursors=[start,start];
- const targetTop=(height-(rows*size+(rows-1)*gap))/2;
  const ordered=rows===2?[...symbols.filter(s=>hangingSymbolKind(s)!=='target'),...symbols.filter(s=>hangingSymbolKind(s)==='target')]:symbols;
  for(const symbol of ordered){
   const target=hangingSymbolKind(symbol)==='target',row=target&&rows===2?(options.hangingTargetRowAssignments[symbol.id]||1)-1:0;
@@ -33,7 +34,7 @@ function hangingTargetLayout(product,form,symbols=[],{strict=true}={}) {
   const x=left?leftCursors[row]:cursors[row]-w;
   if(left)leftCursors[row]=x+w+gap;else cursors[row]=x-gap;
   if(rows===2&&!target)cursors[1]=cursors[0];
-  const y=target&&rows===2?targetTop+row*(size+gap):(height-size)/2;
+  const y=symbolTop+row*(size+gap);
   if(x<4||x+w>width-4)problem('Målpunkterna får inte plats på skyltens bredd.');
   items.push({...symbol,x,y,width:w,height:size,row:row+1,left});
  }

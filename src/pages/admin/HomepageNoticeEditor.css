@@ -1,0 +1,7 @@
+.homepage-notice-editor fieldset {min-width:0;margin:14px 0;padding:0;border:0;display:grid;gap:12px;max-width:760px}
+.homepage-notice-editor label:not(.homepage-notice-checkbox) {display:grid;gap:4px;align-content:start}
+.homepage-notice-editor input[type="file"] {box-sizing:border-box;width:100%;padding:8px;border:1px solid #d5d5d5;border-radius:4px;background:#fff;color:#242424;font:inherit}
+.homepage-notice-checkbox {display:flex;gap:8px;align-items:center}
+.homepage-notice-preview {margin:14px 0;max-width:760px}
+.homepage-notice-preview > p {margin:0 0 4px}
+.homepage-notice-editor .homepage-notice-save {background:#292929;color:#fff;border:1px solid #292929;border-radius:4px;padding:10px 15px;font:inherit;cursor:pointer}

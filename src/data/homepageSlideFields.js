@@ -1,0 +1,7 @@
+const HOMEPAGE_SLIDE_LIMIT = 4;
+const HOMEPAGE_IMAGE_TOTAL_LIMIT = 12000000;
+const HOMEPAGE_CONTENT_LIMITS = {
+  eyebrow: 120, heading: 240, body: 600, buttonLabel: 80, buttonTarget: 150, detailsText: 600,
+};
+
+module.exports = {HOMEPAGE_SLIDE_LIMIT, HOMEPAGE_IMAGE_TOTAL_LIMIT, HOMEPAGE_CONTENT_LIMITS};

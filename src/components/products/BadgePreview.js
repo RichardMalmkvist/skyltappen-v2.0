@@ -42,6 +42,7 @@ import { isProfessionProductType } from "../../data/productHelpers";
 import { getProductById } from "../../data/products";
 import { getHangingSignSymbolById } from "../../data/hangingSignSymbols";
 import { getHangingSignArrowByDirection } from "../../data/hangingSignArrows";
+import { largeHangingArrowImage } from "../../data/largeHangingArrow";
 
 const NAME_BADGE_TEMPLATE_BY_BADGE_ID = {
   208: "/ftv tom.jpg",
@@ -1114,18 +1115,21 @@ export function renderMeasuredHangingFace({ badge, productForm, maxWidth, mini, 
   function MeasuredArrow({ side, direction }) {
     if (!direction || direction === "none") return null;
     const arrow = getHangingSignArrowByDirection(direction);
+    const large = widthMm >= 1500 && arrow;
+    const image = large ? largeHangingArrowImage(direction) : arrow?.image;
+    const height = large && (direction === "up" || direction === "down") ? arrowWidthPx : arrowHeightPx;
     const commonStyle = {
       position: "absolute",
-      top: arrowTopPx,
+      top: arrowTopPx + (arrowHeightPx - height) / 2,
       left: side === "left" ? arrowEdgePx : "auto",
       right: side === "right" ? arrowEdgePx : "auto",
       width: arrowWidthPx,
-      height: arrowHeightPx,
+      height,
       objectFit: "contain",
       display: "block",
       filter: isGreenHangingSign ? "brightness(0) invert(1)" : "none",
     };
-    if (arrow?.image) return <img src={arrow.image} alt="" aria-hidden="true" style={commonStyle} />;
+    if (image) return <img src={image} alt="" aria-hidden="true" style={commonStyle} />;
     const rotation = { right: 0, down: 90, left: 180, up: -90 }[direction] || 0;
     return (
       <svg viewBox="0 0 110 80" aria-hidden="true" style={{ ...commonStyle, transform: `rotate(${rotation}deg)`, overflow: "visible" }}>

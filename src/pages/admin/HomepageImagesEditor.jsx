@@ -1,59 +1,46 @@
 import { useState } from "react";
 import { getCatalogSnapshot, saveCatalog } from "../../data/catalogStore";
-import { HOMEPAGE_IMAGE_SLOTS, getHomepageImage, getHomepageDetailContent } from "../../data/homepageImages";
+import { HOMEPAGE_IMAGE_SLOTS, getHomepageSlide, getHomepageSlideList } from "../../data/homepageImages";
+import { HOMEPAGE_SLIDE_LIMIT, HOMEPAGE_IMAGE_TOTAL_LIMIT, HOMEPAGE_CONTENT_LIMITS } from "../../data/homepageSlideFields";
+import { compressHomepageImage } from "../../data/prepareHomepageImage";
 
 import { getPublicCategories } from "../../data/categoryAdmin";
 
 export default function HomepageImagesEditor({ adminPassword, onCatalogChanged }) {
   const [draft, setDraft] = useState(() => getCatalogSnapshot().homepageImages || {});
+  const [selected, setSelected] = useState({});
   const [busy, setBusy] = useState(false);
   const [imageState, setImageState] = useState({key:"", loading:false, error:""});
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const update = (key, changes) => {setDraft(value => ({...value, [key]: {...value[key], ...changes}}));setMessage("");};
-  const detailContent = getHomepageDetailContent(draft);
-  const updateContent = (key, value) => update("detail", {content: {...detailContent, [key]: value}});
+  function editSlide(key, index, changes) {
+    setDraft(value => {
+      const slides = getHomepageSlideList(value, key).map((slide, i) => i === index ? {...slide, ...changes} : slide);
+      return {...value, [key]: {autoplay: value[key]?.autoplay === true, slides}};
+    });
+    setMessage("");
+  }
   const destinations = getPublicCategories().filter(category => category.isImplemented);
-  async function choose(key, file) {
+  async function choose(key, index, file) {
     if (!file) return;
     setError(""); setMessage("");
     setImageState({key, loading:true, error:""});
     setBusy(true);
     try {
-      if (!/^image\/(jpeg|png|webp)$/i.test(file.type) && !/\.(jpe?g|png|webp)$/i.test(file.name)) throw new Error("Välj en JPG-, PNG- eller WebP-bild.");
-      if (file.size > 15*1024*1024) throw new Error("Bilden får vara högst 15 MB.");
-      // Read the selected file directly. Data URLs also work when blob URLs
-      // are unavailable or blocked by browser policy.
-      const data = await new Promise((resolve,reject)=>{
-        const reader = new FileReader();
-        reader.onload=()=>resolve(reader.result);
-        reader.onerror=()=>reject(new Error("Filen kunde inte läsas. Om den ligger i OneDrive, ladda ned den till datorn först."));
-        reader.onabort=()=>reject(new Error("Bildvalet avbröts. Välj bilden igen."));
-        reader.readAsDataURL(file);
-      });
-      const image = await new Promise((resolve,reject)=>{
-        const img = new Image();
-        img.onload=()=>resolve(img);
-        img.onerror=()=>reject(new Error("Bilden kunde inte öppnas. Prova att spara den som JPG eller PNG."));
-        img.src=data;
-      });
-      const scale=Math.min(1,2400/Math.max(image.naturalWidth,image.naturalHeight));
-      const canvas=document.createElement("canvas");
-      canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
-      const ctx=canvas.getContext("2d");
-      if(!ctx) throw new Error("Bildbehandling stöds inte i webbläsaren.");
-      ctx.fillStyle="#ffffff";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(image,0,0,canvas.width,canvas.height);
-      let src=canvas.toDataURL("image/jpeg",.86);
-      if(src.length>2800000) src=canvas.toDataURL("image/jpeg",.65);
-      if(src.length>3000000) throw new Error("Välj en mindre bild.");
-      if(!src.startsWith('data:image/jpeg;base64,')) throw new Error("Bilden kunde inte bearbetas. Prova en annan bild.");
-      update(key,{src,fileName:file.name});
+      const src = await compressHomepageImage(file);
+      editSlide(key,index,{src,fileName:file.name});
       setImageState({key, loading:false, error:""});
     } catch(e) {
       setImageState({key, loading:false, error:e.message || "Kunde inte läsa bilden."});
     } finally {setBusy(false);}
   }
   async function save() {
+    const slides = HOMEPAGE_IMAGE_SLOTS.flatMap(slot => getHomepageSlideList(draft, slot.key));
+    if (slides.reduce((total, slide) => total + (slide.src?.length || 0), 0) > HOMEPAGE_IMAGE_TOTAL_LIMIT) {
+      setError("Startsidesbilderna får tillsammans vara högst 12 MB efter komprimering.");
+      return;
+    }
     setBusy(true);setError("");setMessage("");
     try {await saveCatalog({...getCatalogSnapshot(),homepageImages:draft},adminPassword);await onCatalogChanged?.();setMessage("Startsidan är uppdaterad.");}
     catch(e) {setError(e.message || "Kunde inte spara bilderna.");}
@@ -61,31 +48,56 @@ export default function HomepageImagesEditor({ adminPassword, onCatalogChanged }
   }
   return <section className="groups-featured-manager homepage-images-editor" aria-labelledby="homepage-images-heading">
     <div className="kicker">STARTSIDAN</div><h2 id="homepage-images-heading">Bilder och texter på startsidan</h2>
-    <p>Byt bilder utan att ändra kod. Förhandsvisningen visar ditt bildval. Klicka på Spara startsidan när du är klar.</p>
+    <p>Välj upp till {HOMEPAGE_SLIDE_LIMIT} bilder per fält. Varje bild kan ha egen text och knapp.</p>
     <div className="homepage-image-grid">{HOMEPAGE_IMAGE_SLOTS.map(slot=>{
-      const image=getHomepageImage(draft,slot.key);
+      const key = slot.key;
+      const slides = getHomepageSlideList(draft, key);
+      const index = selected[key] || 0;
+      const {image, content} = getHomepageSlide(draft, key, index);
+      const changeSlide = changes => editSlide(key, index, changes);
+      const updateContent = (field, value) => changeSlide({content: {...content, [field]: value}});
+      const select = next => {setSelected(value => ({...value, [key]: next})); setImageState({key:'', loading:false, error:''});};
       return <fieldset key={slot.key} disabled={busy}><legend>{slot.label}</legend>
+        <div className="homepage-slide-tabs" role="group" aria-label={`Bilder i ${slot.label}`}>
+          {slides.map((_, i) => <button type="button" key={i} aria-pressed={i === index} onClick={() => select(i)}>Bild {i + 1}</button>)}
+          {slides.length < HOMEPAGE_SLIDE_LIMIT && <button type="button" onClick={() => {
+            update(key, {slides: [...slides, {}]}); select(slides.length);
+          }}>Lägg till bild</button>}
+        </div>
+        {slides.length > 1 && <label className="homepage-slide-autoplay"><input type="checkbox" checked={draft[key]?.autoplay === true} onChange={event => update(key, {autoplay: event.target.checked})}/>Byt bilder automatiskt</label>}
         <div className="homepage-image-preview">{image.src?<img src={image.src} alt={image.alt} style={{objectPosition:image.position}}/>:<span>Ritningsillustration används</span>}</div>
-        <label>Välj bild<input type="file" accept="image/jpeg,image/png,image/webp" onClick={e=>{e.currentTarget.value="";}} onChange={e=>{choose(slot.key,e.currentTarget.files?.[0]);}}/></label>
+        <label>Välj bild<input type="file" accept="image/jpeg,image/png,image/webp" onClick={e=>{e.currentTarget.value="";}} onChange={e=>choose(key,index,e.currentTarget.files?.[0])}/></label>
         {imageState.key===slot.key && imageState.loading && <p role="status">Läser in bilden…</p>}
         {imageState.key===slot.key && imageState.error && <p role="alert" className="groups-image-error">{imageState.error}</p>}
-        {draft[slot.key]?.fileName&&<p>{draft[slot.key].fileName}</p>}
-        <label>Bildbeskrivning<input value={draft[slot.key]?.alt??slot.alt} maxLength={180} onChange={e=>update(slot.key,{alt:e.target.value})}/></label>
-        <label>Bildens fokus<select value={image.position} onChange={e=>update(slot.key,{position:e.target.value})}><option value="50% 50%">Mitten</option><option value="25% 50%">Vänster</option><option value="75% 50%">Höger</option><option value="50% 25%">Överkant</option><option value="50% 75%">Underkant</option></select></label>
+        {slides[index]?.fileName&&<p>{slides[index].fileName}</p>}
+        <label>Bildbeskrivning<input value={image.alt} maxLength={180} onChange={e=>changeSlide({alt:e.target.value})}/></label>
+        <label>Bildens fokus<select value={image.position} onChange={e=>changeSlide({position:e.target.value})}><option value="50% 50%">Mitten</option><option value="25% 50%">Vänster</option><option value="75% 50%">Höger</option><option value="50% 25%">Överkant</option><option value="50% 75%">Underkant</option></select></label>
         {slot.key === 'detail' && <p>Bakgrund över hela sektionen. Använd gärna 2400 × 1000 px, med plats för text till vänster.</p>}
-        <button type="button" onClick={()=>{setDraft(value=>({...value,[slot.key]:{...value[slot.key],src:"",fileName:"",alt:slot.alt,position:"50% 50%"}}));setMessage("");}}>Återställ standardbild</button>
-        {slot.key === 'detail' && <details className="homepage-section-settings" open>
+        <div className="homepage-slide-tabs">
+          <button type="button" onClick={()=>changeSlide({src:"",fileName:"",alt:slot.alt,position:"50% 50%"})}>Återställ standardbild</button>
+          {slides.length > 1 && <button type="button" onClick={() => {
+            const remaining = slides.filter((_, i) => i !== index);
+            update(key, {slides: remaining, autoplay: remaining.length > 1 && draft[key]?.autoplay});
+            select(Math.min(index, remaining.length - 1));
+          }}>Ta bort bild {index + 1}</button>}
+          {index > 0 && <button type="button" onClick={() => {
+            update(key, {slides: [slides[index], ...slides.filter((_, i) => i !== index)]}); select(0);
+          }}>Visa först</button>}
+        </div>
+        <details className="homepage-section-settings" open={slot.key === 'detail'}>
           <summary>Text och knapp</summary>
-          <label>Överrubrik<input value={detailContent.eyebrow} maxLength={120} onChange={e=>updateContent('eyebrow',e.target.value)}/></label>
-          <label>Rubrik<textarea rows={3} value={detailContent.heading} maxLength={240} onChange={e=>updateContent('heading',e.target.value)}/></label>
-          <label>Beskrivning<textarea rows={4} value={detailContent.body} maxLength={600} onChange={e=>updateContent('body',e.target.value)}/></label>
-          <label>Knapptext<input value={detailContent.buttonLabel} maxLength={80} onChange={e=>updateContent('buttonLabel',e.target.value)}/></label>
-          <label>Knappen leder till<select value={detailContent.buttonTarget} onChange={e=>updateContent('buttonTarget',e.target.value)}>
+          <label>Överrubrik<input value={content.eyebrow} maxLength={HOMEPAGE_CONTENT_LIMITS.eyebrow} onChange={e=>updateContent('eyebrow',e.target.value)}/></label>
+          <label>Rubrik<textarea rows={3} value={content.heading} maxLength={HOMEPAGE_CONTENT_LIMITS.heading} onChange={e=>updateContent('heading',e.target.value)}/></label>
+          <label>Beskrivning<textarea rows={4} value={content.body} maxLength={HOMEPAGE_CONTENT_LIMITS.body} onChange={e=>updateContent('body',e.target.value)}/></label>
+          <label>Knapptext<input value={content.buttonLabel} maxLength={HOMEPAGE_CONTENT_LIMITS.buttonLabel} onChange={e=>updateContent('buttonLabel',e.target.value)}/></label>
+          <label>Knappen leder till<select value={content.buttonTarget} onChange={e=>updateContent('buttonTarget',e.target.value)}>
             <option value="catalog">Hela sortimentet</option><option value="account">Mitt konto</option><option value="none">Ingen knapp</option>
+            {key === 'proof' && <option value="details">Visa mer information</option>}
             {destinations.map(category=><option key={category.id} value={category.id}>{category.title}</option>)}
           </select></label>
-          <button type="button" onClick={()=>update('detail',{content:undefined})}>Återställ standardtexter</button>
-        </details>}
+          {content.buttonTarget === 'details' && <label>Mer information<textarea rows={4} value={content.detailsText} maxLength={HOMEPAGE_CONTENT_LIMITS.detailsText} onChange={e=>updateContent('detailsText',e.target.value)}/></label>}
+          <button type="button" onClick={()=>changeSlide({content:undefined})}>Återställ standardtexter</button>
+        </details>
       </fieldset>;
     })}</div>
     {error&&<p role="alert" className="groups-image-error">{error}</p>}{message&&<p role="status">{message}</p>}
@@ -106,6 +118,10 @@ export default function HomepageImagesEditor({ adminPassword, onCatalogChanged }
       .homepage-images-editor > button{background:#292929;color:white;padding:12px 18px}
       .homepage-images-editor button:disabled{opacity:.5;cursor:wait}
       .homepage-images-editor .homepage-image-grid p{overflow-wrap:anywhere;font-size:12px;margin:8px 0}
+      .homepage-slide-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+      .homepage-slide-tabs button[aria-pressed=true]{background:#292929;color:white}
+      .homepage-images-editor .homepage-slide-autoplay{display:flex;gap:6px;align-items:center}
+      .homepage-images-editor label.homepage-slide-autoplay input{width:auto;height:auto;margin:0}
       @media(max-width:850px){.homepage-image-grid{grid-template-columns:1fr}}
     `}</style>
   </section>;

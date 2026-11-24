@@ -37,6 +37,8 @@ const {isBadgeOrder,isBadgeItem,splitBadgeOrder,normalizeBadgeDelivery,badgeChec
 const {attachBadgeProduction}=require('./badgeProduction');
 const {attachOTBoards} = require("./otBoards");
 const {canRead} = require("../src/data/permissions");
+const {installHomepageNotice} = require("./homepageNotice");
+const {normalizeHomepageImages} = require("./homepageImages");
 const express = require("express");
 const { installProfessionProducts } = require("../src/data/professionProducts");
 const { installNameBadge0201 } = require("../src/data/nameBadge0201");
@@ -67,11 +69,23 @@ for (const folder of ["cmaps","iccs","standard_fonts","wasm"]) {
   }));
 }
 
-const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
-if (!connectionString?.trim()) {
-  throw new Error("AZURE_STORAGE_CONNECTION_STRING saknas. JSF Flow kr?ver Azure Blob Storage.");
+const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING?.trim();
+const useDevStorage = !connectionString && process.argv.includes("--development") && process.env.NODE_ENV !== "production";
+if (!connectionString && !useDevStorage) {
+  throw new Error("AZURE_STORAGE_CONNECTION_STRING saknas. JSF Flow kräver Azure Blob Storage.");
 }
-const storage = BlobServiceClient.fromConnectionString(connectionString).getContainerClient("orders");
+const storage = useDevStorage
+  ? require("./devBlobStorage").createDevBlobStorage()
+  : BlobServiceClient.fromConnectionString(connectionString).getContainerClient("orders");
+if (useDevStorage) {
+  app.use("/api", (req, res, next) => {
+    const forwarded = req.headers["x-forwarded-for"]?.split(",").at(-1).trim();
+    if (forwarded && !["127.0.0.1", "::1", "::ffff:127.0.0.1"].includes(forwarded)) {
+      return res.status(403).json({message:"Testläget kan bara användas från den här datorn."});
+    }
+    next();
+  });
+}
 let storageReady;
 async function projectsBlob(name) {
   storageReady ||= storage.createIfNotExists().catch(error => {
@@ -87,7 +101,7 @@ async function readBlobJson(name, fallback) {
   try {
     return JSON.parse((await blob.downloadToBuffer()).toString("utf8"));
   } catch (error) {
-    if (error.code === "BlobNotFound") return fallback;
+    if (error.code === "BlobNotFound" || error.details?.errorCode === "BlobNotFound") return fallback;
     throw error;
   }
 }
@@ -154,28 +168,8 @@ async function readCatalog() {
 }
 
 async function writeCatalog(catalog) {
-  const homepageImages = {};
-  for (const key of ["hero", "detail", "proof"]) {
-    const image = catalog?.homepageImages?.[key];
-    if (!image || typeof image !== "object") continue;
-    const src = typeof image.src === "string" ? image.src : "";
-    if (src && (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(src) || src.length > 3000000)) {
-      throw new Error("Startsidesbilden måste vara JPG, PNG eller WebP och högst 3 MB efter komprimering.");
-    }
-    homepageImages[key] = {
-      src,
-      alt: String(image.alt || "").slice(0, 180),
-      fileName: String(image.fileName || "").slice(0, 180),
-      position: ["50% 50%", "25% 50%", "75% 50%", "50% 25%", "50% 75%"].includes(image.position) ? image.position : "50% 50%",
-      ...(key === "detail" && image.content && typeof image.content === "object" ? {
-        content: Object.fromEntries(Object.entries({eyebrow:120, heading:240, body:600, buttonLabel:80, buttonTarget:150})
-          .filter(([field]) => typeof image.content[field] === "string")
-          .map(([field, limit]) => [field, image.content[field].slice(0, limit)])),
-      } : {}),
-    };
-  }
   const normalized = {
-    homepageImages,
+    homepageImages: normalizeHomepageImages(catalog?.homepageImages),
     productUpdates: Array.isArray(catalog?.productUpdates) ? catalog.productUpdates : [],
     version: Number(catalog?.version) || 2,
     updatedAt: new Date().toISOString(),
@@ -253,6 +247,12 @@ async function accountSession(req) {
 async function adminAccess(req) {
   return (await accountSession(req))?.role === "admin";
 }
+installHomepageNotice(app, {
+  asyncRoute,
+  canEdit: adminAccess,
+  read: () => readBlobJson("homepage-notice-v1.json", null),
+  write: notice => writeBlobJson("homepage-notice-v1.json", notice),
+});
 async function readAccess(req) {
   return canRead((await accountSession(req))?.role);
 }
@@ -1016,6 +1016,8 @@ app.post("/api/orders", asyncRoute(async (req, res) => {
     return res.status(500).json({success:false,message:'Kunde inte spara beställningen och PDF-bilagorna. Försök igen.'});
   }
 
+  if (useDevStorage) return res.json({success:true, order:parts[0], orders:parts});
+
   try {
     const emailClient = new EmailClient(process.env.ACS_CONNECTION_STRING);
     const customerEmail = order.orderer?.purchaserEmail || order.orderer?.ordererEmail;
@@ -1165,29 +1167,47 @@ app.use((error, req, res, next) => {
 });
 
 async function createInitialAdmin() {
-  const email = process.env.INITIAL_ADMIN_EMAIL?.trim().toLowerCase();
-  const password = process.env.INITIAL_ADMIN_PASSWORD;
+  const existing = useDevStorage ? await require("./devBlobStorage").readDevAdmin() : null;
+  const email = useDevStorage ? "admin@jsf.test" : process.env.INITIAL_ADMIN_EMAIL?.trim().toLowerCase();
+  const password = useDevStorage ? crypto.randomBytes(15).toString("base64url") : process.env.INITIAL_ADMIN_PASSWORD;
   if (!email && !password) return;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "") || !password || password.length < 12 || password.length > 128) {
     throw new Error("För första administratören krävs en giltig e-postadress och ett lösenord på 12–128 tecken.");
   }
   const user = {id:crypto.randomUUID(),email,firstName:"Admin",lastName:"",role:"admin",status:"approved",
     passwordHash:hashPassword(password),createdAt:new Date().toISOString()};
+  const users = existing && existing.email !== email ? [existing, user] : [user];
   const blob = await projectsBlob("users.json");
   try {
-    await blob.uploadData(Buffer.from(JSON.stringify([user])), {
+    await blob.uploadData(Buffer.from(JSON.stringify(users)), {
       conditions:{ifNoneMatch:"*"},
       blobHTTPHeaders:{blobContentType:"application/json"}
     });
-    console.log("Första administratörskontot har skapats.");
+    if (useDevStorage) {
+      console.log("Lokalt testläge. Data sparas i minnet och försvinner när servern stoppas.");
+      if (users.length > 1) console.log("Det befintliga lokala adminkontot kan också användas.");
+      console.log("Testadmin:", email);
+      console.log("Testlösenord:", password);
+    } else {
+      console.log("Första administratörskontot har skapats.");
+    }
   } catch (error) {
     if (error.code !== "BlobAlreadyExists" && error.statusCode !== 412) throw error;
   }
 }
 
-createInitialAdmin().then(() => {
-  app.listen(PORT, () => console.log(`Server kör på http://localhost:${PORT}`));
-}).catch(error => {
+async function startServer() {
+  if (useDevStorage) {
+    const {ordrar, projekt, korrekturversioner, ritningsobjekt} = await require("./devBlobStorage").seedDevData(storage);
+    console.log(`Inläst från arbetskopian: ${ordrar} ordrar, ${projekt} projekt, ${korrekturversioner} korrekturversioner och ${ritningsobjekt} ritningsobjekt.`);
+  }
+  await createInitialAdmin();
+  const onListening = () => console.log(`Server kör på http://localhost:${PORT}`);
+  if (useDevStorage) app.listen(PORT, "127.0.0.1", onListening);
+  else app.listen(PORT, onListening);
+}
+
+startServer().catch(error => {
   console.error("Servern kunde inte starta:", error.code || error.message);
   process.exitCode = 1;
 });

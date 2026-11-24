@@ -14,8 +14,8 @@ beforeEach(()=>saveHangingSignSymbols(assets));afterEach(()=>{cleanup();resetHan
 
 test('Left-aligned targets start at the text origin, with two independent rows and fixed physical size',()=>{
  const layout=hangingTargetLayout(product,{hangingTargetPosition:'left',hangingTargetRows:2,hangingTargetRowAssignments:{'target-B':2}},assets.slice(0,2));
- expect(layout.items[0]).toMatchObject({x:190,y:10.5,width:117,height:117,row:1});expect(layout.items[1]).toMatchObject({x:190,y:132.5,width:117,height:117,row:2});
- const legacy=hangingTargetLayout(product,{},assets.slice(0,1));expect(legacy.items[0]).toMatchObject({x:1193,y:71.5});
+ expect(layout.items[0]).toMatchObject({x:190,y:11.5,width:117,height:117,row:1});expect(layout.items[1]).toMatchObject({x:190,y:133.5,width:117,height:117,row:2});
+ const singleTarget=hangingTargetLayout(product,{},assets.slice(0,1));expect(singleTarget.items[0]).toMatchObject({x:1193,y:11.5});
 });
 
 test('Customer selects placement, hides text and assigns individual targets to rows; saved order keeps all choices',()=>{

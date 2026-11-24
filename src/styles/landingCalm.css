@@ -1,6 +1,9 @@
 ﻿/* Home only: keep product editors and admin styles independent. */
 .jsf-public-shell.jsf-calm-home-shell{--home-gutter:clamp(24px,5.3vw,104px);--home-paper:#f3f3f1;background:var(--home-paper)!important;color:#171717;padding:0!important;font-family:Arial,sans-serif!important}
 .jsf-public-shell.jsf-calm-home-shell > .jsf-public-header{position:fixed!important;inset:0 0 auto!important;width:100%!important;margin:0!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.jsf-storefront-light.jsf-public-shell.jsf-calm-home-shell > .jsf-public-header.has-homepage-notice {position:sticky!important;inset:0 0 auto!important;width:100%!important;margin:0!important}
+.jsf-storefront-light.jsf-public-shell.jsf-calm-home-shell > .jsf-public-header.has-homepage-notice:has(> .homepage-notice[data-full-width]) {border-bottom:0!important}
+.jsf-calm-home-shell .has-homepage-notice + .jsf-home-editorial .jsf-home-hero {padding-top:clamp(72px,10vh,132px)}
 .jsf-public-shell.jsf-calm-home-shell > .jsf-public-header > .jsf-public-header-inner{width:100%!important;max-width:none!important;padding:20px var(--home-gutter)!important}
 .jsf-calm-home-shell .jsf-public-header img[src='/jsf-logo.jpg']{mix-blend-mode:multiply;height:39px!important;width:auto!important;max-width:185px;filter:none!important}
 .jsf-calm-home-shell .jsf-public-header :is(.jsf-public-header-actions > button,.jsf-storefront-home-link,.jsf-public-logo-button){background:transparent!important;box-shadow:none!important}
@@ -18,6 +21,10 @@
 .jsf-home-hero-copy{max-width:650px;animation:home-copy-in .8s .1s ease-out both}
 .jsf-home-hero h1{font-size:clamp(52px,6.2vw,100px);line-height:.99;margin:0 0 30px}
 .jsf-home-hero-copy > p:not(.jsf-home-eyebrow){font-size:clamp(16px,1.35vw,20px);line-height:1.5;max-width:350px}
+.jsf-home-slide-text {white-space:pre-line;overflow-wrap:anywhere}
+.jsf-home-slide-controls {display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-block-start:18px;font:400 13px/1.4 Arial,sans-serif}
+.jsf-calm-home-shell .jsf-home-slide-controls button {background:#fff;color:#1a1a1a;border:1px solid #c5c5c5;border-radius:4px;min-height:36px;min-width:36px;padding:4px 10px;cursor:pointer}
+.jsf-calm-home-shell .jsf-home-slide-controls button:focus-visible {outline-offset:2px!important}
 .jsf-calm-home-shell .jsf-home-primary{display:inline-flex;align-items:center;gap:32px;padding:16px 24px;background:#171717!important;border:1px solid #171717!important;color:white!important;border-radius:0!important;box-shadow:none!important;font:400 15px/1.3 Arial,sans-serif;cursor:pointer;transition:background .2s}
 .jsf-calm-home-shell .jsf-home-primary:hover{background:#363636!important}
 .jsf-calm-home-shell .jsf-home-text-link{display:inline-flex;align-items:center;gap:25px;padding:8px 0;background:transparent!important;border:0!important;border-bottom:1px solid currentColor!important;border-radius:0!important;box-shadow:none!important;color:inherit!important;font:400 14px/1.4 Arial,sans-serif;cursor:pointer}

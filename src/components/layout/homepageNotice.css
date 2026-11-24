@@ -1,0 +1,47 @@
+.homepage-notice {background:#eaf4ee;color:#153d2c;border-block-end:1px solid #c9e2d3}
+.homepage-notice[data-tone="amber"] {background:#fff3d4;color:#503a00;border-color:#ecd497}
+.homepage-notice[data-tone="blue"] {background:#e9f2fb;color:#183a59;border-color:#c9ddf0}
+.homepage-notice[data-tone="neutral"] {background:#efefef;color:#282828;border-color:#ddd}
+.homepage-notice[data-tone="red"] {background:#901e31;color:#fff;border-color:#701223}
+.homepage-notice-inner {position:relative;max-width:1400px;margin:auto;padding:12px var(--jsf-header-gutter, 16px);display:flex;align-items:center;gap:12px;box-sizing:border-box}
+.homepage-notice-snow {flex:none;font-size:18px;line-height:1}
+.homepage-notice-track {min-width:0;flex:1}
+.homepage-notice .homepage-notice-text {margin:0;font:400 14px/1.5 Arial,sans-serif;overflow-wrap:anywhere}
+.homepage-notice-image {display:block;width:auto;height:auto;max-width:100%;max-height:160px;object-fit:contain;margin:auto}
+.homepage-notice-text strong {margin-inline-end:.65em}
+.homepage-notice-text span {white-space:pre-line}
+.homepage-notice .homepage-notice-motion {
+  position:absolute;inset:0;width:100%;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;cursor:pointer;
+}
+.homepage-notice .homepage-notice-motion:focus-visible {outline:2px solid currentColor!important;outline-offset:-3px!important}
+@media (prefers-reduced-motion:no-preference) {
+  .homepage-notice-track[data-scrolling] {container-type:inline-size;overflow:hidden}
+  .homepage-notice:not([data-image-layout]) .homepage-notice-track[data-scrolling] .homepage-notice-content {width:max-content;white-space:nowrap;animation:homepage-notice-scroll var(--notice-duration) linear infinite}
+  .homepage-notice-track[data-scrolling] .homepage-notice-text span {white-space:normal}
+  .homepage-notice:not([data-image-layout]) .homepage-notice-track[data-scrolling] .homepage-notice-content[data-paused="true"] {width:auto;white-space:normal;animation:none}
+  .homepage-notice-track[data-scrolling] [data-paused="true"] .homepage-notice-text span {white-space:pre-line}
+  @keyframes homepage-notice-scroll {from {transform:translateX(100cqw)} to {transform:translateX(-100%)}}
+  .homepage-notice[data-image-layout] .homepage-notice-track[data-scrolling] .homepage-notice-content::after {
+    animation:homepage-notice-image-scroll var(--notice-image-duration, 0s) linear infinite;
+  }
+  .homepage-notice[data-image-layout] .homepage-notice-track[data-scrolling] [data-paused="true"]::after {animation-play-state:paused}
+  @keyframes homepage-notice-image-scroll {from {background-position-x:0} to {background-position-x:calc(-1 * var(--notice-tile-width, 0px))}}
+}
+@media (prefers-reduced-motion:reduce) {.homepage-notice-motion {display:none}}
+.homepage-notice[data-full-width] .homepage-notice-inner {max-width:none;padding:0;gap:0}
+.homepage-notice[data-full-width] {border:0}
+.homepage-notice[data-full-width] .homepage-notice-content {
+  position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;width:100%;height:var(--notice-height, 80px);
+}
+.homepage-notice[data-full-width] .homepage-notice-content::before {
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--notice-image) center / cover;filter:blur(16px);transform:scale(1.12);
+}
+.homepage-notice[data-full-width] .homepage-notice-image {width:auto;max-width:100%;max-height:var(--notice-height, 80px);height:auto}
+:is(.homepage-notice[data-image-layout="repeat"], .homepage-notice[data-image-layout] .homepage-notice-track[data-scrolling]) .homepage-notice-content::after {
+  content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--notice-image);
+  background-position:center;background-repeat:repeat-x;background-size:var(--notice-tile-width, auto) auto;
+}
+:is(.homepage-notice[data-image-layout="repeat"], .homepage-notice[data-image-layout] .homepage-notice-track[data-scrolling]) .homepage-notice-image {opacity:0}
+.homepage-notice[data-full-width] .homepage-notice-snow {position:absolute;inset-block-start:4px;z-index:1;pointer-events:none;color:#fff;filter:drop-shadow(0 1px 2px #222)}
+.homepage-notice[data-full-width] .homepage-notice-snow:first-child {inset-inline-start:8px}
+.homepage-notice[data-full-width] .homepage-notice-snow:not(:first-child) {inset-inline-end:8px}
