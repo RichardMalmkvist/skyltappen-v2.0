@@ -1,0 +1,11 @@
+/* One back-navigation treatment for the storefront and internal workspaces. */
+#root button.jsf-back-link{
+  display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important;
+  background:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;padding:0!important;min-height:44px!important;height:auto!important;width:auto!important;
+  font:400 12px/1.5 Arial,sans-serif!important;color:#606266!important;text-align:left!important;
+  text-decoration:none!important;cursor:pointer;transform:none!important
+}
+#root button.jsf-back-link:hover:not(:disabled){background:transparent!important;box-shadow:none!important;color:#303236!important;text-decoration:underline!important;text-underline-offset:3px}
+#root button.jsf-back-link:focus-visible{outline:2px solid #737373!important;outline-offset:3px!important}
+#root button.jsf-back-link:disabled{opacity:.45;cursor:default}

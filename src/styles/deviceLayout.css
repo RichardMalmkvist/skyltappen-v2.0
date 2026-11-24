@@ -1,0 +1,37 @@
+/* v6.25: device layout and touch targets. No print/artwork selectors. */
+.jsf-calm-workspace .jsf-planner-body > * {min-width:0}
+.jsf-calm-workspace .jsf-planner-tools {flex-wrap:wrap}
+.jsf-calm-workspace .jsf-planner-tools small {font-size:11px;color:#88817b}
+@media(max-width:1100px) {
+  .jsf-calm-workspace :is(.orders-layout-new,.approval-layout) {grid-template-columns:minmax(0,1fr)!important}
+  .jsf-calm-workspace :is(.orders-list-new,.approval-list) {max-height:320px!important}
+  .jsf-calm-workspace :is(.detail-grid-new,.detail-grid,.jsf-planner-body) {grid-template-columns:minmax(0,1fr)!important}
+  .jsf-calm-workspace .jsf-planner-side {position:static!important}
+  .jsf-calm-workspace .jsf-planner-scroll {max-height:65dvh!important}
+  .jsf-calm-workspace :is(.orders-toolbar-new,.project-detail-heading,.jsf-planner-top,.approval-head,.symbols-head) {flex-wrap:wrap}
+}
+@media(max-width:720px) {
+  .jsf-calm-workspace :is(.order-action-bar,.approval-actions,.project-actions,.actions,.image-controls) {flex-wrap:wrap!important}
+  .jsf-calm-workspace :is(.form-grid,.project-form-grid,.project-upload,.project-details,.jsf-profile-grid,.groups-featured-slots,.door-text-grid) {grid-template-columns:minmax(0,1fr)!important}
+  .jsf-calm-workspace :is(.project-grid,.product-grid,.groups-grid,.symbols-grid) {grid-template-columns:minmax(0,1fr)!important}
+  .jsf-calm-workspace .order-stats-new {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .jsf-calm-workspace :is(.orders-toolbar-new,.approval-toolbar,.project-filters) {display:flex!important;flex-direction:column;align-items:stretch!important}
+  .jsf-calm-workspace :is(.orders-toolbar-new,.approval-toolbar,.project-filters) > * {min-width:0;max-width:100%}
+  .jsf-calm-workspace :is(.order-article-table,.dash-week-table,.dash-table-wrap table) {min-width:540px}
+  .jsf-calm-workspace :is(.order-detail-new,.dash-card,.approval-detail) {min-width:0;overflow-x:auto}
+  .jsf-calm-workspace :is(.modal,.jsf-plan-edit-card,.jsf-sign-modal) {max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 24px)!important;overflow:auto!important;box-sizing:border-box}
+  .jsf-calm-workspace :is(.modal-bg,.jsf-sign-modal-backdrop) {padding:12px!important;box-sizing:border-box}
+  .jsf-calm-workspace .jsf-planner-top {flex-wrap:wrap;gap:10px}
+  .jsf-calm-workspace .jsf-planner-top > div {flex:1 1 100%}
+  .jsf-calm-workspace .jsf-planner-tools .jsf-tools-spacer {display:none}
+  .jsf-calm-workspace .jsf-planner-tools small {flex-basis:100%}
+  .jsf-calm-workspace .jsf-planner-scroll {padding:12px!important}
+}
+@media(hover:none) and (pointer:coarse) {
+  .jsf-calm-home-shell :is(.jsf-public-header-actions button,.jsf-home-sidebar-links button,.jsf-catalog-card-action,.jsf-cart-remove-minimal,.jsf-showroom-all-link),
+  .jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-bottom-actions button,.jsf-admin-profile-link,.jsf-admin-user > button,.actions button,.symbol-actions button,.jsf-planner-tools button,.jsf-plan-symbol,.order-action-bar button,.order-action-bar summary),
+  .jsf-calm-login :is(.jsf-login-submit,.jsf-login-alternate,.jsf-login-eye) {min-height:44px!important;min-width:44px}
+  .jsf-calm-home-shell :is(.jsf-cart-remove-minimal,.jsf-catalog-card-action),.jsf-calm-workspace .jsf-plan-symbol {padding:8px!important}
+  .jsf-calm-home-shell :is(input,select,textarea),.jsf-calm-login .jsf-login-form input:not([type=checkbox]),
+  .jsf-calm-workspace :is(.form-grid,.project-form-grid,.project-filters,.project-upload,.jsf-profile-card,.jsf-marker-form,.jsf-sign-fields,.jsf-users-page) :is(input,select,textarea) {font-size:16px!important;min-height:44px}
+}

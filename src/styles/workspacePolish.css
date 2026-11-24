@@ -1,0 +1,261 @@
+/* Shared signed-in JSF finish. Keep document, print and drawing geometry separate. */
+@media screen {
+ .jsf-calm-workspace{
+  --jsf-ui-ink:#303030;--jsf-ui-muted:#737373;--jsf-ui-line:#e5e5e5;
+  --jsf-ui-soft:#f5f5f5;--jsf-ui-ease:cubic-bezier(.2,.7,.2,1);
+  --jsf-ui-shadow:0 4px 14px rgba(30,30,30,.055);
+ }
+ .jsf-calm-workspace .jsf-admin-content{line-height:1.6}
+ .jsf-calm-workspace :is(.dash-main,.jsf-projects,.jsf-role-workspace,.orders-page-new)>h1,
+ .jsf-calm-workspace .project-workspace-header h1{letter-spacing:-.025em!important;line-height:1.25!important}
+ .jsf-calm-workspace :is(.dash-main,.jsf-projects,.jsf-role-workspace) h2{line-height:1.4}
+ .jsf-calm-workspace .jsf-admin-nav{gap:6px}
+ @media(min-width:721px){
+  .jsf-calm-workspace .jsf-admin-nav{flex:1;min-height:0;overflow-y:auto;align-content:start;padding:3px;margin:-3px;scrollbar-width:thin;scrollbar-color:#ccc transparent}
+  .jsf-calm-workspace :is(.jsf-admin-mobile-header,.jsf-admin-brand,.jsf-admin-bottom-actions,.jsf-admin-user){flex-shrink:0}
+ }
+ .jsf-calm-workspace .jsf-admin-nav-icon{display:grid;place-items:center;width:20px;flex:0 0 20px}
+ .jsf-workspace-icon{display:block;flex:none}
+ .jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal){min-height:44px;border-radius:6px!important;gap:11px}
+ .jsf-calm-workspace .jsf-admin-nav button.active .jsf-admin-nav-icon{color:#168157!important}
+ .jsf-calm-workspace .jsf-admin-user .avatar{border:1px solid #e4e4e4;border-radius:7px!important;background:#f4f4f4!important}
+ .jsf-calm-workspace .jsf-admin-profile-link{border-radius:6px;padding:4px;transition:background-color 160ms ease}
+ .jsf-calm-workspace :is(.project-card,.order-detail-new,.account-order-detail,.orders-list-new,.jsf-account-orders-list){border-color:var(--jsf-ui-line)!important;border-radius:6px!important}
+ .jsf-calm-workspace :is(.info-new,.jsf-role-workspace .account-info){background:var(--jsf-ui-soft)!important;border-color:var(--jsf-ui-line)!important;border-radius:5px!important}
+ .jsf-calm-workspace :is(.info-new,.account-info) h3{color:#454545!important}
+ .jsf-calm-workspace :is(.order-stats-new strong,.dash-metric strong,.project-stats strong,.account-articles tfoot td){font-variant-numeric:tabular-nums}
+ .jsf-calm-workspace :is(.account-order-info,.detail-grid-new){gap:18px}
+ .jsf-calm-workspace :is(.project-workspace-nav button,.project-secondary,.project-primary,.primary-new,.refresh-new,.new-button,.dash-metric,.dash-quick,.project-card,.project-overview-summary>button,.jsf-account-orders-list>button,.order-card-new,.approval-card,.account-order-actions>button){transition:background-color 160ms ease,border-color 160ms ease,box-shadow 180ms ease,transform 180ms var(--jsf-ui-ease)!important}
+ .jsf-calm-workspace :is(.project-secondary,.project-primary,.primary-new,.refresh-new,.new-button,.project-overview-summary>button,.account-order-actions>button){min-height:38px;border-radius:5px!important}
+ .jsf-calm-workspace :is(.project-workspace-nav button,.jsf-account-orders-list>button,.order-card-new){-webkit-tap-highlight-color:transparent}
+ .jsf-calm-workspace :is(.project-filters,.jsf-account-orders-filters,.orders-toolbar-new,.project-form-grid,.jsf-profile-card,.form-grid) :is(input:not([type=checkbox]):not([type=radio]),select,textarea){border-radius:5px!important;transition:border-color 160ms ease,box-shadow 160ms ease!important}
+ .jsf-calm-workspace :is(.project-filters,.jsf-account-orders-filters,.orders-toolbar-new,.project-form-grid,.jsf-profile-card,.form-grid) :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus{border-color:#8b9790!important;box-shadow:0 0 0 3px rgba(33,100,69,.07)!important}
+ .jsf-calm-workspace :is(button,summary,a,input,select,textarea):focus-visible{outline:2px solid #48765c!important;outline-offset:3px}
+ .jsf-calm-workspace button:disabled{cursor:default}
+ .jsf-calm-workspace .project-workspace-nav button{position:relative;border-bottom-color:transparent!important}
+ .jsf-calm-workspace .project-workspace-nav button:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#4c4c4c;transform:scaleX(0);transform-origin:center;transition:transform 180ms var(--jsf-ui-ease)}
+ .jsf-calm-workspace .project-workspace-nav button[aria-current=page]:after{transform:scaleX(1)}
+ .jsf-calm-workspace :is(.project-approval-disclosure,.project-info-disclosure,.project-upload-disclosure)>summary{position:relative;list-style:none;padding-right:36px}
+ .jsf-calm-workspace :is(.project-approval-disclosure,.project-info-disclosure,.project-upload-disclosure)>summary::-webkit-details-marker{display:none}
+ .jsf-calm-workspace :is(.project-approval-disclosure,.project-info-disclosure,.project-upload-disclosure)>summary:after{content:"";position:absolute;right:16px;top:50%;width:6px;height:6px;border-right:1px solid #777;border-bottom:1px solid #777;transform:translateY(-70%) rotate(45deg);transition:transform 180ms var(--jsf-ui-ease);pointer-events:none}
+ .jsf-calm-workspace :is(.project-approval-disclosure,.project-info-disclosure,.project-upload-disclosure)[open]>summary:after{transform:translateY(-20%) rotate(225deg)}
+ .jsf-calm-workspace .project-approval-disclosure>summary{transition:background-color 160ms ease}
+ /* A quiet welcome and consistent dashboard rhythm. */
+ .jsf-calm-workspace .dash-hero{background:linear-gradient(90deg,#ffffff 0%,rgba(255,255,255,.96) 30%,rgba(255,255,255,.68) 70%,rgba(255,255,255,.6) 100%),var(--jsf-dashboard-image) center 26%/cover no-repeat!important;min-height:170px!important;height:auto!important;padding:26px 0 30px!important;margin:0 0 24px!important;border-bottom:1px solid var(--jsf-ui-line)}
+ .jsf-calm-workspace .dash-hero h1{font-size:28px!important;line-height:1.3!important;margin:10px 0!important}
+ .jsf-calm-workspace .dash-hero h1 strong{font:inherit!important;letter-spacing:inherit}
+ .jsf-calm-workspace .dash-hero p{font-size:13px;color:var(--jsf-ui-muted)}
+ .jsf-calm-workspace .dash-metrics{gap:18px;margin-bottom:24px}
+ .jsf-calm-workspace .dash-metric{border-radius:6px!important;min-height:110px;box-shadow:none!important}
+ .jsf-calm-workspace .dash-card{border-radius:6px!important;margin-bottom:22px}
+ .jsf-calm-workspace .dash-card-head{min-height:58px}
+ .jsf-calm-workspace .dash-card-head h2{font-size:13px!important}
+ .jsf-calm-workspace .dash-metric strong{font-size:28px!important;line-height:1.2}
+ .jsf-calm-workspace .dash-arrow{transition:transform 180ms var(--jsf-ui-ease)}
+ .jsf-calm-workspace :is(.dash-week-table,.dash-table-wrap table,.account-articles table) tbody tr{transition:background-color 150ms ease}
+ @media(hover:hover) and (pointer:fine){
+  .jsf-calm-workspace :is(.project-card,.dash-metric,.dash-quick):hover:not(:disabled){transform:translateY(-2px)!important;box-shadow:var(--jsf-ui-shadow)!important;border-color:#cfcfcf!important}
+  .jsf-calm-workspace :is(.dash-metric,.dash-quick):hover .dash-arrow{transform:translateX(3px)}
+  .jsf-calm-workspace :is(.project-secondary,.refresh-new,.project-overview-summary>button,.account-order-actions>button):hover:not(:disabled){background:#f5f5f5!important;border-color:#bdbdbd!important;box-shadow:0 2px 5px #00000006!important}
+  .jsf-calm-workspace :is(.project-primary,.primary-new,.new-button):hover:not(:disabled){background:#454545!important;border-color:#454545!important;box-shadow:0 3px 8px #00000016!important}
+  .jsf-calm-workspace .jsf-admin-profile-link:hover:not(:disabled),.jsf-calm-workspace .project-approval-disclosure>summary:hover{background:#f7f7f7}
+  .jsf-calm-workspace :is(.dash-week-table,.dash-table-wrap table,.account-articles table) tbody tr:hover{background:#fafafa}
+ }
+ .jsf-calm-workspace :is(.project-secondary,.project-primary,.primary-new,.refresh-new,.new-button,.dash-metric,.dash-quick,.project-card):active:not(:disabled){transform:translateY(1px)!important;box-shadow:none!important}
+ @media(max-width:720px){
+  .jsf-calm-workspace :is(.dash-main,.jsf-projects,.jsf-role-workspace){padding:24px 16px 36px!important}
+  .jsf-calm-workspace .dash-hero{padding:12px 0 24px!important}
+  .jsf-calm-workspace .dash-hero h1{font-size:25px!important}
+  .jsf-calm-workspace .dash-metrics{grid-template-columns:1fr;gap:12px}
+  .jsf-calm-workspace .jsf-admin-nav{gap:4px}
+ }
+ /* Opacity only on the page: no transformed ancestor for fixed dialogs or artwork. */
+ @media(prefers-reduced-motion:no-preference){
+  .jsf-calm-workspace .jsf-admin-content>main{animation:jsf-ui-page-in 220ms ease-out}
+  .jsf-calm-workspace .project-workspace-content:not([hidden]),.jsf-calm-workspace .account-order-detail{animation:jsf-ui-page-in 180ms ease-out}
+  .jsf-calm-workspace :is(.project-approval-disclosure,.project-info-disclosure,.project-upload-disclosure)[open]>:not(summary){animation:jsf-ui-page-in 160ms ease-out}
+  .jsf-calm-workspace .jsf-admin-mobile-navigation.is-open{animation:jsf-ui-panel-in 180ms var(--jsf-ui-ease)}
+  .jsf-calm-workspace :is(.modal-bg>.modal,.jsf-plan-edit-card){animation:jsf-ui-panel-in 200ms var(--jsf-ui-ease)}
+  .oe-modal{animation:jsf-ui-panel-in 200ms cubic-bezier(.2,.7,.2,1)}
+  .jsf-notification-backdrop{animation:jsf-ui-page-in 160ms ease-out}
+  .jsf-notification-panel{animation:jsf-ui-panel-in 220ms cubic-bezier(.2,.7,.2,1)}
+ }
+ @keyframes jsf-ui-page-in{from{opacity:.35}to{opacity:1}}
+ @keyframes jsf-ui-panel-in{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+ @media(prefers-reduced-motion:reduce){
+  .jsf-calm-workspace :is(.jsf-admin-content>main,.project-workspace-content,.account-order-detail,.jsf-admin-mobile-navigation,.modal-bg>.modal,.jsf-plan-edit-card),.oe-modal,.jsf-notification-panel,.jsf-notification-backdrop{animation:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(button,a,summary,input,select,textarea,.dash-arrow),.jsf-admin-layout.jsf-minimal.jsf-calm-workspace summary:after,.jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-workspace-nav button:after{transition:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.project-card,.dash-metric,.dash-quick,.project-primary,.project-secondary,.primary-new,.refresh-new,.new-button):is(:hover,:active){transform:none!important}
+  .jsf-calm-workspace :is(.project-approval-disclosure,.project-info-disclosure,.project-upload-disclosure)[open]>:not(summary){animation:none!important}
+  .jsf-calm-workspace .dash-arrow{transform:none!important}
+ }
+}
+
+/* Carry the sidebar's surfaces and selection treatment into the working views. */
+@media screen {
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace{
+  --jsf-ui-radius:7px;--jsf-ui-selected:#eaeaea;--jsf-ui-hover:#f6f6f6;
+  --jsf-ui-card-shadow:0 1px 3px rgba(30,30,30,.025);
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.jsf-cat-tile,.product-card,.project-card,.symbol-card,.dash-metric,.dash-card,.upload-panel,.arrow-panel,.groups-featured-manager,.jsf-profile-card,.order-detail-new,.account-order-detail,.approval-detail){
+  border-color:var(--jsf-ui-line)!important;border-radius:var(--jsf-ui-radius)!important;
+  box-shadow:var(--jsf-ui-card-shadow)!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.jsf-cat-tile,.product-card,.symbol-card,.product-row,.project-drawing){
+  transition:background-color 160ms ease,border-color 160ms ease,box-shadow 180ms ease,transform 180ms var(--jsf-ui-ease)!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-tile{background:#fff!important}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-main{min-height:78px;padding:17px 18px;gap:13px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-copy{gap:6px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-copy b{color:#3e3e3e;font-size:13px;line-height:1.4}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-copy small{color:#777;font-size:11px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-tile.active{
+  background:var(--jsf-ui-selected)!important;border-color:#dedede!important;
+  box-shadow:inset 2px 0 #77716a,0 1px 4px rgba(40,35,30,.04)!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-tile.active .jsf-cat-chevron{color:#168157}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-chevron{font-size:21px;transition:transform 180ms var(--jsf-ui-ease),color 160ms ease}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .product-card>.media{background:#fff!important;border-bottom:1px solid #ededed}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .articles-main .product-row>.thumb{background:#fff!important}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .product-card>.info{padding:18px 18px 14px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .product-card>.info h3{font-size:14px;line-height:1.5;margin:7px 0}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .product-card>.info p{color:#777;line-height:1.6}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .product-card>.actions{padding:12px;border-top:1px solid #eee;background:#fafafa;gap:6px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.product-card .media em.active,.row-status.active){background:#eaf3ee!important;color:#367958!important;border-radius:5px!important}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-card{padding:23px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-card h2{font-size:17px;line-height:1.4}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.info-new,.jsf-role-workspace .account-info,.project-approval-current,.project-approval-admin .project-approval-send){
+  border-color:var(--jsf-ui-line)!important;background:#f5f5f5!important;border-radius:6px!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.info-new h3,.account-info h3){font-size:12px;padding-bottom:12px;margin-bottom:14px;border-bottom-color:#e0e0e0}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.project-approval-disclosure,.jsf-account-orders-list,.orders-list-new,.order-stats-new,.account-articles){border-color:var(--jsf-ui-line)!important;border-radius:6px!important}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.jsf-account-orders-list>button[aria-pressed=true],.order-card-new.active,.approval-card.active){
+  background:var(--jsf-ui-selected)!important;box-shadow:inset 2px 0 #77716a!important;border-left-color:transparent!important;
+ }
+ /* Resting controls remain quiet, with emphasis reserved for the main action. */
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.actions button,.symbol-actions button,.tile-controls button,.create-row button,.upload-actions button,.approval-toolbar button,.project-secondary,.refresh-new,.account-order-actions>button,.jsf-account-orders-filters>button,.order-action-bar button,.order-action-bar summary){
+  border-radius:5px!important;min-height:36px;background:#fff!important;border-color:#dcdcdc!important;
+  transition:background-color 160ms ease,border-color 160ms ease,box-shadow 180ms ease,transform 160ms var(--jsf-ui-ease)!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save){border-radius:5px!important;min-height:38px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.search,.dash-search,.project-filters input,.project-filters select,.orders-toolbar-new input,.orders-toolbar-new select,.jsf-account-orders-filters input,.jsf-account-orders-filters select,.form-grid input:not([type=checkbox]):not([type=radio]),.form-grid select,.form-grid textarea,.symbol-body>input,.tile-controls input,.tile-controls select){
+  border-radius:5px!important;border-color:#dcdcdc!important;box-shadow:none!important;
+  transition:border-color 160ms ease,box-shadow 160ms ease!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.search,.dash-search):focus-within,
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.project-filters,.orders-toolbar-new,.jsf-account-orders-filters,.form-grid,.symbol-body,.tile-controls) :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus{
+  border-color:#8aab98!important;box-shadow:0 0 0 3px rgba(33,100,69,.07)!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .view-toggle{padding:4px;gap:4px;background:#f2f2f2;border-radius:6px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .view-toggle button{border-radius:4px;transition:background-color 160ms ease,box-shadow 160ms ease}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .view-toggle button.active{background:#fff;box-shadow:0 1px 4px #0000000d;color:#3b3b3b}
+ @media(hover:hover) and (pointer:fine){
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.jsf-cat-tile,.product-card,.project-card,.symbol-card):hover:not(:disabled){
+   background:var(--jsf-ui-hover)!important;transform:translateY(-2px)!important;border-color:#cfcfcf!important;box-shadow:0 4px 12px rgba(30,30,30,.065)!important;
+  }
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-tile.active:hover{background:var(--jsf-ui-selected)!important;box-shadow:inset 2px 0 #77716a,0 4px 12px rgba(30,30,30,.065)!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-tile:hover .jsf-cat-chevron{transform:translateX(3px)}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.actions button,.symbol-actions button,.tile-controls button,.create-row button,.upload-actions button,.approval-toolbar button,.project-secondary,.refresh-new,.account-order-actions>button,.jsf-account-orders-filters>button,.order-action-bar button,.order-action-bar summary):hover:not(:disabled){background:#ededed!important;border-color:#bfbfbf!important;box-shadow:0 2px 5px #00000008!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.product-row,.project-drawing):hover{background:#f5f5f5!important;border-color:#d8d8d8!important}
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.actions button,.symbol-actions button,.tile-controls button,.create-row button,.upload-actions button,.approval-toolbar button,.project-secondary,.refresh-new,.account-order-actions>button,.jsf-account-orders-filters>button,.order-action-bar button):active:not(:disabled){transform:translateY(1px)!important;box-shadow:none!important}
+ @media(max-width:720px){
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-main{padding:15px;min-height:74px}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .product-card>.info{padding:16px}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.actions button,.tile-controls button,.symbol-actions button){min-height:40px}
+ }
+ @media(prefers-reduced-motion:reduce){
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.jsf-cat-tile,.product-card,.symbol-card,.product-row,.project-drawing,.jsf-cat-chevron){transition:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-admin-content :is(button,summary,input,select,textarea,.search,.dash-search){transition:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-admin-content :is(input:not([type=checkbox]):not([type=radio]),select,textarea){transition:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.form-grid,.project-filters,.jsf-account-orders-filters,.orders-toolbar-new,.tile-controls,.symbol-body) :is(input:not([type=checkbox]):not([type=radio]),select,textarea){transition:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.jsf-cat-tile,.product-card,.project-card,.symbol-card):hover:not(:disabled){transform:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-cat-tile:hover .jsf-cat-chevron{transform:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.actions button,.symbol-actions button,.tile-controls button,.create-row button,.upload-actions button,.approval-toolbar button,.project-secondary,.refresh-new,.account-order-actions>button,.jsf-account-orders-filters>button,.order-action-bar button):active:not(:disabled){transform:none!important}
+ }
+}
+
+/* Soft charcoal primary actions, with a fine highlight like the supplied reference. */
+@media screen {
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save,.drawing-primary,.approval-actions .primary,.panel-head button,.article-order-save,.jsf-profile-card button){
+  background:linear-gradient(180deg,#343434 0%,#292929 55%,#242424 100%)!important;
+  color:#fafafa!important;border:1px solid #494949!important;border-radius:10px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 2px 5px rgba(0,0,0,.12)!important;
+  font-family:Arial,sans-serif!important;font-weight:400!important;font-size:12px!important;line-height:1.4!important;
+  min-height:40px;padding:10px 16px;letter-spacing:.01em;
+  transition:background 160ms ease,border-color 160ms ease,box-shadow 160ms ease,transform 160ms cubic-bezier(.2,.7,.2,1)!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save,.drawing-primary,.approval-actions .primary,.panel-head button,.article-order-save,.jsf-profile-card button):disabled{opacity:.5;cursor:default}
+ @media(hover:hover) and (pointer:fine){
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save,.drawing-primary,.approval-actions .primary,.panel-head button,.article-order-save,.jsf-profile-card button):hover:not(:disabled){
+   background:linear-gradient(180deg,#404040 0%,#333 55%,#2c2c2c 100%)!important;border-color:#606060!important;
+   box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 4px 9px rgba(0,0,0,.15)!important;transform:translateY(-1px)!important;
+  }
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save,.drawing-primary,.approval-actions .primary,.panel-head button,.article-order-save,.jsf-profile-card button):active:not(:disabled){
+  background:linear-gradient(180deg,#262626,#2b2b2b)!important;box-shadow:inset 0 1px 3px rgba(0,0,0,.2)!important;transform:translateY(1px)!important;
+ }
+ @media(prefers-reduced-motion:reduce){
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save,.drawing-primary,.approval-actions .primary,.panel-head button,.article-order-save,.jsf-profile-card button){transition:none!important}
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.new-button,.project-primary,.primary-new,.groups-featured-save,.modal-foot .save,.drawing-primary,.approval-actions .primary,.panel-head button,.article-order-save,.jsf-profile-card button):is(:hover,:active):not(:disabled){transform:none!important}
+ }
+}
+
+/* One page canvas for every signed-in role. Only page containers are expanded;
+   document artwork, dialogs, cards and form controls keep their own dimensions. */
+@media screen {
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace>.jsf-admin-content>main {
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:30px 32px 45px!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .orders-page-new>:is(.orders-head-new,.order-stats-new,.flash-new,.orders-toolbar-new,.orders-layout-new),
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .approval-page>:is(.approval-head,.flash,.approval-toolbar,.approval-layout),
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .jsf-profile-page>:is(.jsf-profile-grid,.jsf-profile-alert) {
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+ }
+ @media(max-width:720px) {
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace>.jsf-admin-content>main {
+   padding:22px 16px 35px!important;
+  }
+ }
+}
+/* Compact project and drawing tiles; the page itself still uses the full canvas. */
+@media screen {
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.project-grid,.drawing-library-clean .drawing-library-grid) {
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))!important;
+  gap:14px!important;
+  align-items:stretch;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-card {
+  min-width:0;
+  min-height:168px!important;
+  padding:18px!important;
+  box-sizing:border-box;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-card h2 {
+  font-size:15px!important;
+  line-height:1.4;
+  margin:16px 0 4px!important;
+  overflow-wrap:anywhere;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-card-foot {padding-top:16px!important;flex-wrap:wrap;gap:8px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .drawing-library-grid .drawing-library-card .drawing-library-open {
+  min-height:168px!important;
+  padding:16px!important;
+ }
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .drawing-card-heading {margin-bottom:12px!important}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .drawing-card-title {font-size:15px!important}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .drawing-card-footer {padding-top:16px!important;gap:8px}
+ .jsf-admin-layout.jsf-minimal.jsf-calm-workspace .drawing-library-grid .drawing-library-card>.drawing-menu-wrap {top:10px;right:8px}
+ @media(max-width:720px) {
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.project-grid,.drawing-library-clean .drawing-library-grid) {grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+ }
+}

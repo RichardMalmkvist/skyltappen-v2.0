@@ -1,0 +1,111 @@
+/* UI backgrounds use white or neutral grey; no beige surfaces. */
+/* v6.19: shared calm workspace. PDF/print layouts, sign artwork and drawing
+   coordinates remain governed by their own styles. */
+.jsf-admin-layout.jsf-minimal.jsf-calm-workspace {background:#ffffff!important;color:#303030!important;font:400 12px/1.5 Arial,sans-serif;grid-template-columns:215px minmax(0,1fr)}
+.jsf-calm-workspace .jsf-admin-content {background:#ffffff!important;min-width:0}
+.jsf-calm-workspace .jsf-admin-sidebar {background:#ffffff!important;border-right:1px solid #e9e6e1!important;color:#706b66!important;padding:28px 14px 18px!important}
+.jsf-calm-workspace .jsf-admin-brand {border-color:#e9e6e1!important;margin-bottom:24px!important}
+.jsf-calm-workspace .jsf-admin-brand img {width:165px;filter:none!important;opacity:1!important}
+.jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal) {background:transparent!important;border:0!important;border-radius:3px!important;box-shadow:none!important;color:#706b66!important;font:400 12px/1.4 Arial,sans-serif!important;padding:11px 12px!important;transform:none!important}
+.jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal):hover:not(:disabled) {background:#f0f0f0!important;color:#353535!important}
+.jsf-calm-workspace :is(.jsf-admin-nav button.active,.jsf-admin-settings.active) {background:#eaeaea!important;color:#303030!important;box-shadow:inset 2px 0 #77716a,0 1px 4px rgba(40,35,30,.04)!important}
+.jsf-calm-workspace .jsf-admin-nav-icon {color:#88817b!important;font-size:16px}
+.jsf-calm-workspace :is(.jsf-admin-bottom-actions,.jsf-admin-user) {border-color:#e9e6e1!important}
+.jsf-calm-workspace .jsf-admin-user .avatar {border-radius:3px!important;background:#eaeaea!important;color:#77716a!important}
+.jsf-calm-workspace .jsf-admin-user b {font-weight:400!important;color:#494540}
+.jsf-calm-workspace .jsf-admin-profile-link small {color:#88817b!important}
+.jsf-calm-workspace :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,.jsf-projects,.jsf-profile-page,.future-main,.orders-page-new,.jsf-continuous-planning,.jsf-users-page,.jsf-role-workspace) {background:#ffffff!important;color:#303030!important;font-family:Arial,sans-serif!important;padding:30px 32px 45px!important}
+.jsf-calm-workspace :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,.jsf-projects,.jsf-profile-page,.future-main,.orders-page-new,.jsf-continuous-planning,.jsf-users-page,.jsf-role-workspace) h1 {font:400 25px/1.3 Arial,sans-serif!important;color:#303030!important;letter-spacing:-.02em!important}
+.jsf-calm-workspace :is(.dash-card-head,.section-head,.groups-heading,.panel-head,.project-heading,.approval-head,.symbols-head,.future-main section,.jsf-profile-card,.order-detail-new,.groups-featured-manager) :is(h2,h3) {font-weight:400!important;color:#353535!important;letter-spacing:0!important}
+.jsf-calm-workspace :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,.jsf-projects,.jsf-profile-page,.future-main,.orders-page-new,.jsf-continuous-planning) > header p {font-size:12px;color:#77716a!important}
+.jsf-calm-workspace :is(.dash-eyebrow,.section-kicker,.kicker,.eyebrow,.project-kicker,.jsf-profile-kicker,.future-kicker,.eyebrow-new) {color:#88817b!important;font-weight:400!important;letter-spacing:.07em!important;font-size:10px!important}
+.jsf-calm-workspace :is(.dash-card,.dash-metric,.upload-panel,.arrow-panel,.symbol-card,.groups-featured-manager,.jsf-cat-tile,.product-card,.project-card,.project-panel,.project-stats > div,.approval-list,.approval-detail,.jsf-profile-card,.future-main section,.orders-list-new,.order-detail-new,.order-stats-new,.jsf-users-page section,.jsf-role-workspace section) {background:#fff!important;border-color:#e9e6e1!important;border-radius:4px!important;box-shadow:none!important}
+.jsf-calm-workspace :is(.dash-metric,.dash-quick,.product-card,.jsf-cat-tile,.project-card):hover {box-shadow:none!important;transform:none!important;border-color:#d4cfc6!important}
+.jsf-calm-workspace :is(.dash-metric-value,.order-stats-new strong) {font-size:21px!important;font-weight:400!important;color:#353535!important}
+.jsf-calm-workspace :is(.dash-card-head h2,.dash-metric-label) {font-size:12px!important;letter-spacing:0!important;text-transform:none!important;color:#77716a!important}
+.jsf-calm-workspace .dash-hero {background:linear-gradient(90deg,#ffffff 0%,rgba(255,255,255,.96) 30%,rgba(255,255,255,.68) 70%,rgba(255,255,255,.6) 100%),var(--jsf-dashboard-image) center 26%/cover no-repeat!important;border-radius:0!important;box-shadow:none!important;min-height:170px!important;margin:0 0 24px!important;padding:20px 0!important}
+.jsf-calm-workspace .dash-hero h1 {font-size:28px!important;font-weight:400!important}
+.jsf-calm-workspace :is(.dash-date,.dash-profile span,.dash-icon,.dash-week-tag,.dash-status) {background:#f0f0f0!important;color:#77716a!important;border-radius:3px!important}
+.jsf-calm-workspace :is(.dash-text-link,.project-back,.project-drawing small,.order-no-new,.detail-order-no-new) {color:#706b66!important;font-weight:400!important}
+.jsf-calm-workspace :is(.dash-topbar,.dash-card-head,.panel-head,.detail-head-new,.list-head-new,.info-new,.production-new,.order-action-bar,.detail-grid-new,.message-box) {border-color:#e9e6e1!important}
+.jsf-calm-workspace :is(.dash-week-table,.dash-table-wrap,.order-article-table,.approval-page table) th {font-weight:400!important;border-color:#d4cfc6!important;color:#77716a!important}
+.jsf-calm-workspace :is(.dash-week-table,.dash-table-wrap,.order-article-table,.approval-page table) td {border-color:#eeece8!important}
+.jsf-calm-workspace :is(.order-card-new,.approval-card) {border-color:#eeece8!important;border-radius:0!important;background:#fff!important;box-shadow:none!important}
+.jsf-calm-workspace :is(.order-card-new,.approval-card):hover {background:#f5f5f5!important}
+.jsf-calm-workspace :is(.order-card-new.active,.approval-card.active) {background:#f0f0f0!important;box-shadow:inset 2px 0 #88817b!important}
+.jsf-calm-workspace :is(.order-card-new > strong,.approval-card strong,.detail-head-new h2) {font-weight:400!important;color:#353535!important}
+.jsf-calm-workspace :is(.info-new,.jsf-role-workspace .account-info,.message-box,.jsf-cat-extra,.groups-cover-manager,.image-manager,.template-box,.hanging-rules,.door-text-settings,.production-planning) {background:#f5f5f5!important;border-color:#e9e6e1!important;border-radius:4px!important;box-shadow:none!important}
+.jsf-calm-workspace :is(.jsf-plan-weeks,.jsf-planner-scroll) {background:#f0f0f0!important;border-color:#e9e6e1!important}
+.jsf-calm-workspace :is(.jsf-plan-week,.jsf-plan-week-empty) {border-color:#e3ded6!important;border-radius:4px!important;box-shadow:none!important}
+.jsf-calm-workspace .jsf-plan-week-title {background:#f0f0f0!important;color:#595550!important;border-color:#e3ded6!important}
+.jsf-calm-workspace :is(.jsf-plan-week.current,.jsf-plan-week-empty.current) {border-left-color:#88817b!important}
+.jsf-calm-workspace :is(.jsf-plan-current-tag,.jsf-plan-year) {color:#88817b!important;background:transparent!important;font-weight:400!important}
+.jsf-calm-workspace :is(.jsf-plan-link,.jsf-plan-object-link) {color:#494540!important;font-weight:400!important}
+.jsf-calm-workspace .jsf-plan-table th {color:#77716a!important;background:#fff!important;font-weight:400!important;border-color:#e9e6e1!important}
+.jsf-calm-workspace .jsf-plan-table td {border-color:#eeece8!important}
+.jsf-calm-workspace :is(.jsf-plan-status-menu,.modal,.jsf-sign-modal,.jsf-plan-edit-card) {background:#ffffff!important;border-color:#e9e6e1!important;border-radius:5px!important;box-shadow:0 12px 35px rgba(30,28,25,.12)!important}
+.jsf-calm-workspace :is(.modal-bg,.jsf-sign-modal-backdrop) {background:rgba(30,28,25,.3)!important}
+.jsf-calm-workspace :is(.search,.dash-search,.approval-toolbar input,.upload-actions input,.project-filters input,.project-filters select,.project-form-grid input,.project-form-grid select,.project-form-grid textarea,.project-upload input,.jsf-profile-card input,.groups-featured-slots select,.tile-controls select,.create-row input,.form-grid input,.form-grid select,.form-grid textarea,.template-box select,.image-display-settings select,.door-text-grid input,.door-text-grid select,.jsf-marker-form input,.jsf-marker-form select,.jsf-marker-form textarea,.production-planning input,.production-planning select,.order-filter-new input,.order-filter-new select,.filter-group-new input,.filter-group-new select,.dept-control-new input,.dept-control-new select,.jsf-plan-search) {background:#fff!important;color:#494540!important;border:1px solid #dcd8d2!important;border-radius:3px!important;font-weight:400!important;font-size:12px!important;box-shadow:none!important}
+.jsf-calm-workspace :is(.project-form-grid label,.project-upload label,.jsf-profile-card label,.groups-featured-slots label,.form-grid label > span,.field-box > span,.image-manager-head span,.image-display-settings label > span,.template-box > div > span,.door-text-grid label > span,.production-planning label,.jsf-marker-form label,.jsf-sign-extra) {font-weight:400!important;color:#77716a!important;font-size:11px!important}
+.jsf-calm-workspace :is(.new-button,.panel-head button,.groups-featured-save,.project-primary,.approval-actions .primary,.jsf-profile-card button,.modal-foot .save,.primary-new) {background:#353535!important;color:#fff!important;border:1px solid #353535!important;border-radius:3px!important;font:400 11px/1.4 Arial,sans-serif!important;box-shadow:none!important;transform:none!important}
+.jsf-calm-workspace :is(.project-secondary,.approval-toolbar button,.approval-actions .secondary,.upload-actions button,.symbol-actions button,.create-row button,.groups-cover-upload,.groups-cover-remove,.upload-button,.actions button,.image-controls button,.door-preview-remove,.modal-foot button:not(.save),.jsf-planner-tools button,.jsf-sign-modal-header > button,.jsf-sign-config-top > button,.refresh-new,.jsf-plan-today,.order-action-bar button,.order-action-bar summary,.jsf-users-page button,.jsf-role-workspace section button) {border:1px solid #dcd8d2!important;border-radius:3px!important;background:#fff!important;color:#595550!important;font:400 11px/1.4 Arial,sans-serif!important;box-shadow:none!important;transform:none!important}
+.jsf-calm-workspace :is(.actions .danger-action,.symbol-actions button.danger,.groups-cover-remove,.image-controls .remove-image,.door-preview-remove,.jsf-delete-marker) {color:#945953!important}
+.jsf-calm-workspace :is(.jsf-users-page,.jsf-role-workspace) h1 {font-weight:400!important}
+.jsf-calm-workspace :is(.jsf-users-page,.jsf-role-workspace) :is(strong,b) {font-weight:400!important}
+.jsf-calm-workspace .jsf-users-page select {background:#fff!important;color:#494540!important;border-color:#dcd8d2!important;border-radius:3px!important;font-size:12px!important}
+.jsf-calm-workspace :is(.jsf-planner-tools,.jsf-planner-side,.jsf-sign-product) {background:#fff!important;border-color:#e9e6e1!important;border-radius:4px!important;box-shadow:none!important}
+.jsf-calm-workspace :is(button,input,select,textarea):focus-visible {outline:2px solid #77736f!important;outline-offset:3px}
+.jsf-calm-workspace :is(input[type=checkbox],input[type=range]) {accent-color:#77716a}
+@media(max-width:720px) {
+  .jsf-admin-layout.jsf-minimal.jsf-calm-workspace {display:block}
+  .jsf-calm-workspace .jsf-admin-sidebar {padding:12px!important}
+  .jsf-calm-workspace .jsf-admin-brand {margin-bottom:8px!important}
+  .jsf-calm-workspace :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,.jsf-projects,.jsf-profile-page,.future-main,.orders-page-new,.jsf-continuous-planning,.jsf-users-page,.jsf-role-workspace) {padding:22px 16px 35px!important}
+  .jsf-calm-workspace .dash-hero {padding:15px 0!important;min-height:150px!important}
+}
+
+/* v6.20: clearer week boundaries and a continuous department area. */
+.jsf-calm-workspace .jsf-continuous-planning.jsf-plan-contained {width:100%;max-width:1680px;margin-inline:auto}
+.jsf-calm-workspace .jsf-plan-contained .jsf-plan-weeks {background:transparent!important;border:0!important;border-radius:0!important;padding:0 6px 16px 0!important;gap:20px!important}
+.jsf-calm-workspace .jsf-plan-week {margin:0!important;background:#fff!important;border:1px solid #dcd7cf!important;border-radius:4px!important;box-shadow:none!important}
+.jsf-calm-workspace .jsf-plan-week.current {border-left:2px solid #77716a!important}
+.jsf-calm-workspace .jsf-plan-week-title {background:#e5e5e5!important;border-color:#dcd7cf!important;border-radius:3px 3px 0 0!important;min-height:44px!important;padding:11px 16px!important}
+.jsf-calm-workspace .jsf-plan-week-title strong {font-size:14px!important;font-weight:400!important;color:#353535!important}
+.jsf-calm-workspace .jsf-plan-week-title > span {font-size:11px!important;color:#77716a!important}
+.jsf-calm-workspace .jsf-plan-week-title .jsf-plan-year {font-size:11px!important}
+.jsf-calm-workspace .jsf-plan-week-title .jsf-plan-current-tag {background:#f5f5f5!important;border:1px solid #d4cfc6!important;border-radius:3px!important;color:#77716a!important;padding:3px 7px!important}
+.jsf-calm-workspace .jsf-plan-week-empty {margin:0!important;min-height:32px!important;padding:7px 14px!important;background:#f3f3f3!important;border:1px solid #e9e6e1!important;border-radius:3px!important;color:#88817b!important;font-size:11px!important}
+.jsf-calm-workspace .jsf-plan-week-empty small {font-size:10px!important;color:#99928b!important}
+.jsf-calm-workspace .jsf-plan-table-wrap {border-radius:0 0 3px 3px!important}
+.jsf-calm-workspace .jsf-plan-table {font-size:12px!important;min-width:1100px!important}
+.jsf-calm-workspace .jsf-plan-table th {font-size:11px!important;padding:11px 12px!important;background:#fff!important;border-bottom:1px solid #e3ded6!important}
+.jsf-calm-workspace .jsf-plan-table td {height:52px;padding:11px 12px!important;background:#fff;color:#494540;border-bottom:1px solid #eeece8!important}
+.jsf-calm-workspace .jsf-plan-table tbody tr:nth-child(even) td {background:#ffffff}
+.jsf-calm-workspace .jsf-plan-table tbody tr:hover td {background:#ececec!important}
+.jsf-calm-workspace .jsf-plan-table th:nth-child(1) {width:90px}
+.jsf-calm-workspace .jsf-plan-table th:nth-child(2) {width:110px}
+.jsf-calm-workspace .jsf-plan-table th:nth-child(3) {width:19%}
+.jsf-calm-workspace .jsf-plan-table th:nth-child(4) {width:17%}
+.jsf-calm-workspace .jsf-plan-table th:nth-child(5) {width:100px}
+.jsf-calm-workspace .jsf-plan-table th:nth-child(6) {width:12%}
+.jsf-calm-workspace .jsf-plan-table :is(.jsf-plan-dept-head,.jsf-plan-dept-cell) {width:80px;background:#f1f1f1!important;text-align:center!important;border-left:1px solid #eeebe5}
+.jsf-calm-workspace .jsf-plan-table :is(.jsf-plan-dept-head,.jsf-plan-dept-cell):nth-child(7) {border-left:1px solid #dcd7cf!important}
+.jsf-calm-workspace .jsf-plan-table tbody tr:nth-child(even) .jsf-plan-dept-cell {background:#ececec!important}
+.jsf-calm-workspace .jsf-plan-table tbody tr:hover .jsf-plan-dept-cell {background:#e4e4e4!important}
+.jsf-calm-workspace .jsf-plan-table :is(.jsf-plan-link,.jsf-plan-object-link) {font-size:12px!important;line-height:1.45}
+.jsf-calm-workspace .jsf-plan-date b {font-size:12px;font-weight:400}
+.jsf-calm-workspace .jsf-plan-date small {font-size:11px;color:#88817b}
+@media(max-width:720px) {
+  .jsf-calm-workspace .jsf-plan-contained .jsf-plan-weeks {gap:16px!important}
+  .jsf-calm-workspace .jsf-plan-week-title {padding:10px 12px!important}
+}
+/* A small lift on sidebar menus, shared by admin and purchasers. */
+.jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal){transition:background .16s ease,color .16s ease,transform .16s ease,box-shadow .16s ease}
+@media(hover:hover) and (pointer:fine){
+ .jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal):hover:not(:disabled){transform:translateY(-2px)!important;box-shadow:0 3px 7px rgba(40,35,30,.1)!important}
+ .jsf-calm-workspace :is(.jsf-admin-nav button.active,.jsf-admin-settings.active):hover:not(:disabled){box-shadow:inset 2px 0 #77716a,0 3px 7px rgba(40,35,30,.1)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal){transition:none!important;transform:none!important}
+ .jsf-calm-workspace :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal):hover:not(:disabled){transform:none!important}
+}

@@ -1,0 +1,7 @@
+.jsf-sliding-room-sign{width:100%;max-width:600px;margin:auto;user-select:none;-webkit-user-select:none}
+.jsf-sliding-room-sign>svg{display:block;width:100%;height:auto;overflow:visible}
+.jsf-sliding-room-hatch{cursor:default;touch-action:pan-y;outline:none}
+.jsf-sliding-room-hatch image{pointer-events:visiblePainted;-webkit-user-drag:none}
+.jsf-sliding-room-frame{pointer-events:none}
+.jsf-sliding-room-focus{opacity:0;pointer-events:none}
+.jsf-sliding-room-hatch:focus-visible .jsf-sliding-room-focus{opacity:.65}

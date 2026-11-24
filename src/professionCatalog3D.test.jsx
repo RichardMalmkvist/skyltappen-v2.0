@@ -1,0 +1,9 @@
+import React from 'react';
+import {render,screen,fireEvent} from '@testing-library/react';
+import '@testing-library/jest-dom';
+import CatalogPage from './pages/CatalogPage';
+import {setCatalogSnapshot,setCatalogAccessToken} from './data/catalogStore';
+import {getProductFlowType} from './data/products';
+jest.mock('./components/layout/AppHeader',()=>()=>null);
+jest.mock('./hooks/useCatalogCardMotion',()=>()=>({current:null}));
+test('profession cards open the product rather than adding directly',()=>{sessionStorage.clear();const product={id:'doctor',articleNumber:'YRK-0204',categoryId:'yrkestitelsskyltar',previewType:'profession',flowType:'direct',directAddToCart:true,isImplemented:true,fixedProfessionTitle:'Doctor',fixedColor:'#dd2a1b',fixedTextColor:'#ffffff',unitPrice:95};const category={id:'yrkestitelsskyltar',title:'Titles',status:'open'};setCatalogAccessToken('test');setCatalogSnapshot({categories:[category],articles:[product]});const openProduct=jest.fn(),add=jest.fn();render(<CatalogPage selectedCategory={category} getHeaderProps={()=>({})} openProduct={openProduct} addDirectProductToCart={add} goBackToLanding={()=>{}}/>);fireEvent.click(screen.getByRole('button',{name:/Region/}));const button=document.querySelector('.jsf-catalog-card-action');expect(button.textContent).toContain('V\u00e4lj produkt');fireEvent.click(button);expect(openProduct).toHaveBeenCalledWith(expect.objectContaining({id:'doctor'}),{previewProfession:true});expect(add).not.toHaveBeenCalled();expect(document.querySelector('input[type="number"]')).toBeNull();expect(getProductFlowType(product)).toBe('form');});

@@ -1,0 +1,110 @@
+.jsf-projects .project-workspace-header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:10px 0 28px}
+.jsf-projects .project-workspace-meta{display:flex;align-items:center;gap:12px;color:#85817b;font:400 11px Arial,sans-serif;letter-spacing:.03em}
+.jsf-projects .project-workspace-header h1{margin:14px 0 9px;font:400 30px/1.2 Arial,sans-serif;letter-spacing:-.025em;color:#302e2b}
+.jsf-projects .project-workspace-header p{margin:0;color:#817b74;font-size:12px;line-height:1.6}
+.jsf-projects .project-workspace-meta .project-status{border:1px solid #e6e3de;background:#f8f7f5;color:#6b655e;padding:4px 8px;border-radius:3px}
+.jsf-projects .project-manage{position:relative;flex:none;margin-top:4px}
+.jsf-projects .project-manage summary{cursor:pointer;font-size:12px;color:#6f6962;padding:10px 12px;border:1px solid #e3dfd9;border-radius:3px;list-style:none}
+.jsf-projects .project-manage summary::after{content:'⌄';margin-left:12px}
+.jsf-projects .project-manage>div{position:absolute;right:0;top:100%;z-index:4;min-width:180px;background:#fff;border:1px solid #e3dfd9;border-radius:3px;padding:5px;box-shadow:0 8px 24px #0000000c}
+.jsf-projects .project-manage button{display:block;width:100%;text-align:left;border:0;background:#fff;padding:12px;font:400 12px Arial,sans-serif;cursor:pointer;color:#524c45}
+.jsf-projects .project-manage button:last-child{color:#985c52}
+.jsf-projects .project-manage button:hover{background:#f7f6f3}
+.jsf-projects .project-workspace-nav{display:flex;gap:28px;border-bottom:1px solid #e7e3de;margin-bottom:28px;overflow-x:auto}
+.jsf-projects .project-workspace-nav button{flex:none;border:0;border-bottom:2px solid transparent;background:transparent;padding:0 0 14px;font:400 13px Arial,sans-serif;color:#89827a;cursor:pointer;white-space:nowrap}
+.jsf-projects .project-workspace-nav button[aria-current=page]{border-bottom-color:#49443e;color:#302e2b}
+.jsf-projects .project-workspace-nav button:hover{color:#302e2b}
+.jsf-projects .project-workspace-content[hidden]{display:none!important}
+.jsf-projects .project-overview-summary{display:grid;grid-template-columns:minmax(0,2fr) 1fr 1fr auto;align-items:center;gap:24px;padding:0 0 26px;margin-bottom:28px;border-bottom:1px solid #eeeae5}
+.jsf-projects .project-overview-summary>div{display:grid;gap:7px;min-width:0}
+.jsf-projects .project-overview-summary small{color:#928a80;font-size:11px}
+.jsf-projects .project-overview-summary strong{font:400 15px Arial,sans-serif;color:#413c36}
+.jsf-projects .project-overview-summary span{font-size:11px;color:#8a8176;overflow-wrap:anywhere}
+.jsf-projects .project-overview-summary>button{border:1px solid #dcd7cf;background:#fff;border-radius:3px;padding:11px 14px;font:400 12px Arial,sans-serif;cursor:pointer;color:#4b453e}
+.jsf-projects .project-workspace-content>.project-panel{box-shadow:none;border:0;border-radius:0;padding:0;margin-bottom:28px}
+.jsf-projects .project-workspace-content>.project-panel h2{font:400 16px Arial,sans-serif;color:#49433c;margin:0 0 18px}
+.jsf-projects .project-drawings{margin:0 0 18px}
+.jsf-projects .project-drawing{border:0;border-bottom:1px solid #eeeae5;border-radius:0;background:#fff;padding:19px 0;gap:16px}
+.jsf-projects .project-drawing>span{width:36px;height:42px;display:grid;place-items:center;background:#f7f5f2;border:1px solid #e7e2db;border-radius:3px;color:#a0978c;font-size:18px}
+.jsf-projects .project-drawing strong{font:400 13px Arial,sans-serif;color:#4f4840}
+.jsf-projects .project-drawing small{font-size:11px;color:#8c8277}
+.jsf-projects .project-drawing:hover{background:#faf9f7}
+.jsf-projects .project-upload-disclosure{margin-top:10px}
+.jsf-projects .project-upload-disclosure>summary,.jsf-projects .project-info-disclosure>summary{cursor:pointer;color:#82786d;font:400 12px Arial,sans-serif;padding:12px 0}
+.jsf-projects .project-upload{margin-top:8px;border:0;padding:12px 0}
+.jsf-projects .project-info-disclosure{border-top:1px solid #e9e4de;padding:8px 0}
+.jsf-projects .project-info-disclosure .project-details{margin:20px 0 28px}
+.jsf-projects .project-stats{display:flex;flex-wrap:wrap;gap:26px;margin:24px 0;color:#8a8177}
+.jsf-projects .project-stats>div{border:0;border-radius:0;box-shadow:none!important;padding:0;background:transparent;display:flex;align-items:baseline;gap:8px}
+.jsf-projects .project-stats strong{font:400 16px Arial,sans-serif;color:#4f4840}
+.jsf-projects .project-stats small{font-size:11px}
+.jsf-projects .project-manage summary:focus-visible,.jsf-projects .project-workspace-nav button:focus-visible,.jsf-projects .project-overview-summary>button:focus-visible{outline:2px solid #77736f;outline-offset:3px}
+@media(max-width:760px){.jsf-projects .project-workspace-header{gap:12px;flex-wrap:wrap;padding-bottom:20px}.jsf-projects .project-workspace-header h1{font-size:25px}.jsf-projects .project-workspace-nav{gap:22px;margin-bottom:22px}.jsf-projects .project-overview-summary{grid-template-columns:1fr 1fr;gap:22px}.jsf-projects .project-overview-summary>div:first-child{grid-column:1/-1}.jsf-projects .project-overview-summary>button{grid-column:1/-1;justify-self:start}.jsf-projects .project-drawing{flex-wrap:wrap}.jsf-projects .project-drawing small{margin-left:52px}.jsf-projects .project-manage>div{left:0;right:auto}}
+/* Keep the simplified panels local to project pages. */
+.jsf-calm-workspace .jsf-projects .project-workspace-content>.project-panel{border:0!important;border-radius:0!important}
+.jsf-calm-workspace .jsf-projects .project-stats>div{border:0!important;border-radius:0!important}
+
+.jsf-projects .project-workspace-header,.jsf-projects .project-workspace-nav{max-width:1060px;box-sizing:border-box}
+/* Project detail: a shared header, compact facts and distinct drawing cards. */
+@media screen {
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-header {
+  width:100%;max-width:none;padding:24px 24px 20px;
+  background:linear-gradient(120deg,#fafafa,#fff);border:1px solid #e5e5e5;
+  border-bottom:0;border-radius:8px 8px 0 0;box-sizing:border-box;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-header h1 {font-size:28px!important;margin:12px 0 8px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-header p {font-size:13px;color:#737373}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-nav {
+  width:100%;max-width:none;padding:0 24px;margin:0 0 22px;gap:28px;
+  border:1px solid #e5e5e5;border-top:0;border-radius:0 0 8px 8px;background:#fff;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-nav button {padding:14px 0;min-height:46px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-manage summary {background:#fff;border-radius:6px;padding:11px 14px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary {
+  grid-template-columns:minmax(0,1fr) 150px 150px auto;gap:24px;
+  padding:22px 24px;margin:0 0 24px;background:#f7f8f7;
+  border:1px solid #e5e7e5;border-radius:8px;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary>div:not(:first-child) {border-left:1px solid #dfe4df;padding-left:24px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary>div:not(:first-child)>strong {font-size:25px;line-height:1.2;color:#303030}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary>button {
+  background:linear-gradient(180deg,#343434,#242424)!important;color:#fff!important;
+  border:1px solid #494949;border-radius:10px!important;padding:12px 16px;min-height:44px;
+  box-shadow:inset 0 1px 0 #ffffff12,0 2px 5px #00000016;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-content>.project-panel:has(.project-drawings) {
+  border:1px solid #e5e5e5!important;border-radius:8px!important;
+  padding:22px 24px;margin-bottom:18px;background:#fff!important;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-panel:has(.project-drawings)>h2 {font-size:16px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-panel:has(.project-drawings) .project-counter {font-size:11px;background:#f0f0f0;border-radius:4px;padding:3px 7px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-drawings {
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:12px;margin:0;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-drawing {
+  box-sizing:border-box;min-width:0;min-height:140px;padding:18px!important;display:grid;
+  grid-template-columns:32px minmax(0,1fr);gap:12px;align-content:start;
+  border:1px solid #e5e5e5!important;border-radius:7px!important;background:#fff;
+ }
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-drawing>span {width:32px;height:36px;border:0;background:#eef4f0;color:#25815a;border-radius:5px;font-size:18px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-drawing strong {font-size:14px;line-height:1.5;overflow-wrap:anywhere;align-self:center}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-drawing small {grid-column:1/-1;justify-self:end;margin:10px 0 0;font-size:11px;color:#737373}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-upload-disclosure {margin-top:18px;border-top:1px solid #eee;padding-top:6px}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-info-disclosure {border:1px solid #e5e5e5;border-radius:8px;padding:8px 24px;background:#fff}
+ .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-info-disclosure>summary {padding-block:14px;color:#494949}
+ @media(max-width:900px) {
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary {grid-template-columns:minmax(0,1fr) 110px 110px;gap:18px}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary>button {grid-column:1/-1;justify-self:start}
+ }
+ @media(max-width:720px) {
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-header {padding:18px 16px}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-nav {padding:0 16px;gap:22px}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-header h1 {font-size:24px!important;overflow-wrap:anywhere}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary {grid-template-columns:1fr 1fr;padding:18px 16px}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary>div:first-child {grid-column:1/-1}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-overview-summary>div:not(:first-child) {padding:0;border:0}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-workspace-content>.project-panel:has(.project-drawings) {padding:18px 16px}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-drawings {grid-template-columns:minmax(0,1fr)}
+  .jsf-admin-layout.jsf-calm-workspace .jsf-projects .project-info-disclosure {padding:8px 16px}
+ }
+}

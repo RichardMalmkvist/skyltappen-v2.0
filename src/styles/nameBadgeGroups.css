@@ -1,0 +1,31 @@
+.jsf-namebadge-groups{min-width:0;color:#303236}
+.jsf-namebadge-search{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 22px;font:400 12px/1.5 Arial,sans-serif;color:#737373}
+.jsf-namebadge-search>div{display:flex;align-items:center;max-width:360px;width:100%;border:1px solid #e5e5e5;border-radius:8px;background:#fff}
+.jsf-namebadge-search input{box-sizing:border-box;min-width:0;width:100%;border:0;border-radius:8px;background:transparent;padding:11px 13px;font:400 13px/1.4 Arial,sans-serif;color:#303236}
+.jsf-namebadge-search>div:focus-within{outline:2px solid #777;outline-offset:2px}
+.jsf-namebadge-search input:focus{outline:none}
+.jsf-namebadge-search button{flex:none;border:0;background:transparent;padding:8px 12px;min-height:44px;color:#606266;font-size:20px;cursor:pointer}
+.jsf-namebadge-group{border-top:1px solid #e9e9e9}
+.jsf-namebadge-group:last-of-type{border-bottom:1px solid #e9e9e9}
+.jsf-namebadge-group>h2{margin:0!important;font:400 15px/1.5 Arial,sans-serif!important}
+.jsf-namebadge-group>h2>button{box-sizing:border-box;width:100%;display:flex;align-items:center;gap:16px;text-align:left;padding:22px 4px;min-height:64px;border:0;border-radius:6px;background:#fff;color:#303236;font:inherit;cursor:pointer;transition:background 160ms ease}
+.jsf-namebadge-group>h2>button:hover{background:#fafafa}
+.jsf-namebadge-group>h2>button:focus-visible{outline:2px solid #777;outline-offset:2px}
+.jsf-namebadge-group>h2>button>span:first-child{flex:1;min-width:0}
+.jsf-namebadge-group-count{flex:none;color:#858585;font:400 12px/1.4 Arial,sans-serif}
+.jsf-namebadge-group>h2>button>svg{flex:none;transition:transform 180ms ease}
+.jsf-namebadge-group>h2>button[aria-expanded=true]>svg{transform:rotate(180deg)}
+.jsf-namebadge-group-products{display:grid;padding:6px 0 28px;gap:28px 24px}
+.jsf-storefront-light.jsf-minimal-catalog .jsf-catalog .jsf-namebadge-groups .jsf-namebadge-group .jsf-calm-products-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px 24px!important}
+.jsf-namebadge-search-status,.jsf-namebadge-empty{font:400 13px/1.6 Arial,sans-serif;color:#737373;margin:0 0 18px}
+@keyframes jsf-namebadge-open{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1100px){.jsf-storefront-light.jsf-minimal-catalog .jsf-catalog .jsf-namebadge-groups .jsf-namebadge-group .jsf-calm-products-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.jsf-storefront-light.jsf-minimal-catalog .jsf-catalog .jsf-namebadge-groups .jsf-namebadge-group .jsf-calm-products-grid{grid-template-columns:minmax(0,1fr)!important}.jsf-namebadge-search{align-items:stretch;flex-direction:column;gap:8px}.jsf-namebadge-search>div{max-width:none}.jsf-namebadge-group>h2>button{gap:12px;padding:18px 2px}}
+@media(prefers-reduced-motion:reduce){.jsf-namebadge-group-products{animation:none}.jsf-namebadge-group>h2>button,.jsf-namebadge-group>h2>button>svg{transition:none}}
+
+/* Same cards and spacing as name badges; the printed sign retains its proportions. */
+.jsf-profession-catalog-preview{width:100%;max-width:270px;min-width:0;display:flex;align-items:center;justify-content:center}
+.jsf-profession-catalog-preview>div>div{height:auto!important;aspect-ratio:4.2;border-radius:3px!important;padding:0 6px!important;box-shadow:0 2px 5px #00000012!important}
+.jsf-profession-catalog-fastening{width:100%;margin:2px 0 0;color:#858585;font:400 12px/1.5 Arial,sans-serif}
+.jsf-profession-catalog-card .jsf-card-order-row{flex-wrap:wrap!important}
+.jsf-profession-catalog-card .jsf-catalog-card-action{white-space:normal;display:flex;align-items:center;justify-content:center;gap:10px}

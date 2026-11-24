@@ -1,0 +1,38 @@
+.jsf-date-field{position:relative;display:inline-flex;align-items:center;width:100%;min-width:0;max-width:100%;vertical-align:middle}
+.jsf-date-field>input{box-sizing:border-box;width:100%;min-width:0;min-height:38px;padding:9px 40px 9px 11px!important;border:1px solid #dcdcdc;border-radius:5px;background:#fff;color:#353535;font:400 12px/1.5 Arial,sans-serif;letter-spacing:.02em}
+.jsf-date-field>input::placeholder{color:#939393;letter-spacing:0}
+.jsf-date-field>input:focus-visible{outline:2px solid #48765c;outline-offset:2px}
+.jsf-date-field>button.jsf-date-trigger[type=button]{position:absolute;right:4px;top:50%;transform:translateY(-50%)!important;display:grid;place-items:center;min-width:32px;width:32px;min-height:32px;height:32px;padding:0!important;margin:0;border:0!important;border-radius:5px!important;background:transparent!important;box-shadow:none!important;color:#777!important;cursor:pointer}
+.jsf-date-field>button.jsf-date-trigger[type=button]:hover:not(:disabled){background:#f0f0f0!important;color:#168157!important}
+.jsf-date-field>button.jsf-date-trigger[type=button]:disabled{cursor:default;opacity:.45}
+.jsf-date-field:has(input:disabled)>button{pointer-events:none;opacity:.45}
+.jsf-date-dialog{position:fixed;inset:auto;margin:0;box-sizing:border-box;width:min(360px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);overflow:auto;padding:14px;border:1px solid #dedede;border-radius:12px;background:#fff;color:#353535;box-shadow:0 14px 45px #0000001c,0 2px 6px #0000000a;font:400 13px/1.5 Arial,sans-serif;overscroll-behavior:contain}
+.jsf-date-dialog::backdrop{background:transparent}
+.jsf-date-dialog button,.jsf-date-dialog select{box-sizing:border-box;font:400 12px/1.4 Arial,sans-serif;cursor:pointer;color:#353535;letter-spacing:0}
+.jsf-date-dialog button:disabled,.jsf-date-dialog select:disabled{cursor:default;opacity:.3}
+.jsf-date-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 1px 8px;color:#888;font-size:11px}
+.jsf-date-caption>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jsf-date-caption>button{width:24px;height:24px;border:0;border-radius:5px;background:transparent;color:#888;font-size:20px}
+.jsf-date-navigation{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 0 13px}
+.jsf-date-navigation>div{display:flex;justify-content:center;gap:4px;min-width:0}
+.jsf-date-navigation select{min-width:0;max-width:140px;min-height:34px;border:0;border-radius:5px;padding:4px;background:#f6f6f6}
+.jsf-date-navigation>button{width:32px;height:34px;flex:none;border:1px solid #e5e5e5;border-radius:6px;background:#fff;font-size:23px;line-height:1}
+.jsf-date-grid{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:2px}
+.jsf-date-grid th,.jsf-date-grid td{padding:0;text-align:center;font-weight:400;line-height:1.3}
+.jsf-date-grid th{font-size:10px;color:#929292;height:28px}
+.jsf-date-grid th:first-child{width:27px;color:#658471}
+.jsf-date-grid tbody th{border-radius:5px;background:#f4f6f4;font-size:11px}
+.jsf-date-grid td>button{display:block;width:100%;height:32px;min-height:32px;padding:0;border:1px solid transparent;border-radius:6px;background:transparent;font-size:12px;transition:background-color 120ms ease,box-shadow 120ms ease}
+.jsf-date-grid td>button.is-outside{color:#aaa}
+.jsf-date-grid td>button.is-today{border-color:#74a58a;color:#168157}
+.jsf-date-grid td>button[aria-pressed=true]{background:#303030;color:#fff;border-color:#303030;box-shadow:inset 0 1px 0 #ffffff14}
+.jsf-date-grid td>button:hover:not(:disabled):not([aria-pressed=true]){background:#ededed;color:#353535}
+.jsf-date-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;margin-top:10px;border-top:1px solid #ededed}
+.jsf-date-dialog footer>button{padding:8px 12px;min-height:36px;border:1px solid #e2e2e2;border-radius:7px;background:#fff;color:#777}
+.jsf-date-dialog footer>button.jsf-date-today{background:linear-gradient(#343434,#242424);color:#fafafa;border-color:#494949;box-shadow:inset 0 1px 0 #ffffff19,0 2px 4px #00000012}
+.jsf-date-dialog button:hover:not(:disabled),.jsf-date-dialog select:hover{border-color:#bdbdbd}
+.jsf-date-dialog :is(button,select):focus-visible{outline:2px solid #48765c;outline-offset:1px}
+@media(pointer:coarse){.jsf-date-grid td>button{height:40px;min-height:40px}.jsf-date-field>button.jsf-date-trigger[type=button]{width:36px;min-height:36px;height:36px}.jsf-date-dialog footer>button{min-height:40px}}
+@media(prefers-reduced-motion:no-preference){.jsf-date-dialog[open]{animation:jsf-date-in 140ms ease-out}@keyframes jsf-date-in{from{opacity:.4}to{opacity:1}}}
+@media(prefers-reduced-motion:reduce){.jsf-date-grid td>button{transition:none}}
+@media print{.jsf-date-dialog,.jsf-date-trigger{display:none!important}}

@@ -1,0 +1,12 @@
+.jsf-order-pdfs {margin:18px 0;min-width:0;font-size:13px;color:#353535}
+.jsf-order-pdfs h3 {font-size:13px;font-weight:400;margin:0 0 10px}
+.jsf-order-pdfs ul {list-style:none;margin:0 0 10px;padding:0}
+.jsf-order-pdfs li {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 0;border-bottom:1px solid #ececec}
+.jsf-order-pdf-name {min-width:0;overflow-wrap:anywhere}
+.jsf-order-pdf-name small {display:block;color:#777;font-size:11px;margin-top:3px}
+.jsf-order-pdf-actions {display:flex;gap:8px;flex-wrap:wrap}
+.jsf-order-pdfs button {background:#fff;color:#353535;border:1px solid #ddd;border-radius:5px;padding:8px 11px;font:400 12px Arial,sans-serif;cursor:pointer}
+.jsf-order-pdfs button:disabled {opacity:.5;cursor:default}
+.jsf-order-pdfs .jsf-order-pdf-limit {font-size:11px;color:#777;margin:8px 0}
+.jsf-order-pdfs .jsf-order-pdf-error {color:#a33;font-size:12px}
+@media print {.jsf-order-pdfs {display:none}}

@@ -1,0 +1,6 @@
+.jsf-hanging-stack-fields{display:grid;gap:18px;min-width:0}.jsf-stack-tabs,.jsf-stack-actions{display:flex;flex-wrap:wrap;gap:7px}.jsf-stack-tabs button,.jsf-stack-actions button{border:1px solid #dcd8d2;background:white;padding:8px 11px;min-height:36px;cursor:pointer;border-radius:4px;color:#494540}.jsf-stack-tabs button[aria-pressed=true]{background:#eee!important;border-color:#aaa39a!important}.jsf-stack-actions button:disabled{opacity:.4;cursor:default}.jsf-hanging-stack-fields>label{display:grid;gap:6px}.jsf-hanging-stack-fields>label>input,.jsf-hanging-stack-fields>label>select{width:100%;box-sizing:border-box;border:1px solid #dcd8d2;border-radius:3px;padding:10px;font:inherit;background:#fff}
+.jsf-road-stack-toolbar .jsf-editor-panel-bar>label{display:grid;gap:8px;flex:1;min-width:0;color:#666;font-size:12px}
+.jsf-road-stack-toolbar .jsf-editor-panel-bar select{width:100%;min-height:44px;box-sizing:border-box;padding:10px 12px;border:1px solid #dcd8d2;border-radius:3px;background:#fff;color:#333;font:inherit}
+.jsf-road-stack-toolbar button:disabled{opacity:.4;cursor:default}
+.jsf-road-stack-toolbar .jsf-editor-menu>summary{height:40px;min-height:40px;box-sizing:border-box}
+.jsf-road-stack-toolbar .jsf-editor-menu>summary:focus-visible{outline:2px solid #008b57;outline-offset:2px}

@@ -1,0 +1,28 @@
+/* Keep neighbouring controls aligned when one label gains an error line. */
+body label:has(> input, > select, > textarea) {align-content: start;}
+body .jsf-inline-field-error,
+body .jsf-field-error,
+body .jsf-login-field-error {
+  display: block;
+  grid-column: 1 / -1;
+  margin: 6px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #a33d32 !important;
+  font: 400 12px/1.5 Arial, sans-serif !important;
+  text-align: left;
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+body :is(input,select,textarea).jsf-inline-invalid,
+body :is(input,select,textarea)[aria-invalid="true"] {
+  border-color: #bc6a60 !important;
+  box-shadow: none !important;
+}
+body :is(input,select,textarea).jsf-inline-invalid:focus,
+body :is(input,select,textarea)[aria-invalid="true"]:focus {
+  outline: 2px solid rgba(188,106,96,.22) !important;
+  outline-offset: 2px;
+}

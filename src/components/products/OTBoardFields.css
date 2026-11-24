@@ -1,0 +1,11 @@
+.jsf-ot-pair-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.jsf-ot-with-floors .jsf-ot-row>.jsf-ot-row-fields{grid-template-columns:minmax(0,1fr) minmax(70px,.18fr) minmax(70px,.18fr)}
+@media(max-width:560px){.jsf-ot-with-floors .jsf-ot-row>.jsf-ot-row-fields{grid-template-columns:minmax(0,1fr)}}
+.jsf-ot-pair-side{min-width:0;display:grid;gap:9px;align-content:start}
+.jsf-ot-side-title{font:400 11px/1.5 Arial,sans-serif;color:#817a72}
+.jsf-ot-pair-side+.jsf-ot-pair-side{border-left:1px solid #ece8e2;padding-left:16px}
+.jsf-ot-pair-side .jsf-ot-row-fields{grid-template-columns:minmax(0,1fr)}
+@media(max-width:650px){
+ .jsf-ot-pair-columns{grid-template-columns:minmax(0,1fr);gap:18px}
+ .jsf-ot-pair-side+.jsf-ot-pair-side{border-left:0;border-top:1px solid #ece8e2;padding:14px 0 0}
+}

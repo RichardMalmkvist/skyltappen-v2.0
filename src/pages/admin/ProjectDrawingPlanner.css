@@ -1,0 +1,54 @@
+/* Shared drawing workspace. The existing sign-list contents keep their styles. */
+.jsf-planner.jsf-planner-workspace{margin-top:20px;color:#353535;font-family:Arial,sans-serif;--drawing-height:clamp(360px,72dvh,980px)}
+.jsf-planner-workspace .jsf-planner-top{align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+.jsf-planner-workspace .jsf-planner-top>.jsf-planner-heading{display:grid;gap:5px;min-width:0;flex:1 1 260px}
+.jsf-planner-workspace .jsf-planner-heading>small{font:400 10px/1.5 Arial,sans-serif;color:#8a8177;letter-spacing:.06em}
+.jsf-planner-workspace .jsf-planner-heading>h2{font:400 21px/1.35 Arial,sans-serif!important;color:#353535!important;margin:0;overflow-wrap:anywhere}
+.jsf-planner-workspace .jsf-planner-heading>span{font:400 11px/1.5 Arial,sans-serif;color:#817a72}
+.jsf-planner-workspace .jsf-planner-heading>.jsf-planner-back{justify-self:start;margin:0 0 8px;padding:0!important;min-height:24px;border:0!important;background:transparent!important;color:#817a72;font:400 11px/1.4 Arial,sans-serif;cursor:pointer}
+.jsf-planner-workspace .jsf-planner-top>.jsf-planner-actions{display:flex;flex:0 1 auto;gap:8px;align-items:center;flex-wrap:wrap}
+.jsf-planner-workspace .jsf-planner-actions>button{padding:9px 13px;min-height:35px;border-radius:4px;font:400 11px/1.4 Arial,sans-serif;cursor:pointer}
+.jsf-planner-workspace .jsf-planner-actions>.project-secondary{border:1px solid #dcd8d2;background:white;color:#595550}
+.jsf-planner-workspace .jsf-planner-actions>.project-primary{border:1px solid #353535;background:#353535;color:white}
+.jsf-planner-workspace .jsf-planner-tools{gap:12px;flex-wrap:wrap;padding:10px 12px;margin-bottom:14px;background:white;border:1px solid #e9e6e1;border-radius:4px}
+.jsf-planner-workspace .jsf-planner-tools button{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:400 11px/1.4 Arial,sans-serif;padding:6px 10px;min-height:32px;cursor:pointer}
+.jsf-planner-workspace .jsf-planner-tools button:disabled{cursor:default}
+.jsf-planner-workspace .jsf-planner-page-tools,.jsf-planner-workspace .jsf-planner-zoom-tools{display:flex;align-items:center;gap:7px;font:400 11px/1.4 Arial,sans-serif;white-space:nowrap}
+.jsf-planner-workspace .jsf-planner-zoom-tools{padding-left:12px;border-left:1px solid #e9e6e1}
+.jsf-planner-workspace .jsf-planner-zoom-tools>output{min-width:48px;text-align:center;color:#595550;font:400 11px/1.4 Arial,sans-serif}
+.jsf-planner-workspace .jsf-planner-body{gap:16px}
+.jsf-planner.jsf-planner-workspace .jsf-planner-scroll{height:var(--drawing-height);max-height:none!important;min-height:0;box-sizing:border-box;padding:24px;background:#f0f0f0;border:1px solid #e7e2db;border-radius:5px;overscroll-behavior:contain}
+.jsf-planner-workspace .jsf-planner-stage>.jsf-marker{display:flex;align-items:center;justify-content:center;font:800 9px/1 Arial,sans-serif}
+.jsf-planner-workspace .jsf-planner-stage{box-shadow:0 3px 16px rgba(45,39,31,.1)}
+.jsf-planner-workspace .jsf-planner-hint{font:400 10px/1.5 Arial,sans-serif;color:#8a8177;margin:9px 0 0}
+.jsf-planner.jsf-planner-workspace.is-side-hidden .jsf-planner-body{grid-template-columns:minmax(0,1fr)!important}
+.jsf-planner-workspace .jsf-planner-side[hidden]{display:none!important}
+.jsf-planner.jsf-planner-workspace.is-expanded{position:fixed;inset:0;z-index:9000;margin:0;padding:20px 24px;box-sizing:border-box;background:#ffffff;width:100%;height:100dvh;display:flex;flex-direction:column;overflow:auto;--drawing-height:100%}
+.jsf-planner-workspace.is-expanded>.jsf-planner-top,.jsf-planner-workspace.is-expanded>.jsf-planner-tools,.jsf-planner-workspace.is-expanded>.jsf-planner-hint{flex-shrink:0}
+.jsf-planner-workspace.is-expanded>.jsf-planner-body{flex:1;min-height:180px;align-items:stretch}
+.jsf-planner.jsf-planner-workspace.is-expanded .jsf-planner-scroll{height:100%;max-height:none!important}
+.jsf-planner.jsf-planner-workspace.is-expanded .jsf-planner-side{position:static;max-height:100%;min-height:0}
+@media(max-width:1000px){
+  .jsf-planner.jsf-planner-workspace{--drawing-height:62dvh}
+  .jsf-planner-workspace.is-expanded>.jsf-planner-body{display:flex;flex-direction:column;min-height:0;overflow:auto}
+  .jsf-planner.jsf-planner-workspace.is-expanded .jsf-planner-scroll{height:58dvh;min-height:280px;flex-shrink:0}
+  .jsf-planner.jsf-planner-workspace.is-expanded.is-side-hidden .jsf-planner-scroll{flex:1;min-height:180px}
+  .jsf-planner.jsf-planner-workspace.is-expanded .jsf-planner-side{overflow:visible;flex-shrink:0;max-height:none}
+}
+@media(max-width:600px){
+  .jsf-planner-workspace .jsf-planner-top{gap:12px}
+  .jsf-planner-workspace .jsf-planner-heading>h2{font-size:18px!important}
+  .jsf-planner-workspace .jsf-planner-tools{gap:8px;padding:8px}
+  .jsf-planner-workspace .jsf-planner-zoom-tools{padding-left:8px}
+  .jsf-planner-workspace .jsf-tools-spacer{display:none}
+  .jsf-planner.jsf-planner-workspace.is-expanded{padding:12px}
+  .jsf-planner-workspace.is-expanded .jsf-planner-heading>.jsf-planner-back{margin-bottom:2px}
+}
+@media(pointer:coarse){.jsf-planner-workspace .jsf-planner-tools button,.jsf-planner-workspace .jsf-planner-actions button{min-height:44px}}
+
+/* Pin geometry must not inherit button spacing, animation or hover transforms. */
+.jsf-planner.jsf-planner-workspace .jsf-planner-stage>.jsf-marker{
+ box-sizing:border-box!important;width:26px!important;min-width:26px!important;max-width:26px!important;height:26px!important;min-height:26px!important;max-height:26px!important;padding:0!important;margin:0!important;
+ transform:translate(-50%,-50%) scale(var(--marker-inverse-zoom,1))!important;transform-origin:50% 50%!important;transition:none!important;animation:none!important;
+}
+.jsf-planner-workspace .jsf-planner-stage>canvas:first-child{display:block;margin:0;padding:0;border:0;max-width:none;max-height:none;}

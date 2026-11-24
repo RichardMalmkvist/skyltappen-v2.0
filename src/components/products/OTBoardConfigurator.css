@@ -1,0 +1,3 @@
+/* Keep the ordering form compact while every saved row remains accessible. */
+.jsf-ot-configurator .jsf-ot-rows{max-height:min(360px,42vh);scrollbar-gutter:stable}
+@media(max-width:650px){.jsf-ot-configurator .jsf-ot-rows{max-height:min(320px,42vh)}}

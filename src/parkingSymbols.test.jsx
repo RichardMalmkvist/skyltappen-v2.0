@@ -1,0 +1,9 @@
+import {parkingArticles,parkingConfig,parkingError,parkingPreviewSvg} from './data/parkingSign';
+import {createFormCartItem} from './data/cartHelpers';
+const [product]=parkingArticles(),symbol={id:'one',symbolId:'logo',name:'Region',image:'/api/dibond-symbols/images/2f7018a0-974c-4b7a-a2a0-df523d2c5cc1',xMm:20,yMm:160,sizeMm:20,aspectRatio:3};
+test('1501 retains symbol identity, size and position in the cart and preview',()=>{
+ const form={quantity:2,customTextLine1:'Personal',parkingSymbols:[symbol]};expect(parkingError(product,form)).toBeNull();const item=createFormCartItem(product,'parkeringsskylt',form);expect(item.parkingSymbols).toEqual([symbol]);form.parkingSymbols[0]={...symbol,xMm:40};expect(item.parkingSymbols[0].xMm).toBe(20);expect(parkingPreviewSvg(product,item)).toContain('data-parking-symbol="true"');expect(parkingPreviewSvg(product,item)).toContain('width="60" height="20"');
+});
+test('1501 blocks missing symbol assets and placements outside the sign',()=>{const text={quantity:1,customTextLine1:'Personal'};expect(parkingError(product,{...text,parkingSymbols:[{...symbol,xMm:parkingConfig(product).widthMm}]})).toMatch(/kanter/);expect(parkingError(product,{...text,parkingSymbols:[{...symbol,image:'https://invalid.example/a.svg'}]})).toMatch(/kanter/);});
+
+test('1501 can replace its editable text with symbols without restoring example text',()=>{const form={quantity:1,customTextLine1:'Personal',parkingWithoutText:true,parkingSymbols:[symbol]};expect(parkingError(product,form)).toBeNull();const item=createFormCartItem(product,'parkeringsskylt',form);expect(item.parkingWithoutText).toBe(true);const svg=parkingPreviewSvg(product,item,{example:true});expect(svg).not.toContain('>Personal</text>');expect(svg).not.toContain('>Palliativa</text>');expect(svg).toContain('data-parking-symbol');expect(parkingPreviewSvg(product,{...item,parkingWithoutText:false})).toContain('>Personal</text>');});

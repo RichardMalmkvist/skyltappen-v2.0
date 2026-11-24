@@ -1,0 +1,46 @@
+/* Shared catalog presentation, including articles added in the future. */
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog{background:#fff!important;color:#303236!important}
+.jsf-storefront-light.jsf-calm-home-shell.jsf-minimal-catalog>.jsf-public-header{background:#fff!important;border-color:#e5e5e5!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-public-header-actions .jsf-product-search input{background:#f5f5f5!important;border-color:#e2e2e2!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-product-menu-panel{background:#fff;border-color:#e5e5e5}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-product-menu-links>button:is(:hover,:focus-visible,[aria-current=page]){background:#f2f2f2!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-calm-back{background:transparent!important;border:0!important;padding:0!important;min-height:44px;box-shadow:none!important;color:#606266!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog-intro{margin-bottom:0!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog-intro h1{font-size:28px!important;margin-bottom:8px!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog-product-count{display:block!important;color:#737373}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-calm-products-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:32px 24px!important;align-items:stretch!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card{display:flex!important;flex-direction:column!important;gap:0!important;max-width:440px!important;min-height:0!important;height:100%;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;transform:none!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-media{flex:none;box-sizing:border-box;width:100%!important;height:220px!important;min-height:0!important;padding:18px 22px!important;border:1px solid #e2e2e2!important;border-radius:4px!important;background:#fff!important;overflow:hidden;transition:transform 180ms ease,box-shadow 180ms ease,border-color 180ms ease!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-media>div:first-child{height:100%!important;width:100%!important;min-width:0}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-media img{max-width:80%!important;max-height:180px!important;object-fit:contain!important;filter:none!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content{display:flex!important;flex:1;flex-direction:column!important;gap:16px!important;padding:14px 0 0!important;justify-content:space-between!important;min-width:0}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content>div:first-child{display:flex;flex-wrap:wrap;align-content:start;gap:5px 8px}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-description{display:contents!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content .jsf-catalog-card-name{order:-1;width:100%;font:400 15px/1.4 Arial,sans-serif!important;color:#303236!important;overflow-wrap:anywhere}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content .jsf-catalog-card-title,.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content .jsf-catalog-card-format{font:400 12px/1.5 Arial,sans-serif!important;color:#737373!important;margin:0!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-minimal-card-meta{display:flex;flex-wrap:wrap;gap:4px 8px;color:#737373;font:400 12px/1.5 Arial,sans-serif;width:100%}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-minimal-card-meta>span+span:before{content:'·';margin-right:8px}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-order-row{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between;gap:12px!important;margin-top:auto!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-quantity label{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-quantity-stepper{height:44px!important;border-color:#dedede!important;border-radius:4px!important;width:104px;flex:none;background:#fff}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-quantity-stepper input{width:38px!important;border-color:#e5e5e5!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card-action{background:#303236!important;color:#fff!important;border:1px solid #303236!important;border-radius:4px!important;height:44px!important;min-height:44px!important;max-height:44px!important;box-sizing:border-box!important;align-self:flex-start;flex-shrink:0!important;white-space:nowrap!important;padding:10px 15px!important;font:400 12px/1.4 Arial,sans-serif!important;text-decoration:none!important;transform:none!important;flex:1;max-width:230px}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content>.jsf-catalog-card-action{flex:0 0 auto!important;margin-top:auto!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card-action:hover{background:#45474a!important;border-color:#45474a!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card:focus-within{background:transparent!important;box-shadow:none!important}
+@media(hover:hover) and (pointer:fine){.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card:hover .jsf-card-media{background:#fff!important;border-color:#d0d0d0!important;transform:translateY(-2px);box-shadow:0 5px 14px #00000008!important}}
+@media(max-width:1100px){.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-calm-products-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 22px!important}}
+@media(max-width:600px){.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-calm-products-grid{grid-template-columns:minmax(0,1fr)!important;gap:30px!important}.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card{justify-self:center;width:100%!important}.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog-intro h1{font-size:24px!important}}
+@media(prefers-reduced-motion:reduce){.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-media{transition:none!important;transform:none!important}}
+
+/* White cards are separated by soft shadows rather than perimeter borders. */
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card{background:#fff!important;border:0!important;border-radius:4px!important;box-shadow:0 4px 18px #00000012,0 1px 3px #00000006!important;overflow:hidden!important;transition:transform 180ms ease,box-shadow 180ms ease,border-color 180ms ease!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-media{border:0!important;border-bottom:1px solid #f0f0f0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-card-content{padding:16px!important}
+.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card:focus-within{border:0!important;box-shadow:0 5px 20px #00000018!important}
+@media(hover:hover) and (pointer:fine){
+ .jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card:hover{border:0!important;box-shadow:0 7px 24px #0000001c!important;transform:translateY(-2px)!important}
+ .jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card:hover .jsf-card-media{border-color:#f0f0f0!important;box-shadow:none!important;transform:none!important}
+}
+@media(prefers-reduced-motion:reduce){.jsf-storefront-light.jsf-calm-catalog-shell.jsf-minimal-catalog .jsf-catalog .jsf-catalog-card{transition:none!important;transform:none!important}}
+

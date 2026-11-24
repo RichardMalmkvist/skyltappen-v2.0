@@ -1,0 +1,64 @@
+/* Public ordering only. No hidden start state: content also works without animation. */
+@keyframes jsf-public-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes jsf-cart-pulse {
+  0%, 100% { background-color: transparent; transform: scale(1); }
+  45% { background-color: #e2e2e2; transform: scale(1.08); }
+}
+.jsf-calm-home-shell .jsf-product-layout {
+  animation: jsf-public-enter 220ms ease-out;
+}
+.jsf-calm-home-shell .jsf-product-field-list > div,
+.jsf-calm-home-shell .jsf-product-field-list div:has(> label),
+.jsf-calm-home-shell .jsf-calm-notice {
+  animation: jsf-public-enter 180ms ease-out;
+}
+.jsf-calm-home-shell :is(button, [role="button"]):not(.jsf-product-arc-item) {
+  transition: background-color 180ms ease, border-color 180ms ease,
+    color 180ms ease, box-shadow 180ms ease, transform 150ms ease !important;
+}
+.jsf-calm-home-shell :is(button, [role="button"]):not(.jsf-product-arc-item):active:not(:disabled) {
+  transform: scale(.98) !important;
+}
+.jsf-calm-home-shell .jsf-product-fields :is(input, select, textarea) {
+  transition: border-color 180ms ease, box-shadow 180ms ease !important;
+}
+.jsf-calm-home-shell .jsf-product-fields :is(input, select, textarea):focus-visible {
+  outline: 2px solid #c5bbad;
+  outline-offset: 2px;
+}
+.jsf-cart-count {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: -2px -5px;
+  border-radius: 3px;
+}
+.jsf-cart-count-added { animation: jsf-cart-pulse 240ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .jsf-calm-home-shell *, .jsf-cart-count-added {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .jsf-calm-home-shell :is(button, [role="button"]):not(.jsf-product-arc-item):active:not(:disabled) {
+    transform: none !important;
+  }
+}
+
+/* Quiet refinements: one-time reveals and an order confirmation, no loops. */
+@keyframes jsf-image-reveal {from {opacity:0} to {opacity:1}}
+@keyframes jsf-confirmation-stroke {from {stroke-dashoffset:20} to {stroke-dashoffset:0}}
+.jsf-calm-home-shell .jsf-image-reveal-ready {animation:jsf-image-reveal 220ms ease-out}
+.jsf-calm-home-shell .jsf-calm-cart-modal {animation:jsf-image-reveal 180ms ease-out}
+.jsf-calm-home-shell .jsf-order-confirmation {display:flex;align-items:center;gap:12px;animation:jsf-image-reveal 200ms ease-out}
+.jsf-confirmation-check {flex:0 0 auto}
+.jsf-confirmation-check path {stroke-dasharray:20;stroke-dashoffset:0;animation:jsf-confirmation-stroke 350ms ease-out}
+.jsf-calm-home-shell .jsf-category-nav button {transition:background-color 180ms ease,color 180ms ease,border-color 180ms ease!important}
+@media(prefers-reduced-motion:reduce) {
+  .jsf-calm-home-shell :is(.jsf-image-reveal-ready,.jsf-calm-cart-modal,.jsf-order-confirmation,.jsf-confirmation-check path,.jsf-category-nav button) {animation:none!important;transition:none!important}
+}
+@media print {
+  .jsf-image-reveal-ready,.jsf-confirmation-check path {animation:none!important;opacity:1!important}
+}

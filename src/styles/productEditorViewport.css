@@ -1,0 +1,70 @@
+/* Shared product editor: the preview remains visible while only fields scroll. */
+.jsf-fitted-preview{position:relative;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden}
+.jsf-fitted-preview-content{position:absolute;top:50%;left:50%;width:100%;min-width:0;transform-origin:center;box-sizing:border-box}
+.jsf-fitted-preview-content>div{box-sizing:border-box;max-width:100%}
+.jsf-fitted-preview[data-align=top]>.jsf-fitted-preview-content{top:0;transform-origin:top center}
+.jsf-fitted-preview[data-align=bottom]>.jsf-fitted-preview-content{top:auto;bottom:0;transform-origin:bottom center}
+.jsf-fitted-preview[data-horizontal-align=right]>.jsf-fitted-preview-content{left:auto;right:0;transform-origin:right center}
+.jsf-fitted-preview[data-horizontal-align=right][data-align=top]>.jsf-fitted-preview-content{transform-origin:right top}
+.jsf-fitted-preview[data-horizontal-align=right][data-align=bottom]>.jsf-fitted-preview-content{transform-origin:right bottom}
+
+/* Project and drawing library use the same modal for every article type. */
+.jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]{height:92vh;height:92dvh;max-height:calc(100dvh - 24px)}
+.jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]>.jsf-sign-modal-content{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]>.jsf-sign-modal-header,
+.jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]>.jsf-sign-modal-footer{flex-shrink:0}
+.jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config{display:flex;flex-direction:column;flex:1;min-height:0;min-width:0;margin:0}
+.jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-top{flex-shrink:0}
+.jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-grid{flex:1;min-height:0;grid-template-rows:minmax(0,1fr);align-items:stretch}
+.jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-preview{align-self:stretch;min-height:0;height:100%;padding:12px 8px;overflow:hidden;display:block}
+.jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-fields{min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;scrollbar-gutter:stable;align-content:start;padding-right:12px;padding-bottom:24px;scroll-padding-block:18px}
+.jsf-sign-fields:focus-visible,.jsf-product-workspace>.jsf-product-fields:focus-visible{outline:1px solid #aaa;outline-offset:-1px}
+
+/* A roomy drawing editor: keep controls readable and give extra width to the sign. */
+@media(min-width:801px){
+ .jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]{width:min(1880px,calc(100vw - 48px));height:94dvh;max-height:calc(100dvh - 32px)}
+ .jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true] .jsf-sign-config-grid{grid-template-columns:minmax(0,1fr) clamp(340px,30vw,480px);gap:24px}
+ .jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true] .jsf-sign-fields{padding-left:24px}
+}
+
+/* Public ordering uses the same fitted preview and independent field pane. */
+.jsf-storefront-light.jsf-calm-catalog-shell .jsf-product .jsf-product-layout>.jsf-product-workspace{display:grid!important;grid-column:1 / -1!important;order:1!important;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr)!important;gap:28px;height:var(--jsf-editor-height,65dvh);min-height:0;min-width:0;align-items:stretch}
+.jsf-product-workspace>.jsf-editor-preview-column{display:flex;flex-direction:column;min-width:0;min-height:0;gap:12px;overflow:hidden}
+.jsf-storefront-light.jsf-calm-catalog-shell .jsf-product-workspace .jsf-product-preview{flex:1;min-height:0!important;padding:0!important;align-self:stretch!important;overflow:hidden}
+.jsf-storefront-light.jsf-calm-catalog-shell .jsf-product-workspace .jsf-preview-stage-shell{min-height:0!important;padding:12px!important;justify-content:flex-start!important}
+.jsf-storefront-light.jsf-calm-catalog-shell .jsf-product-workspace .jsf-form-preview-stage{min-height:0!important;align-items:flex-start!important}
+.jsf-storefront-light.jsf-calm-catalog-shell .jsf-product-workspace>.jsf-product-fields{display:grid;grid-column:2!important;grid-row:1!important;min-height:0;max-height:100%;align-self:stretch!important;overflow-y:auto;overflow-x:hidden;align-content:start;overscroll-behavior-y:contain;scrollbar-gutter:stable;scroll-padding-block:18px;padding-right:12px!important;padding-bottom:24px!important;box-sizing:border-box}
+
+@media(max-width:800px){
+ .jsf-storefront-light.jsf-calm-catalog-shell .jsf-product .jsf-product-layout>.jsf-product-workspace{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(110px,30%) minmax(0,1fr);gap:14px}
+ .jsf-storefront-light.jsf-calm-catalog-shell .jsf-product-workspace>.jsf-product-fields{grid-column:1!important;grid-row:2!important;padding-top:16px!important}
+}
+@media(max-width:750px){
+ .jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]{height:calc(100dvh - 12px);max-height:calc(100dvh - 12px)}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-grid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(100px,30%) minmax(0,1fr);gap:10px}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-fields{border-left:0;border-top:1px solid #e9e9e9;padding:14px 8px 24px 0}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-preview{padding:4px}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-top{gap:12px;margin-bottom:10px}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-top h3{font-size:16px}
+}
+@media print{
+ .jsf-product-workspace{height:auto!important;display:block!important}
+ .jsf-product-workspace>.jsf-product-fields{overflow:visible!important;max-height:none!important}
+ .jsf-fitted-preview{height:auto;overflow:visible}
+ .jsf-fitted-preview-content{position:static;transform:none!important}
+}
+
+/* Mobile editing: readable controls avoid focus zoom, without disabling pinch zoom. */
+@media(max-width:800px){
+ .jsf-storefront-light.jsf-calm-catalog-shell .jsf-product-fields :is(input:not([type=checkbox]):not([type=radio]),textarea,select),
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-fields :is(input:not([type=checkbox]):not([type=radio]),textarea,select){font-size:16px!important;scroll-margin-block:14px}
+ .jsf-storefront-light.jsf-calm-catalog-shell .jsf-product .jsf-product-layout>.jsf-product-workspace{grid-template-rows:minmax(64px,26%) minmax(0,1fr);gap:8px}
+ .jsf-sign-modal.jsf-calm-sign-editor[data-configuring=true]{height:calc(var(--jsf-mobile-viewport-height,100dvh) - 12px)!important;max-height:calc(var(--jsf-mobile-viewport-height,100dvh) - 12px)!important}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-grid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(54px,26%) minmax(0,1fr);gap:8px}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-config-top{margin-bottom:6px}
+ .jsf-sign-modal.jsf-calm-sign-editor :is(.jsf-sign-modal-header,.jsf-sign-modal-footer){padding:10px 14px}
+ .jsf-sign-modal.jsf-calm-sign-editor .jsf-sign-modal-content{padding:10px 14px}
+}
+
+/* Resizing a mobile preview must not move the browser's document scroll anchor. */
+@media(max-width:800px){.jsf-product-workspace,.jsf-sign-modal.jsf-calm-sign-editor{overflow-anchor:none}}

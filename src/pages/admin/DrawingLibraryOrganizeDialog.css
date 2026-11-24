@@ -1,0 +1,52 @@
+.drawing-organize-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  box-sizing: border-box;
+  background: rgba(30, 28, 25, .3);
+}
+.drawing-organize-dialog {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: calc(100dvh - 44px);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fff;
+  color: #353535;
+  border-radius: 5px;
+  box-shadow: 0 12px 35px rgba(30, 28, 25, .12);
+  font: 400 13px/1.5 Arial, sans-serif;
+}
+.drawing-organize-dialog > form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.drawing-organize-dialog .jsf-sign-modal-header,
+.drawing-organize-dialog .jsf-sign-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 15px;
+  padding: 18px 26px;
+}
+.drawing-organize-dialog .jsf-sign-modal-header {border-bottom: 1px solid #e5e5e5;}
+.drawing-organize-dialog .jsf-sign-modal-header h2 {margin: 3px 0;}
+.drawing-organize-dialog .jsf-sign-modal-header > button {padding: 9px 13px;}
+.drawing-organize-dialog .jsf-sign-modal-content {padding: 22px 26px; overflow-y: auto; min-height: 0;}
+.drawing-organize-dialog .jsf-sign-modal-footer {border-top: 1px solid #e5e5e5; border-bottom: 0; justify-content: flex-end;}
+.drawing-organize-dialog button {cursor: pointer;}
+.drawing-organize-dialog button:disabled {cursor: default; opacity: .5;}
+@media (max-width: 600px) {
+  .drawing-organize-backdrop {padding: 12px;}
+  .drawing-organize-dialog {max-height: calc(100dvh - 24px);}
+  .drawing-organize-dialog .jsf-sign-modal-header,
+  .drawing-organize-dialog .jsf-sign-modal-footer {padding: 16px;}
+  .drawing-organize-dialog .jsf-sign-modal-content {padding: 20px 16px;}
+}

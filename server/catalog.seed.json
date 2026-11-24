@@ -1,0 +1,152 @@
+{
+  "version": 2,
+  "updatedAt": "2026-10-05T08:13:37.278Z",
+  "categories": [
+    {
+      "id": "dorroppnare",
+      "title": "Dörröppnare",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "namnbrickor",
+      "title": "Namnbrickor",
+      "isImplemented": true,
+      "status": "open"
+    },
+    {
+      "id": "yrkestitelsskyltar",
+      "title": "Yrkestitelsskyltar",
+      "isImplemented": true,
+      "autoOpenSingleProduct": true,
+      "status": "open"
+    },
+    {
+      "id": "pendlade-vit",
+      "title": "Pendlade skyltar - vit bakgrund",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "pendlade-gron",
+      "title": "Pendlade skyltar - grön bakgrund",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "hanvisnings-infoskyltar-vagg",
+      "title": "Hänvisnings-/infoskyltar på vägg",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "taktila-piktogram",
+      "title": "Taktila piktogram",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "dorrskyltar",
+      "title": "Dörrskyltar",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "verksamhetsskylt-inomhus",
+      "title": "Verksamhetsskylt - inomhus",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "inomhusskyltar",
+      "title": "Inomhusskyltar",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "kamerabevakning",
+      "title": "Kamerabevakning",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "stoldskyddsmarkning",
+      "title": "Stöldskyddsmärkning",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "vaningsplans-och-hisstavlor",
+      "title": "Våningsplans- och hisstavlor",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "orienteringstavla",
+      "title": "Orienteringstavla",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "verksamhetsskylt-utomhus",
+      "title": "Verksamhetsskylt - utomhus",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "hanvisningsskylt",
+      "title": "Hänvisningsskylt",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "entreskylt",
+      "title": "Entréskylt",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "aluminiumskyltar",
+      "title": "Aluminiumskyltar",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "profilskylt",
+      "title": "Profilskylt",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "profilskylt-storre",
+      "title": "Profilskylt - större",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "parkeringsskylt",
+      "title": "Parkeringsskylt",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "rokning-forbjuden",
+      "title": "Rökning förbjuden",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "roll-up",
+      "title": "Roll-up",
+      "isImplemented": false,
+      "status": "closed"
+    },
+    {
+      "id": "etsfoliering",
+      "title": "Etsfoliering",
+      "isImplemented": false,
+      "status": "closed"
+    }
+  ],
+  "articles": []
+}

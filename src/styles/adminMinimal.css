@@ -1,0 +1,370 @@
+/* JSF Flow Minimal v6.2. Applied only to Planning and placed orders. */
+.jsf-admin-layout.jsf-minimal{background:#f6f6f7;color:#343438;font-family:Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.5}
+.jsf-minimal *, .jsf-minimal *::before,.jsf-minimal *::after{box-sizing:border-box}
+.jsf-minimal button,.jsf-minimal input,.jsf-minimal select{font:inherit}
+.jsf-minimal button{cursor:pointer}
+.jsf-minimal button:disabled{cursor:default;opacity:.5}
+.jsf-minimal :is(button,input,select):focus-visible{outline:2px solid #727a81;outline-offset:3px}
+.jsf-minimal :is(.orders-page-new,.jsf-continuous-planning,.jsf-admin-sidebar,.oe-modal,.jsf-plan-edit-card) :is(h1,h2,h3,strong,b){font-weight:400}
+.jsf-minimal .jsf-admin-sidebar{background:#fff;color:#555b60;border-right:1px solid #e5e7e9;padding:24px 12px 16px}
+.jsf-minimal .jsf-sidebar-orbs{display:none}
+.jsf-minimal .jsf-admin-brand{border-bottom:1px solid #eceef0;margin-bottom:22px}
+.jsf-minimal .jsf-admin-brand img{filter:none;opacity:1}
+.jsf-minimal :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal){border-radius:0;color:#62686d;font-size:12px;font-weight:400;padding:10px 12px;box-shadow:none;background:transparent}
+.jsf-minimal :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal):hover:not(:disabled){background:#f5f6f7;color:#252a2e;transform:none}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active){background:#f0f0f3;color:#252a2e;box-shadow:inset 2px 0 #6c7379}
+.jsf-minimal .jsf-admin-nav-icon{font-size:16px;color:#7b8186}
+.jsf-minimal :is(.jsf-admin-bottom-actions,.jsf-admin-user){border-color:#eceef0}
+.jsf-minimal .jsf-admin-portal{border:0}
+.jsf-minimal .jsf-admin-user .avatar{border-radius:0;background:#f0f0f3;color:#555b60}
+.jsf-minimal .jsf-admin-user>button{color:#62686d!important}
+.jsf-minimal .jsf-admin-profile-link small{color:#87878d}
+.jsf-minimal :is(.orders-page-new,.jsf-continuous-planning){background:#f6f6f7;color:#343438;padding:28px 30px 40px;min-height:100vh}
+.jsf-minimal :is(.orders-head-new,.jsf-plan-header){display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 0 24px}
+.jsf-minimal :is(.eyebrow-new,.jsf-plan-header small){display:block;font-size:10px;letter-spacing:.1em;color:#87878d;margin-bottom:7px}
+.jsf-minimal :is(.orders-head-new h1,.jsf-plan-header h1){font-size:23px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.3}
+.jsf-minimal :is(.orders-head-new p,.jsf-plan-header p){margin:0;color:#787e83;font-size:12px}
+.jsf-minimal :is(.refresh-new,.jsf-plan-today){height:36px;padding:0 13px;background:#fff;border:1px solid #dfe2e5;border-radius:0;color:#50565b;white-space:nowrap}
+.jsf-minimal .primary-new{background:#343438;color:#fff;border-color:#343438}
+.jsf-minimal :is(.refresh-new,.jsf-plan-today):hover{background:#eceef0;color:#343438}
+.jsf-minimal .order-stats-new{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:#fff;border:1px solid #e3e6e8;margin-bottom:18px}
+.jsf-minimal .order-stats-new article{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-right:1px solid #e9ebed}
+.jsf-minimal .order-stats-new article:last-child{border-right:0}
+.jsf-minimal .order-stats-new span{font-size:11px;color:#7b8186}
+.jsf-minimal .order-stats-new strong{font-size:20px;font-variant-numeric:tabular-nums}
+.jsf-minimal .orders-toolbar-new{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:10px;margin-bottom:18px}
+.jsf-minimal :is(.orders-toolbar-new input,.orders-toolbar-new select,.jsf-plan-filters input){height:36px;background:#fff;border:1px solid #dfe2e5;border-radius:0;padding:0 12px;color:#343438;min-width:0;font-size:12px}
+.jsf-minimal input::placeholder{color:#9999a0}
+.jsf-minimal .orders-layout-new{display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr);gap:20px;align-items:start}
+.jsf-minimal :is(.orders-list-new,.order-detail-new){background:#fff;border:1px solid #e3e6e8;min-width:0}
+.jsf-minimal .orders-list-new{display:grid;gap:0;max-height:calc(100dvh - 280px);overflow:auto;align-content:start}
+.jsf-minimal .list-head-new{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #e9ebed;font-size:11px}
+.jsf-minimal .list-head-new span{color:#8a9095;font-size:10px}
+.jsf-minimal .order-card-new{width:100%;border:0;border-bottom:1px solid #eceef0;background:#fff;border-radius:0;padding:16px;text-align:left;color:#343438;transition:background .15s}
+.jsf-minimal .order-card-new:hover{background:#f6f6f7}
+.jsf-minimal .order-card-new.active{background:#f1f1f3;box-shadow:inset 2px 0 #737b82}
+.jsf-minimal :is(.card-top-new,.card-meta-new){display:flex;justify-content:space-between;gap:8px;align-items:center}
+.jsf-minimal .order-no-new{font-size:11px;color:#55555e;font-variant-numeric:tabular-nums}
+.jsf-minimal .order-card-new>strong{display:block;font-size:13px;margin:10px 0 3px}
+.jsf-minimal .order-card-new>span{font-size:11px;color:#7c8287;overflow-wrap:anywhere}
+.jsf-minimal .card-meta-new{margin-top:12px;color:#878d92;font-size:10px;flex-wrap:wrap}
+.jsf-minimal .status-new{display:inline-flex;align-items:center;gap:5px;padding:0;color:#71787e;font-size:10px;white-space:nowrap}
+.jsf-minimal .status-new::before{content:"";width:4px;height:4px;background:#a1a7ac}
+.jsf-minimal .status-new.progress::before{background:#6b859b}
+.jsf-minimal :is(.status-new.done,.status-new.delivered)::before{background:#7d9986}
+.jsf-minimal .order-detail-new{padding:22px;min-height:560px}
+.jsf-minimal .detail-head-new{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid #e9ebed}
+.jsf-minimal .detail-order-no-new{font-size:11px;color:#71787e}
+.jsf-minimal .detail-head-new h2{font-size:18px;margin:6px 0}
+.jsf-minimal .detail-head-new p{margin:0;font-size:11px;color:#878d92}
+.jsf-minimal .detail-grid-new{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:20px 0}
+.jsf-minimal .info-new{min-width:0}
+.jsf-minimal :is(.info-new h3,.items-head-new h3){font-size:12px;margin:0 0 12px;color:#55555e}
+.jsf-minimal .info-new p{display:grid;grid-template-columns:105px minmax(0,1fr);gap:8px;margin:8px 0;font-size:11px}
+.jsf-minimal .info-new b{color:#8a9095}
+.jsf-minimal .info-new span{overflow-wrap:anywhere}
+.jsf-minimal .message-new{border-top:1px solid #e9ebed;border-bottom:1px solid #e9ebed;padding:14px 0;margin:16px 0;font-size:11px}
+.jsf-minimal .message-new b{color:#7c8389}
+.jsf-minimal .message-new p{margin:6px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.jsf-minimal .items-head-new{display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px}
+.jsf-minimal .items-head-new h3{margin:0}
+.jsf-minimal .items-head-new span{font-size:10px;color:#8a9095}
+.jsf-minimal .item-new{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #eceef0}
+.jsf-minimal .item-index-new{font-size:10px;color:#9999a0;padding-top:2px}
+.jsf-minimal .item-title-new{display:flex;justify-content:space-between;gap:14px}
+.jsf-minimal .item-title-new>div{display:grid;gap:3px}
+.jsf-minimal .item-title-new strong{font-size:12px}
+.jsf-minimal .item-title-new span{font-size:10px;color:#8a9095}
+.jsf-minimal .item-price-new{text-align:right;white-space:nowrap}
+.jsf-minimal .item-data-new{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px}
+.jsf-minimal .item-data-new span{display:flex;gap:5px;font-size:11px;overflow-wrap:anywhere}
+.jsf-minimal .item-data-new b{color:#8a9095}
+.jsf-minimal .total-new{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-size:12px}
+.jsf-minimal .total-new strong{font-size:18px}
+.jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new){display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:16px;margin-top:16px;border-top:1px solid #e9ebed;flex-wrap:wrap}
+.jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new)>div:first-child{display:grid;gap:4px}
+.jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new) small{font-size:10px;color:#8a9095}
+.jsf-minimal :is(.edit-buttons-new,.jsf-order-document-buttons){display:flex;gap:6px;flex-wrap:wrap}
+.jsf-minimal :is(.edit-buttons-new button,.document-actions-new button,.status-actions-new select,.jsf-order-ready button){height:34px;border:1px solid #dfe2e5;border-radius:0;background:#fff;color:#55555e;font-size:11px;padding:0 10px}
+.jsf-minimal .delete-order-new{color:#945953!important}
+.jsf-minimal :is(.edit-buttons-new button,.document-actions-new button,.jsf-order-ready button):hover{background:#f2f3f4}
+.jsf-minimal .jsf-order-departments{margin-top:20px;padding-top:16px;border-top:1px solid #e9ebed}
+.jsf-minimal .jsf-order-departments-title{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin-bottom:12px}
+.jsf-minimal .jsf-order-departments-title span{font-size:10px;color:#8a9095}
+.jsf-minimal .jsf-order-department-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.jsf-minimal .jsf-order-department{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid #e9ebed;padding:10px;font-size:11px}
+.jsf-minimal .jsf-order-department.is-disabled{color:#9999a0}
+.jsf-minimal .jsf-order-department-control{display:flex;align-items:center;gap:6px;min-width:0}
+.jsf-minimal .jsf-order-department-control select{max-width:130px;border:0;background:transparent;color:#666e75;font-size:11px;min-width:0}
+.jsf-minimal .jsf-order-ready{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;font-size:11px;color:#6f6f79}
+.jsf-minimal .jsf-order-delivered{font-size:11px;color:#6f6f79}
+.jsf-minimal :is(.flash-new,.jsf-plan-error){padding:12px;margin-bottom:14px;border:1px solid #e2e2e5;background:#fff;font-size:12px;color:#6f6f79}
+.jsf-minimal :is(.flash-new.error,.jsf-plan-error){color:#945953;border-color:#e7d8d6}
+.jsf-minimal :is(.empty-new,.empty-detail-new){padding:48px 18px;text-align:center;color:#87878d}
+.jsf-minimal .empty-new>span{font-size:18px;color:#9999a0}
+.jsf-minimal .empty-new h3{font-size:14px;margin:12px 0 6px}
+.jsf-minimal .empty-new p{font-size:12px;margin:0}
+.jsf-minimal .empty-detail-new{min-height:400px;display:grid;place-items:center}
+/* Only weeks scroll; keep search and view controls visible. */
+.jsf-minimal .jsf-plan-contained{height:100dvh;min-height:540px;display:flex;flex-direction:column;overflow:hidden;padding-bottom:20px}
+.jsf-minimal :is(.jsf-plan-header,.jsf-plan-toolbar,.jsf-plan-summary,.jsf-plan-error){flex-shrink:0}
+.jsf-minimal .jsf-plan-toolbar{border-bottom:1px solid #e0e3e6;padding-bottom:16px}
+.jsf-minimal .jsf-plan-tabs{display:flex;gap:22px;flex-wrap:wrap;border-bottom:1px solid #e0e3e6;margin-bottom:16px}
+.jsf-minimal .jsf-plan-tabs button{border:0;border-bottom:2px solid transparent;padding:8px 0 10px;background:transparent;border-radius:0;color:#87878d;font-size:12px}
+.jsf-minimal .jsf-plan-tabs button.active{border-bottom-color:#737b82;color:#343438}
+.jsf-minimal .jsf-plan-filters{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.jsf-minimal .jsf-plan-filters input{width:min(460px,100%)}
+.jsf-minimal .jsf-plan-filter-note{font-size:11px;color:#9999a0}
+.jsf-minimal .jsf-plan-summary{display:flex;justify-content:space-between;gap:14px;padding:14px 0;font-size:11px;color:#87878d}
+.jsf-minimal .jsf-plan-weeks{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-right:6px;padding-bottom:12px;display:grid;gap:6px;align-content:start}
+.jsf-minimal :is(.jsf-plan-week,.jsf-plan-week-empty){scroll-margin-top:12px}
+.jsf-minimal .jsf-plan-week{margin:6px 0;background:#fff;border:1px solid #e3e6e8}
+.jsf-minimal .jsf-plan-week.current{border-color:#a7afb5}
+.jsf-minimal .jsf-plan-week-title{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #e9ebed}
+.jsf-minimal .jsf-plan-week-title strong{font-size:13px;color:#55555e}
+.jsf-minimal .jsf-plan-week-title span{font-size:10px;color:#9999a0}
+.jsf-minimal .jsf-plan-week-empty{display:flex;justify-content:space-between;align-items:center;min-height:28px;padding:4px 3px;border-bottom:1px solid #eceef0;color:#87878d;font-size:11px}
+.jsf-minimal .jsf-plan-week-empty.current{color:#55555e;border-bottom-color:#a7afb5}
+.jsf-minimal .jsf-plan-week-empty small{font-size:10px;color:#9999a0}
+.jsf-minimal .jsf-plan-table-wrap{overflow-x:auto}
+.jsf-minimal .jsf-plan-table{width:100%;min-width:1040px;border-collapse:collapse;table-layout:fixed;font-size:11px}
+.jsf-minimal .jsf-plan-table th{text-align:left;color:#87878d;font-size:10px;font-weight:400;padding:10px;border-bottom:1px solid #e9ebed}
+.jsf-minimal .jsf-plan-table td{padding:10px;border-bottom:1px solid #f0f1f2;vertical-align:middle;overflow-wrap:anywhere}
+.jsf-minimal .jsf-plan-table tr:last-child td{border-bottom:0}
+.jsf-minimal .jsf-plan-table tbody tr:hover{background:#fafbfc}
+.jsf-minimal .jsf-plan-table th:nth-child(1){width:100px}.jsf-minimal .jsf-plan-table th:nth-child(2){width:106px}.jsf-minimal .jsf-plan-table th:nth-child(3){width:16%}.jsf-minimal .jsf-plan-table th:nth-child(4){width:19%}.jsf-minimal .jsf-plan-table th:nth-child(5){width:104px}.jsf-minimal .jsf-plan-table th:nth-child(6){width:15%}
+.jsf-minimal :is(.jsf-plan-dept-head,.jsf-plan-dept-cell){width:76px;text-align:center!important}
+.jsf-minimal :is(.jsf-plan-date b,.jsf-plan-date small){display:block}
+.jsf-minimal .jsf-plan-date small{font-size:10px;color:#9999a0;margin-top:3px}
+.jsf-minimal :is(.jsf-plan-link,.jsf-plan-object-link){border:0;background:transparent;padding:0;color:#55555e;text-align:left;font-size:11px}
+.jsf-minimal :is(.jsf-plan-link,.jsf-plan-object-link):hover{text-decoration:underline}
+.jsf-minimal .jsf-plan-star{color:#ad8654;margin-left:4px}
+.jsf-minimal .jsf-plan-delivery{white-space:nowrap;font-variant-numeric:tabular-nums}
+.jsf-minimal .jsf-plan-article{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#87878d}
+.jsf-minimal .jsf-plan-symbol{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;vertical-align:middle;border:0;border-radius:0;background:transparent;padding:0}
+.jsf-minimal .jsf-plan-symbol:hover{background:#f0f0f3}
+.jsf-minimal .jsf-plan-symbol svg{display:block}
+.jsf-minimal .jsf-plan-disabled{color:#c4c9cd}
+.jsf-minimal .jsf-plan-menu-backdrop{position:fixed;inset:0;z-index:1101;border:0;background:transparent;cursor:default}
+.jsf-minimal .jsf-plan-status-menu{z-index:1102;width:176px;background:#fff;border:1px solid #dfe2e5;padding:6px;box-shadow:0 6px 20px #20242814}
+.jsf-minimal .jsf-plan-status-menu>strong{display:block;padding:8px;font-size:11px;color:#87878d}
+.jsf-minimal .jsf-plan-status-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:9px;border:0;border-radius:0;background:#fff;text-align:left;font-size:12px;color:#55555e}
+.jsf-minimal .jsf-plan-status-menu button:hover,.jsf-minimal .jsf-plan-status-menu button.chosen{background:#f1f1f3}
+.jsf-minimal .jsf-plan-status-menu button span{display:inline-flex;width:20px;align-items:center;justify-content:center}
+.jsf-minimal .jsf-plan-status-menu svg{width:18px;height:18px}
+@media(max-width:1100px){.jsf-minimal .orders-layout-new{grid-template-columns:minmax(250px,300px) minmax(0,1fr)}.jsf-minimal .detail-grid-new{grid-template-columns:1fr}.jsf-minimal .jsf-order-department-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.jsf-minimal .orders-layout-new{grid-template-columns:1fr}.jsf-minimal .orders-list-new{max-height:360px}.jsf-minimal .order-stats-new{grid-template-columns:1fr 1fr}.jsf-minimal .order-stats-new article:nth-child(2){border-right:0}.jsf-minimal .order-stats-new article:nth-child(-n+2){border-bottom:1px solid #e9ebed}.jsf-minimal .jsf-plan-filter-note{display:none}}
+@media(max-width:720px){.jsf-minimal .jsf-admin-sidebar{padding:9px 10px;border-right:0;border-bottom:1px solid #e3e6e8}.jsf-minimal .jsf-admin-brand{margin-bottom:4px;border:0}.jsf-minimal :is(.orders-page-new,.jsf-continuous-planning){padding:20px 14px}.jsf-minimal :is(.orders-head-new,.jsf-plan-header){flex-wrap:wrap;gap:14px;margin-bottom:18px}.jsf-minimal .orders-toolbar-new{grid-template-columns:1fr}.jsf-minimal .order-detail-new{padding:16px}.jsf-minimal .jsf-plan-summary{flex-wrap:wrap;gap:4px}.jsf-minimal .jsf-plan-contained{height:calc(100dvh - 115px);min-height:440px}.jsf-minimal .jsf-plan-filters input{width:100%}.jsf-minimal .jsf-plan-tabs{gap:18px}.jsf-minimal .jsf-order-departments-title{flex-wrap:wrap}.jsf-minimal .jsf-order-ready{flex-wrap:wrap}}
+
+/* Modal controls follow the screen theme; printed document layout is preserved. */
+.jsf-minimal .oe-modal{border-radius:0;font-family:Arial,sans-serif;color:#343438;box-shadow:0 16px 48px #20242826}
+.jsf-minimal .oe-body{background:#f6f6f7}
+.jsf-minimal :is(.oe-section,.oe-item){border-radius:0;border-color:#e3e6e8;background:#fff}
+.jsf-minimal :is(.oe-header span,.oe-grid label>span){color:#87878d;font-weight:400}
+.jsf-minimal .oe-header h2{font-size:18px}
+.jsf-minimal .oe-section h3{font-size:12px}
+.jsf-minimal :is(.oe-grid input,.oe-grid textarea,.oe-grid select,.oe-add-row select,.oe-add-row button,.oe-item-head button,.oe-footer button){border-radius:0;border-color:#dfe2e5;font-weight:400}
+.jsf-minimal :is(.oe-add-row button,.oe-item-head button){background:#fff;color:#666e75}
+.jsf-minimal .oe-footer .primary{background:#343438;color:#fff}
+@media screen{
+ .jsf-minimal .order-ack-overlay{background:#20242870;backdrop-filter:none}
+ .jsf-minimal .order-ack-actions{background:#fff;color:#343438;border:1px solid #e0e3e6;border-radius:0;box-shadow:none}
+ .jsf-minimal .order-ack-actions span{color:#87878d}
+ .jsf-minimal .order-ack-action-buttons button{border-radius:0;font-weight:400;border:1px solid #dfe2e5;background:#fff;color:#55555e}
+}
+
+/* v6.1: warmer surfaces and subtle depth, with a clear active navigation item. */
+.jsf-minimal .jsf-admin-sidebar{border-right-color:#e5e5e8;box-shadow:3px 0 14px rgba(35,35,42,.025)}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active){
+ background:#f0f0f3;color:#343438;
+ box-shadow:inset 2px 0 0 #74747e,inset 0 0 0 1px #dddde3,0 3px 9px rgba(35,35,42,.09);
+}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active) .jsf-admin-nav-icon{color:#6f6f79}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active):hover:not(:disabled){background:#ebebef;color:#343438}
+.jsf-minimal :is(.order-stats-new,.orders-list-new,.order-detail-new,.jsf-plan-week){
+ border-color:#e2e2e5;box-shadow:0 2px 8px rgba(35,35,42,.035);
+}
+.jsf-minimal .jsf-plan-week-title{background:#fcfcfc;border-bottom-color:#e8e8eb}
+.jsf-minimal .jsf-plan-week.current{border-color:#bcbcc5;box-shadow:0 2px 10px rgba(35,35,42,.055)}
+.jsf-minimal .jsf-plan-week-empty.current{color:#666670;border-bottom-color:#c9c9d0}
+.jsf-minimal .jsf-plan-tabs button.active{color:#55555e;border-bottom-color:#85858e}
+.jsf-minimal .order-card-new.active{background:#f3f3f5;box-shadow:inset 2px 0 #85858e}
+.jsf-minimal .order-card-new:hover{background:#fafafa}
+.jsf-minimal .jsf-plan-table tbody tr:hover{background:#fafafa}
+.jsf-minimal :is(.refresh-new,.jsf-plan-today){box-shadow:0 1px 3px rgba(35,35,42,.04);border-color:#dfdfe4}
+@media(max-width:720px){.jsf-minimal .jsf-admin-sidebar{box-shadow:none}}
+
+/* v6.2: restrained corner radii matching the approved planning mockup. */
+.jsf-minimal :is(.jsf-admin-nav button,.jsf-admin-settings,.jsf-admin-portal,
+ .refresh-new,.jsf-plan-today,.orders-toolbar-new input,.orders-toolbar-new select,
+ .jsf-plan-filters input,.edit-buttons-new button,.document-actions-new button,
+ .status-actions-new select,.jsf-order-ready button,.jsf-plan-symbol){border-radius:6px}
+.jsf-minimal :is(.order-stats-new,.orders-list-new,.order-detail-new,.jsf-plan-week){border-radius:8px}
+.jsf-minimal .order-stats-new article:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px}
+.jsf-minimal .order-stats-new article:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px}
+.jsf-minimal .jsf-plan-week-title{border-radius:8px 8px 0 0}
+.jsf-minimal .jsf-plan-table-wrap{border-radius:0 0 8px 8px}
+.jsf-minimal .jsf-plan-status-menu{border-radius:8px}
+.jsf-minimal .jsf-plan-status-menu button{border-radius:4px}
+.jsf-minimal :is(.jsf-order-department,.oe-section,.oe-item){border-radius:6px}
+.jsf-minimal :is(.oe-modal,.jsf-plan-edit-card){border-radius:8px}
+.jsf-minimal :is(.oe-grid input,.oe-grid textarea,.oe-grid select,.oe-add-row select,
+ .oe-add-row button,.oe-item-head button,.oe-footer button){border-radius:6px}
+.jsf-minimal .jsf-plan-edit-card :is(input:not([type=checkbox]),button){border-radius:6px!important}
+@media screen{
+ .jsf-minimal .order-ack-actions{border-radius:8px}
+ .jsf-minimal .order-ack-action-buttons button{border-radius:6px}
+}
+
+/* v6.4: separate the selected order into readable sections. */
+.jsf-minimal .detail-grid-new{gap:14px;margin:20px 0;align-items:start}
+.jsf-minimal .info-new{border:1px solid #e5e5e8;border-radius:8px;background:#fafafa;padding:16px}
+.jsf-minimal .info-new h3{color:#55555e;font-size:12px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid #e5e5e8}
+.jsf-minimal .info-new p{margin:9px 0;line-height:1.5}
+.jsf-minimal .order-articles-section-new{border:1px solid #e2e2e5;border-radius:8px;margin:20px 0;background:#fff;overflow:hidden}
+.jsf-minimal .order-articles-section-new .items-head-new{margin:0;padding:13px 16px;background:#f7f7f8;border-bottom:1px solid #e2e2e5}
+.jsf-minimal .order-articles-section-new .items-head-new h3{color:#55555e;font-size:12px}
+.jsf-minimal .order-articles-section-new .items-new{padding:0 16px}
+.jsf-minimal .order-articles-section-new .item-new{padding:16px 0;border-color:#e8e8eb}
+.jsf-minimal .order-articles-section-new .item-new:last-child{border-bottom:0}
+.jsf-minimal .order-articles-section-new .item-index-new{width:22px;height:22px;border-radius:4px;background:#f0f0f3;display:grid;place-items:center;padding:0;color:#909099}
+.jsf-minimal .order-articles-section-new .item-title-new strong{font-size:13px}
+.jsf-minimal .order-articles-section-new .item-data-new{margin-top:10px;gap:8px 16px}
+.jsf-minimal .order-articles-section-new .total-new{margin:0;padding:14px 16px;border-top:1px solid #e2e2e5;background:#f7f7f8}
+.jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new,.jsf-order-departments){
+ border:1px solid #e5e5e8;border-radius:8px;background:#fafafa;padding:15px 16px;margin-top:14px;
+}
+.jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new)>div:first-child>span{color:#55555e;font-size:12px}
+.jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new) small{font-size:11px;line-height:1.5;color:#8a9095;max-width:420px}
+.jsf-minimal .jsf-order-department{background:#fff}
+.jsf-minimal .message-new{border:1px solid #e5e5e8;border-radius:8px;background:#fafafa;padding:14px 16px}
+@media(max-width:720px){
+ .jsf-minimal .info-new{padding:14px}
+ .jsf-minimal :is(.edit-actions-new,.document-actions-new,.status-actions-new){align-items:flex-start;gap:12px}
+ .jsf-minimal .edit-buttons-new{display:flex;width:100%}
+ .jsf-minimal .edit-buttons-new button{flex:1 1 auto}
+ .jsf-minimal .jsf-order-document-buttons{width:100%}
+ .jsf-minimal .document-actions-new button{flex:1 1 auto;width:auto}
+}
+
+/* v6.5: compact order controls, native disclosure menus and production details. */
+.jsf-minimal .order-articles-compact{margin:20px 0 0;background:#fff}
+.jsf-minimal .order-article-table-wrap{overflow-x:auto;padding:0 16px}
+.jsf-minimal .order-article-table{width:100%;min-width:480px;border-collapse:collapse;table-layout:fixed;font-size:12px}
+.jsf-minimal .order-article-table th{font-size:11px;font-weight:400;color:#87878d;text-align:left;padding:14px 0;border-bottom:1px solid #e8e8eb}
+.jsf-minimal .order-article-table td{padding:16px 0;border-bottom:1px solid #e8e8eb;vertical-align:top;overflow-wrap:anywhere}
+.jsf-minimal .order-article-table tr:last-child td{border-bottom:0}
+.jsf-minimal .order-article-table :is(th,td):nth-child(1){width:25%;padding-right:16px}
+.jsf-minimal .order-article-table :is(th,td):nth-child(2){width:47%;padding-right:16px}
+.jsf-minimal .order-article-table :is(th,td):nth-child(3){width:10%;text-align:right;white-space:nowrap;padding-right:14px}
+.jsf-minimal .order-article-table :is(th,td):nth-child(4){width:18%;text-align:right;white-space:nowrap}
+.jsf-minimal .order-article-name{display:block;font-size:12px}
+.jsf-minimal .order-article-table td>small{display:block;color:#9999a0;font-size:10px;margin-top:3px}
+.jsf-minimal .order-article-description{display:grid;gap:6px;font-size:11px;white-space:pre-wrap}
+.jsf-minimal .order-article-field{color:#9999a0;margin-right:6px}
+.jsf-minimal .order-articles-compact .total-new{background:#fff;padding:14px 16px}
+.jsf-minimal .order-action-bar{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:20px 0;flex-wrap:wrap}
+.jsf-minimal :is(.order-action-bar>button,.order-action-menu>summary,.order-status-control select){height:34px;border:1px solid #dfdfe4;border-radius:6px;background:#fff;color:#55555e;font-size:11px;font-weight:400;padding:0 12px}
+.jsf-minimal .order-action-menu{position:relative}
+.jsf-minimal .order-action-menu>summary{display:flex;align-items:center;gap:12px;cursor:pointer;list-style:none}
+.jsf-minimal :is(.order-action-menu>summary,.order-production-details>summary)::-webkit-details-marker{display:none}
+.jsf-minimal .order-action-menu>summary.order-more-actions{width:36px;justify-content:center;padding:0;font-size:20px}
+.jsf-minimal :is(.order-action-bar>button,.order-action-menu>summary):hover{background:#f3f3f5}
+.jsf-minimal .order-action-popover{position:absolute;right:0;top:calc(100% + 6px);min-width:185px;padding:5px;background:#fff;border:1px solid #e2e2e5;border-radius:8px;box-shadow:0 6px 20px rgba(32,36,40,.12);z-index:40}
+.jsf-minimal .order-action-popover button{display:block;width:100%;padding:10px;border:0;border-radius:4px;background:#fff;color:#55555e;text-align:left;font-size:12px}
+.jsf-minimal .order-action-popover button:hover{background:#f3f3f5}
+.jsf-minimal .order-production-section{border-top:1px solid #e8e8eb;padding-top:16px}
+.jsf-minimal .order-production-row{position:relative;min-height:34px}
+.jsf-minimal .order-production-details>summary{min-height:34px;display:flex;align-items:center;gap:12px;padding-right:240px;cursor:pointer;list-style:none;font-size:12px}
+.jsf-minimal .order-production-details>summary small{color:#9999a0;font-size:11px}
+.jsf-minimal .order-production-chevron{font-size:20px;width:12px;text-align:center;transition:transform .15s}
+.jsf-minimal .order-production-details[open] .order-production-chevron{transform:rotate(90deg)}
+.jsf-minimal .order-status-control{position:absolute;right:0;top:0;display:flex;align-items:center;gap:12px;font-size:11px;color:#9999a0}
+.jsf-minimal .order-status-control select{width:140px}
+.jsf-minimal .order-production-content{padding-top:18px}
+.jsf-minimal .order-production-content .jsf-order-department-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.jsf-minimal .order-production-content .jsf-order-department{display:grid;gap:8px;border:0;border-right:1px solid #e8e8eb;border-radius:0;padding:0 12px 0 0;background:transparent;align-content:start}
+.jsf-minimal .order-production-content .jsf-order-department:last-child{border-right:0}
+.jsf-minimal .order-production-content .jsf-order-department-control{border:1px solid #dfdfe4;border-radius:6px;padding:7px;min-width:0}
+.jsf-minimal .order-production-content .jsf-order-department-control select{width:100%;max-width:none;min-width:0}
+.jsf-minimal .order-production-note{font-size:10px;color:#9999a0;margin:14px 0 0}
+.jsf-minimal summary:focus-visible{outline:2px solid #727a81;outline-offset:3px;border-radius:6px}
+@media(max-width:1200px){.jsf-minimal .order-production-content .jsf-order-department-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jsf-minimal .order-production-content .jsf-order-department:nth-child(2n){border-right:0}}
+@media(max-width:720px){
+ .jsf-minimal .order-action-bar{gap:6px;justify-content:flex-start}
+ .jsf-minimal .order-production-details>summary{padding-right:0;flex-wrap:wrap;gap:8px;min-height:42px}
+ .jsf-minimal .order-production-details>summary small{font-size:10px}
+ .jsf-minimal .order-status-control{position:static;margin-top:14px;justify-content:space-between}
+ .jsf-minimal .order-action-popover{right:auto;left:0;min-width:160px}
+ .jsf-minimal .order-action-menu:last-child .order-action-popover{left:auto;right:0}
+}
+
+/* v6.7: document-inspired white surfaces, charcoal text, restrained green rules. */
+.jsf-admin-layout.jsf-minimal,.jsf-minimal .jsf-admin-content,
+.jsf-minimal :is(.orders-page-new,.jsf-continuous-planning){background:#fff;color:#252a27}
+.jsf-minimal .jsf-admin-sidebar{border-right-color:#e1e5e2;box-shadow:2px 0 10px rgba(25,35,30,.02)}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active){
+ background:#fff;color:#252a27;
+ box-shadow:inset 2px 0 0 #176b4a,inset 0 0 0 1px #e1e5e2,0 3px 9px rgba(25,35,30,.065);
+}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active) .jsf-admin-nav-icon{color:#65716b}
+.jsf-minimal :is(.jsf-admin-nav button.active,.jsf-admin-settings.active):hover:not(:disabled){background:#fafbfa;color:#252a27}
+.jsf-minimal :is(.info-new,.message-new){background:#f7f8f7;border-color:#e1e5e2}
+.jsf-minimal :is(.info-new h3,.items-head-new h3,.detail-order-no-new,.order-no-new,
+ .jsf-plan-week-title strong,.order-production-details>summary){color:#353c38}
+.jsf-minimal .info-new h3{font-size:11px;letter-spacing:.03em;border-bottom-color:#e1e5e2}
+.jsf-minimal .order-card-new.active{background:#f7f8f7;box-shadow:inset 2px 0 #8e9d94}
+.jsf-minimal :is(.order-stats-new,.orders-list-new,.order-detail-new,.jsf-plan-week){border-color:#e1e5e2;box-shadow:0 2px 8px rgba(25,35,30,.025)}
+.jsf-minimal .jsf-plan-week-title{background:#fff;border-bottom-color:#e1e5e2}
+.jsf-minimal .jsf-plan-week.current{border-color:#bdc9c1}
+.jsf-minimal .jsf-plan-tabs button.active{color:#353c38;border-bottom-color:#73877b}
+.jsf-minimal .jsf-plan-table th,.jsf-minimal .order-article-table th{border-bottom-color:#536c5e}
+.jsf-minimal .order-production-section{border-top-color:#d7dfd9}
+.jsf-minimal .order-articles-compact{border-color:#e1e5e2}
+.jsf-minimal .order-articles-compact .total-new{border-top-color:#d7dfd9}
+@media(max-width:720px){.jsf-minimal .jsf-admin-sidebar{box-shadow:none}}
+
+/* v6.9: distinguish weeks while keeping the scrolling calendar compact. */
+.jsf-minimal .jsf-plan-contained .jsf-plan-weeks{
+ background:#f6f7f7;border:1px solid #edf0ee;border-radius:8px;
+ padding:12px 8px 16px 12px;gap:12px;
+}
+.jsf-minimal .jsf-plan-week{
+ margin:2px 0;background:#fff;border:1px solid #dfe3e1;border-radius:8px;
+ box-shadow:0 3px 10px rgba(25,35,30,.045);
+}
+.jsf-minimal .jsf-plan-week.current{border-color:#d5ded8;border-left:2px solid #176b4a;box-shadow:0 3px 10px rgba(25,35,30,.055)}
+.jsf-minimal .jsf-plan-week-title{
+ min-height:42px;background:#f1f3f2;border-bottom:1px solid #dfe3e1;
+ padding:10px 14px;border-radius:8px 8px 0 0;
+}
+.jsf-minimal .jsf-plan-week-label{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.jsf-minimal .jsf-plan-week-title strong{font-size:13px;font-weight:400;color:#353c38}
+.jsf-minimal .jsf-plan-year{font-size:11px;color:#858b88}
+.jsf-minimal .jsf-plan-week-title .jsf-plan-current-tag{font-size:10px;line-height:1.3;color:#626e67;background:#fff;border:1px solid #c4cbc7;border-radius:4px;padding:3px 6px}
+.jsf-minimal .jsf-plan-table th{background:#fff;border-bottom-color:#dfe3e1}
+.jsf-minimal .jsf-plan-week-empty{
+ min-height:32px;padding:6px 12px;margin:0;background:transparent;
+ border:1px solid #e3e7e5;border-radius:6px;color:#707b75;
+}
+.jsf-minimal .jsf-plan-week-empty small{font-size:10px;color:#909994;text-align:right}
+.jsf-minimal .jsf-plan-week-empty.current{border-color:#c7d3cb;border-left:2px solid #176b4a}
+@media(max-width:720px){
+ .jsf-minimal .jsf-plan-contained .jsf-plan-weeks{padding:8px 4px 12px 8px;gap:10px}
+ .jsf-minimal .jsf-plan-week-title{padding:10px 12px}
+ .jsf-minimal .jsf-plan-week-empty{padding:6px 10px;gap:10px}
+}
+
+/* v6.13: placed orders share the approval view's centered content width. */
+.jsf-minimal .orders-page-new>.orders-head-new,
+.jsf-minimal .orders-page-new>.order-stats-new,
+.jsf-minimal .orders-page-new>.flash-new,
+.jsf-minimal .orders-page-new>.orders-toolbar-new,
+.jsf-minimal .orders-page-new>.orders-layout-new{
+ width:100%;max-width:1400px;margin-left:auto;margin-right:auto;
+}
+.jsf-minimal .orders-layout-new{grid-template-columns:minmax(280px,340px) minmax(0,1fr);gap:20px}
+.jsf-minimal .order-stats-new article{padding:10px 16px}
+.jsf-minimal .order-stats-new strong{font-size:18px}
+@media(max-width:1100px){.jsf-minimal .orders-layout-new{grid-template-columns:minmax(250px,300px) minmax(0,1fr)}}
+@media(max-width:900px){.jsf-minimal .orders-layout-new{grid-template-columns:1fr}}

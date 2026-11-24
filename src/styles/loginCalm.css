@@ -1,0 +1,57 @@
+/* JSF Flow v6.19: login and registration follow the calm ordering portal. */
+.jsf-login-screen.jsf-calm-login {background:#ffffff;color:#303030;font:400 13px/1.5 Arial,sans-serif;padding:90px 24px 60px}
+.jsf-calm-login .jsf-login-shell {width:min(100%,420px)}
+.jsf-calm-login .jsf-login-logo {width:245px;margin:8px auto 44px;filter:none;opacity:1}
+.jsf-calm-login .jsf-login-back {color:#706b66;font:400 12px/1.4 Arial,sans-serif;left:28px;top:28px;padding:8px 0}
+.jsf-calm-login .jsf-login-content h1 {font:400 26px/1.3 Arial,sans-serif;color:#303030;letter-spacing:-.02em;margin:0 0 12px}
+.jsf-calm-login .jsf-login-subtitle {font-size:13px;color:#77716a;margin-bottom:28px}
+.jsf-calm-login .jsf-login-form {gap:20px}
+.jsf-calm-login .jsf-login-form label {color:#706b66;font-size:12px;font-weight:400}
+.jsf-calm-login .jsf-login-form input:not([type=checkbox]) {height:44px;border:1px solid #dcd8d2;border-radius:3px;background:#fff;padding:10px 12px;margin-top:7px;font:400 13px/1.5 Arial,sans-serif;color:#353535}
+.jsf-calm-login .jsf-login-field {border:1px solid #dcd8d2;border-radius:3px;background:#fff;margin-top:7px;padding-right:12px}
+.jsf-calm-login .jsf-login-field input:not([type=checkbox]) {border:0;margin-top:0;background:transparent}
+.jsf-calm-login .jsf-login-field > span {display:none}
+.jsf-calm-login .jsf-login-form input::placeholder {color:#aaa39c}
+.jsf-calm-login .jsf-login-form input:not([type=checkbox]):focus {outline:2px solid #77736f;outline-offset:2px}
+.jsf-calm-login .jsf-login-eye {color:#77716a;font:400 11px Arial,sans-serif}
+.jsf-calm-login .jsf-login-options {gap:14px;flex-wrap:wrap}
+.jsf-calm-login .jsf-login-options button {color:#595550;font-weight:400;font-size:11px}
+.jsf-calm-login .jsf-login-check input {accent-color:#555;width:15px;height:15px}
+.jsf-calm-login .jsf-login-form .jsf-login-check {font-size:11px;color:#77716a}
+.jsf-calm-login :is(.jsf-login-submit,.jsf-login-alternate) {height:44px;border-radius:3px;box-shadow:none;font:400 12px/1.4 Arial,sans-serif}
+.jsf-calm-login .jsf-login-submit {background:#353535;border:1px solid #353535;color:#fff}
+.jsf-calm-login .jsf-login-submit:hover:not(:disabled) {background:#494540}
+.jsf-calm-login .jsf-login-alternate {border-color:#dcd8d2;color:#494540;background:transparent}
+.jsf-calm-login .jsf-login-alternate:hover {background:#ededed}
+.jsf-calm-login .jsf-login-divider {color:#aaa39c;margin:22px 0}
+.jsf-calm-login .jsf-login-divider:before,.jsf-calm-login .jsf-login-divider:after {background:#e5e5e5}
+.jsf-calm-login :is(.jsf-login-caption,.jsf-login-help) {font-weight:400;color:#88817b;font-size:11px;line-height:1.6}
+.jsf-calm-login .jsf-login-notice {background:#f0f0f0;border:1px solid #e4e0d9;border-radius:3px;color:#494540;padding:12px 16px;font:400 12px/1.5 Arial,sans-serif}
+.jsf-calm-login button:focus-visible {outline:2px solid #77736f;outline-offset:3px}
+@media(max-width:550px) {.jsf-login-screen.jsf-calm-login {padding:85px 20px 45px}.jsf-calm-login .jsf-login-logo {width:220px;margin-bottom:35px}.jsf-calm-login .jsf-login-back {left:20px}}
+
+/* Single, quiet entrance. Controls remain available throughout. */
+.jsf-login-screen.jsf-calm-login{isolation:isolate;overflow-x:clip}
+.jsf-calm-login:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(110deg,transparent 20%,rgba(227,227,227,.18) 40%,rgba(255,255,255,.85) 50%,transparent 70%);opacity:0;animation:jsf-login-light 800ms ease-out both}
+.jsf-calm-login .jsf-login-brands{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:24px;margin:8px 0 44px}
+.jsf-calm-login .jsf-login-brands .jsf-login-logo{display:block;width:100%;max-width:220px;height:auto;margin:0;animation:jsf-login-logo-in 1200ms ease-in-out both}
+.jsf-calm-login .jsf-login-region-logo{display:block;width:100%;max-width:175px;height:auto;justify-self:end;animation:jsf-login-logo-in 1200ms 400ms ease-in-out both}
+.jsf-calm-login .jsf-login-content{animation:jsf-login-rise 900ms 2700ms ease-out both}
+.jsf-calm-login .jsf-login-content:focus-within{animation:none}
+@media(max-width:550px){.jsf-calm-login .jsf-login-brands{gap:18px;margin-bottom:35px}}
+.jsf-calm-login.jsf-login-success .jsf-login-shell{animation:jsf-login-depart 180ms ease-out both}
+body.jsf-account-arrival .jsf-admin-layout{animation:jsf-account-arrive 420ms ease-out both}
+@keyframes jsf-login-logo-in{from{opacity:0}to{opacity:1}}
+@keyframes jsf-login-rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes jsf-login-light{0%{opacity:0;transform:translateX(-65%)}35%{opacity:1}100%{opacity:0;transform:translateX(65%)}}
+@keyframes jsf-login-depart{from{opacity:1;transform:translateY(0)}to{opacity:.8;transform:translateY(-3px)}}
+@keyframes jsf-account-arrive{from{opacity:.35}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.jsf-calm-login:before{display:none}.jsf-calm-login .jsf-login-region-logo,.jsf-calm-login .jsf-login-content,.jsf-calm-login .jsf-login-logo,.jsf-calm-login .jsf-login-content h1,.jsf-calm-login .jsf-login-subtitle,.jsf-calm-login .jsf-login-form>*,.jsf-calm-login :is(.jsf-login-divider,.jsf-login-alternate,.jsf-login-caption),.jsf-calm-login.jsf-login-success .jsf-login-shell,body.jsf-account-arrival .jsf-admin-layout{animation:none!important}}
+
+@media(prefers-reduced-motion:reduce){.jsf-calm-login .jsf-login-brands .jsf-login-logo{animation:none!important}}
+
+.jsf-calm-login .jsf-login-control{min-width:0}
+.jsf-calm-login .jsf-login-control.has-error .jsf-login-field,.jsf-calm-login .jsf-login-control.has-error>input{border-color:#bc6a60;background:#fffaf9}
+.jsf-calm-login .jsf-login-control.has-error input:focus{outline:2px solid #c38980;outline-offset:2px}
+.jsf-calm-login .jsf-login-field-error{margin:7px 0 0;color:#9d4137;font:400 11px/1.5 Arial,sans-serif}
+.jsf-calm-login .jsf-login-validation-summary{margin:0;color:#9d4137;font:400 12px/1.5 Arial,sans-serif}

@@ -1,0 +1,13 @@
+.jsf-project-3d-preview{position:relative;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;background:white}
+.jsf-project-3d-source{position:absolute;inset:0}
+.jsf-project-3d-source[data-three=true]{visibility:hidden;pointer-events:none}
+.jsf-project-3d-preview>.jsf-door-3d{position:absolute;inset:0;z-index:2}
+.jsf-project-3d-preview .jsf-door-3d-canvas{position:relative;width:100%;height:100%;min-height:1px}
+.jsf-project-3d-preview .jsf-door-3d-canvas canvas{display:block;width:100%;height:100%;touch-action:none;cursor:default}
+.jsf-project-3d-preview .jsf-door-3d-canvas canvas:focus{outline:none}
+.jsf-project-3d-preview .jsf-door-3d-canvas canvas:focus-visible{outline:1px solid #888;outline-offset:-2px}
+.jsf-project-3d-preview .jsf-door-3d-reset{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);padding:6px 10px;border:0;border-radius:30px;background:#ffffffdd;color:#777;font:400 11px Arial;cursor:pointer;white-space:nowrap}
+.jsf-project-3d-preview .jsf-door-3d-shadow{position:absolute;height:20px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,#000 0%,#0008 30%,transparent 72%);filter:blur(7px);opacity:0;pointer-events:none}
+.jsf-project-3d-preview .jsf-door-3d-status{position:absolute;left:16px;right:16px;bottom:40px;text-align:center;color:#777;font:400 12px/1.6 Arial;pointer-events:none}
+.jsf-project-3d-preview .jsf-project-3d-front{position:absolute;top:6px;right:6px;z-index:3;border:1px solid #e8e8e8;border-radius:30px;background:white;padding:8px 12px;color:#444;font:400 11px/1.4 Arial;box-shadow:0 3px 14px #00000008;cursor:pointer}
+@media(max-width:750px){.jsf-project-3d-preview .jsf-project-3d-front{top:2px;right:2px;padding:5px 8px;font-size:10px}.jsf-project-3d-preview .jsf-door-3d-reset{bottom:2px;font-size:10px}}

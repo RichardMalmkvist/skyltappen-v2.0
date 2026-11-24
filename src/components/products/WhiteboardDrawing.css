@@ -1,0 +1,7 @@
+.jsf-whiteboard-demo{position:absolute;z-index:3;overflow:hidden;pointer-events:auto}
+.jsf-whiteboard-demo canvas{display:block;width:100%;height:100%;touch-action:none;cursor:default;user-select:none;-webkit-user-select:none}
+.jsf-whiteboard-demo .jsf-whiteboard-clear{position:absolute;right:calc(7 * var(--wb-pixel));bottom:calc(7 * var(--wb-pixel));padding:calc(5 * var(--wb-pixel)) calc(9 * var(--wb-pixel));border:calc(1 * var(--wb-pixel)) solid #ddd;border-radius:calc(5 * var(--wb-pixel));font:400 calc(11 * var(--wb-pixel))/1.3 Arial,sans-serif;color:#555;background:rgba(255,255,255,.92);box-shadow:none;cursor:pointer;min-height:calc(25 * var(--wb-pixel))}
+
+/* Cover the printed example only while the customer is trying the pen. */
+.jsf-whiteboard-demo canvas{background:transparent}
+.jsf-whiteboard-demo[data-has-ink="true"] canvas{background:#fff}

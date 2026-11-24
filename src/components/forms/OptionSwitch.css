@@ -1,0 +1,12 @@
+.jsf-option-row{display:grid;grid-template-columns:minmax(100px,38%) minmax(0,1fr);align-items:center;gap:16px;min-height:43px;font:400 12px/1.5 Arial;color:#666;min-width:0}
+.jsf-option-row>.jsf-option-switch{position:relative;justify-self:start;display:block!important;flex:none;min-width:30px!important;width:30px!important;height:18px!important;min-height:18px!important;padding:0!important;margin:0!important;border:1px solid #ccc!important;border-radius:99px!important;background:#eee!important;box-shadow:none!important;cursor:pointer;transition:background .18s,border-color .18s}
+.jsf-option-switch:before{content:"";position:absolute;inset:-12px -8px}
+.jsf-option-switch>span{position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 1px 2px #0002;transition:transform .18s}
+.jsf-option-row>.jsf-option-switch[aria-checked=true]{background:#303030!important;border-color:#303030!important}
+.jsf-option-switch[aria-checked=true]>span{transform:translateX(12px)}
+.jsf-option-switch:focus-visible{outline:2px solid #008b57!important;outline-offset:5px}
+.jsf-option-switch:disabled{opacity:.4;cursor:default}
+@media(max-width:800px){.jsf-option-row{min-height:46px;grid-template-columns:minmax(104px,36%) minmax(0,1fr);gap:12px}}
+@media(prefers-reduced-motion:reduce){.jsf-option-switch,.jsf-option-switch>span{transition:none!important}}
+
+.jsf-product-studio .jsf-product-fields .jsf-option-row>button.jsf-option-switch,.jsf-sign-modal .jsf-option-row>button.jsf-option-switch{border-radius:999px!important}

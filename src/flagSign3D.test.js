@@ -1,0 +1,5 @@
+import {FLAG_SIGN_ARTICLES,supportsFlagSign3D,FLAG_PHOTO_QUAD,flagPhotoPoint} from './data/flagSign3D';
+import {getProductFlowType} from './data/products';
+test.each(FLAG_SIGN_ARTICLES)('%s opens its product viewer even for saved direct-add articles',articleNumber=>{const product={articleNumber,flowType:'direct'};expect(supportsFlagSign3D(product)).toBe(true);expect(getProductFlowType(product)).toBe('form');});
+test('other fixed products retain their existing direct-add flow',()=>{expect(supportsFlagSign3D(null)).toBe(false);expect(getProductFlowType({articleNumber:'1502',flowType:'direct'})).toBe('direct');});
+test('photo projection preserves all four corners and remains finite throughout the face',()=>{[[0,0],[1,0],[1,1],[0,1]].forEach(([u,v],i)=>{const p=flagPhotoPoint(u,v);p.forEach((value,k)=>expect(value).toBeCloseTo(FLAG_PHOTO_QUAD[i][k],8));});for(let u=0;u<=1;u+=.1)for(let v=0;v<=1;v+=.1)for(const n of flagPhotoPoint(u,v)){expect(Number.isFinite(n)).toBe(true);expect(n).toBeGreaterThan(0);expect(n).toBeLessThan(1);}});

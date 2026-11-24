@@ -1,0 +1,35 @@
+.jsf-projects .project-heading{flex-wrap:wrap;gap:10px}
+.jsf-projects .project-heading>div{margin-right:auto}
+.jsf-projects .project-folder-trail{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:15px 0 22px;font:400 12px/1.5 Arial,sans-serif;color:#8a8177}
+.jsf-projects .project-folder-trail>span{display:flex;align-items:center;gap:7px;min-width:0}
+.jsf-projects .project-folder-trail button{border:0;background:transparent;padding:3px 0;color:#716b64;font:inherit;cursor:pointer;overflow-wrap:anywhere;text-align:left}
+.jsf-projects .project-folder-trail button:hover{text-decoration:underline}
+.jsf-projects .project-folder-location{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:20px 0 14px;color:#6f6962}
+.jsf-projects .project-folder-location>strong{font:400 14px/1.5 Arial,sans-serif}
+.jsf-projects .project-folder-all{border:1px solid #e3dfda;background:#fff;padding:8px 11px;min-height:34px;border-radius:5px;cursor:pointer;color:#6b655f;font:400 11px Arial,sans-serif}
+.jsf-projects .project-folder-all[aria-pressed=true]{background:#f0f0ef}
+.jsf-projects .project-folder-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,255px),1fr));gap:12px;margin-bottom:24px}
+.jsf-projects .project-folder-card{position:relative;border:1px solid #e5e2dd;border-radius:6px;background:#fff;min-width:0}
+.jsf-projects .project-folder-card:hover{border-color:#b4c3b8;box-shadow:0 3px 10px #00000006}
+.jsf-projects .project-folder-open{display:flex;align-items:center;gap:12px;width:100%;min-height:92px;box-sizing:border-box;padding:18px 45px 18px 18px;border:0;background:transparent;text-align:left;color:#476b57;cursor:pointer}
+.jsf-projects .project-folder-open>.jsf-workspace-icon{width:24px;height:24px;flex:none}
+.jsf-projects .project-folder-open>span:first-of-type{display:grid;gap:7px;min-width:0;flex:1}
+.jsf-projects .project-folder-open strong{font:400 13px/1.5 Arial,sans-serif;color:#3f3c37;overflow-wrap:anywhere}
+.jsf-projects .project-folder-open small{font:400 11px/1.5 Arial,sans-serif;color:#8a8278;overflow-wrap:anywhere}
+.jsf-projects .project-folder-open>span:last-child{font-size:18px;color:#9a9389}
+.jsf-projects .project-organized-card{position:relative;min-width:0}
+.jsf-projects .project-organized-card>.project-card{width:100%;height:100%;box-sizing:border-box;padding-right:42px}
+.jsf-projects .project-card-path{font:400 10px/1.5 Arial,sans-serif;color:#8a8177;margin-top:10px;overflow-wrap:anywhere}
+.jsf-projects .project-card-menu{position:absolute;top:8px;right:7px;font:400 12px Arial,sans-serif}
+.jsf-projects .project-card-menu[open]{z-index:8}
+.jsf-projects .project-card-menu>summary{display:grid;place-items:center;list-style:none;cursor:pointer;border:0;background:transparent;border-radius:4px;width:30px;height:30px;font-size:21px;color:#8a8278}
+.jsf-projects .project-card-menu>summary::-webkit-details-marker{display:none}
+.jsf-projects .project-card-menu>summary:hover{background:#f1f1ef}
+.jsf-projects .project-card-menu>div{position:absolute;right:0;top:100%;background:white;border:1px solid #e3dfda;border-radius:5px;padding:5px;min-width:145px;box-shadow:0 7px 22px #00000012}
+.jsf-projects .project-card-menu button{display:block;width:100%;border:0;background:white;padding:11px;text-align:left;cursor:pointer;font:inherit;color:#504b44;border-radius:3px}
+.jsf-projects .project-card-menu button:hover{background:#f3f3f1}
+.jsf-projects .project-folder-open:focus-visible,.jsf-projects .project-card-menu>summary:focus-visible,.jsf-projects .project-folder-trail button:focus-visible{outline:2px solid #8b8071;outline-offset:2px}
+@media(min-width:1550px){.jsf-projects .project-folder-grid{grid-template-columns:repeat(auto-fill,minmax(255px,330px))}}
+@media(max-width:600px){.jsf-projects .project-heading>.project-secondary,.jsf-projects .project-heading>.project-primary{flex:1}.jsf-projects .project-heading>div{width:100%}.jsf-projects .project-folder-grid{grid-template-columns:1fr}.jsf-projects .project-folder-open{min-height:82px}}
+
+.jsf-admin-layout.jsf-minimal.jsf-calm-workspace .project-organized-card>.project-card{padding-right:42px!important}

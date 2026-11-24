@@ -1,0 +1,51 @@
+/* One focus indicator per search control, including its icon and clear button. */
+.jsf-admin-layout.jsf-minimal.jsf-calm-workspace input:is([type="search"],[placeholder*="sök" i],[aria-label^="sök" i]):focus,
+.jsf-storefront-light.jsf-calm-home-shell input:is([type="search"],[placeholder*="sök" i],[aria-label^="sök" i]):focus {
+  outline:0!important;
+  outline-offset:0!important;
+  border-color:#8aab98!important;
+  box-shadow:0 0 0 3px rgba(33,100,69,.1)!important;
+}
+
+.jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.search,.drawing-library-search):focus-within,
+.jsf-storefront-light.jsf-calm-home-shell :is(.jsf-namebadge-search>div,.jsf-profession-search-control):focus-within {
+  outline:0!important;
+  outline-offset:0!important;
+  border-color:#8aab98!important;
+  box-shadow:0 0 0 3px rgba(33,100,69,.1)!important;
+}
+
+/* The wrapper owns the border; focusing the input must not create another box. */
+.jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.search,.drawing-library-search) input,
+.jsf-admin-layout.jsf-minimal.jsf-calm-workspace :is(.search,.drawing-library-search) input:is(:focus,:focus-visible),
+.jsf-storefront-light.jsf-calm-home-shell :is(.jsf-namebadge-search>div,.jsf-profession-search-control) input,
+.jsf-storefront-light.jsf-calm-home-shell :is(.jsf-namebadge-search>div,.jsf-profession-search-control) input:is(:focus,:focus-visible) {
+  min-width:0!important;
+  max-width:100%;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  outline-offset:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+
+/* The public header icon overlays the input, which owns the whole field. */
+.jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search input:focus {
+  outline:0!important;
+  outline-offset:0!important;
+  border-color:#8aab98!important;
+  box-shadow:0 0 0 3px rgba(33,100,69,.1)!important;
+}
+
+/* The header search expands on focus and stays open while it contains a query. */
+@media(min-width:801px){
+ .jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search{width:44px!important;transition:width 280ms cubic-bezier(.22,1,.36,1)!important}
+ .jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search:focus-within,.jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search:has(input:not(:placeholder-shown)){width:190px!important;transition:width 280ms cubic-bezier(.22,1,.36,1)!important}
+}
+@media(min-width:801px) and (max-width:1200px){
+ .jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search:focus-within,.jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search:has(input:not(:placeholder-shown)){width:210px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search,.jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search:focus-within,.jsf-storefront-light.jsf-calm-home-shell .jsf-public-header-actions .jsf-product-search:has(input:not(:placeholder-shown)){transition:none!important}
+}

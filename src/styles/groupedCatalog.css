@@ -1,0 +1,45 @@
+.jsf-catalog-disclosure{border-top:1px solid #e7e7e7;color:#303236;min-width:0}
+.jsf-catalog-disclosure:last-child{border-bottom:1px solid #e7e7e7}
+.jsf-catalog-disclosure>h2{margin:0!important;font:400 15px/1.5 Arial,sans-serif!important}
+.jsf-catalog-disclosure>h2>button{box-sizing:border-box;width:100%;display:flex;align-items:center;gap:16px;min-height:68px;padding:20px 4px;text-align:left;border:0;border-radius:6px;background:#fff;color:#303236;font:inherit;cursor:pointer}
+.jsf-catalog-disclosure>h2>button:hover{background:#fafafa}
+.jsf-catalog-disclosure>h2>button:focus-visible{outline:2px solid #777;outline-offset:2px}
+.jsf-disclosure-title{flex:1;min-width:0}.jsf-disclosure-count{font:400 12px/1.4 Arial,sans-serif;color:#858585;flex:none}
+.jsf-disclosure-thumbnail{width:68px;flex:none;display:flex;align-items:center}.jsf-disclosure-thumbnail svg{width:68px;max-height:24px;filter:drop-shadow(0 2px 2px #0002)}
+.jsf-catalog-disclosure>h2>button>svg{flex:none;transition:transform 180ms ease}.jsf-catalog-disclosure>h2>button[aria-expanded=true]>svg{transform:rotate(180deg)}
+.jsf-disclosure-content{padding:4px 0 28px;animation:jsf-disclosure-in 180ms ease both;min-width:0}
+.jsf-grouped-professions,.jsf-grouped-indoor{min-width:0}
+.jsf-profession-order-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:0;align-items:center;padding:30px;border:1px solid #e7e7e7;border-radius:8px;background:#fff;min-width:0;box-shadow:0 4px 16px #00000003}
+.jsf-profession-order-preview{display:flex;align-items:center;justify-content:center;min-height:200px;padding:24px 36px 24px 0;border-right:1px solid #ececec;min-width:0}
+.jsf-profession-order-fields{padding-left:34px;min-width:0}
+.jsf-profession-combobox{position:relative;min-width:0}
+.jsf-profession-combobox>label{display:block;font:400 13px/1.5 Arial,sans-serif;margin-bottom:8px;color:#404246}
+.jsf-profession-search-control{box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:0 12px;border:1px solid #dedede;border-radius:7px;background:white;height:46px;min-width:0}
+.jsf-profession-search-control:focus-within{outline:2px solid #777;outline-offset:2px}
+/* The wrapper owns the border and focus ring, including under global input styles. */
+.jsf-profession-order-card .jsf-profession-search-control>input,
+.jsf-profession-order-card .jsf-profession-search-control>input:is(:focus,:focus-visible){box-sizing:border-box;flex:1 1 0;min-width:0;width:0;max-width:100%;height:44px!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;outline:none!important;box-shadow:none!important;background:transparent!important;color:#303236;font:400 14px/1.5 Arial,sans-serif;appearance:none}
+.jsf-profession-search-control>span{flex:none;line-height:1;color:#737373}
+.jsf-profession-search-control>svg{flex:none;color:#737373}
+.jsf-profession-product-meta{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:14px;color:#606266;font:400 12px/1.5 Arial,sans-serif}
+.jsf-profession-fastening{font:400 12px/1.5 Arial,sans-serif;color:#858585;margin:6px 0 22px}
+.jsf-profession-order-actions{display:flex;align-items:flex-end;gap:22px;justify-content:space-between}
+.jsf-profession-order-actions .jsf-card-quantity{flex:none}
+.jsf-profession-order-actions .jsf-card-quantity label{display:block;font:400 12px/1.5 Arial,sans-serif!important;color:#606266!important;margin-bottom:8px!important}
+.jsf-profession-order-actions .jsf-card-quantity-stepper{background:#fff;border:1px solid #dedede;border-radius:7px;height:46px;display:flex;align-items:center;overflow:hidden;width:122px}
+.jsf-profession-order-actions .jsf-card-quantity-stepper button{border:0;background:#fff;color:#303236;width:34px;height:44px;cursor:pointer;font-size:18px}
+.jsf-profession-order-actions .jsf-card-quantity-stepper button:disabled{color:#bbb;cursor:default}
+.jsf-profession-order-actions .jsf-card-quantity-stepper input{box-sizing:border-box;border:0;border-left:1px solid #eee;border-right:1px solid #eee;background:#fff;text-align:center;min-width:0;width:52px;height:44px;font:400 14px Arial,sans-serif;color:#303236;appearance:textfield;-moz-appearance:textfield}
+.jsf-profession-order-actions input::-webkit-inner-spin-button{appearance:none}
+.jsf-profession-add{display:flex;gap:24px;align-items:center;justify-content:center;border:1px solid #303236;border-radius:7px;background:#303236;color:#fff;min-height:46px;padding:12px 20px;font:400 13px/1.5 Arial,sans-serif;cursor:pointer;white-space:nowrap}
+.jsf-profession-add:hover{background:#47494c}.jsf-profession-add:focus-visible{outline:2px solid #777;outline-offset:2px}
+.jsf-profession-options{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:white;border:1px solid #e3e3e3;border-radius:8px;box-shadow:0 10px 26px #00000012;max-height:240px;overflow:auto}
+.jsf-profession-options ul{list-style:none;padding:5px;margin:0}.jsf-profession-options li{margin:0}
+.jsf-profession-options li button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;padding:11px 10px;border:0;border-radius:4px;text-align:left;background:#fff;color:#303236;font:400 13px/1.5 Arial,sans-serif;cursor:pointer}
+.jsf-profession-options li:is(.is-active,:hover) button{background:#f5f5f5}.jsf-profession-options small{flex:none;color:#858585;font-weight:400}.jsf-profession-options p,.jsf-indoor-empty{color:#737373;font:400 13px/1.6 Arial,sans-serif;padding:12px;margin:0}
+@keyframes jsf-disclosure-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.jsf-profession-order-card{grid-template-columns:minmax(0,1fr);padding:22px}.jsf-profession-order-preview{padding:10px 0 24px;border:0;border-bottom:1px solid #ececec;min-height:150px}.jsf-profession-order-fields{padding:24px 0 0}}
+@media(max-width:600px){.jsf-catalog-disclosure>h2>button{gap:10px;padding:18px 2px}.jsf-disclosure-thumbnail,.jsf-disclosure-thumbnail svg{width:50px}.jsf-profession-order-card{padding:18px}.jsf-profession-order-actions{gap:12px;flex-wrap:wrap}.jsf-profession-add{flex:1;padding:12px}.jsf-profession-options li button{align-items:flex-start}.jsf-profession-options li small{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.jsf-disclosure-content{animation:none}.jsf-catalog-disclosure>h2>button>svg{transition:none}}
+/* Keep the quantity label visible in the wider profession layout. */
+.jsf-storefront-light.jsf-minimal-catalog .jsf-catalog .jsf-profession-order-card .jsf-profession-order-actions .jsf-card-quantity label{position:static!important;width:auto!important;height:auto!important;clip-path:none!important;overflow:visible!important;white-space:normal!important}

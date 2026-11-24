@@ -1,0 +1,10 @@
+.jsf-artwork-placement{padding:16px 0;background:white;min-width:0}
+.jsf-artwork-placement .jsf-artwork-size{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.jsf-artwork-placement label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#666;min-width:0}
+.jsf-artwork-placement input,.jsf-artwork-placement select{width:100%;min-width:0;box-sizing:border-box;background:white;border:0;border-bottom:1px solid #e5e5e5;border-radius:0;padding:10px 3px;color:#222;font-size:13px}
+.jsf-artwork-placement .jsf-artwork-actions{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.jsf-artwork-placement .jsf-artwork-actions button{background:white;border:1px solid #e5e5e5;border-radius:5px;padding:8px 10px;font-size:12px;color:#444;cursor:pointer}
+.jsf-artwork-placement details{border-top:1px solid #eee;padding:12px 0}
+.jsf-artwork-placement summary{color:#666;font-size:12px;cursor:pointer}
+.jsf-artwork-placement details[open]>summary{margin-bottom:14px}
+@media(max-width:750px){.jsf-artwork-placement input,.jsf-artwork-placement select{font-size:16px}}

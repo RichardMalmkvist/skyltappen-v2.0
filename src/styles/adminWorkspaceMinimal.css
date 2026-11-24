@@ -1,0 +1,223 @@
+/* JSF Flow Minimal v6.3 — shared theme for the entire signed-in workspace.
+   Only UI surfaces are targeted; sign previews, PDF coordinates and print layouts
+   keep their own typography, colors and geometry. */
+.jsf-admin-layout.jsf-minimal.dark{background:#f6f6f7;color:#343438}
+.jsf-minimal .jsf-admin-content{background:#f6f6f7}
+.jsf-minimal :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,
+ .jsf-projects,.jsf-profile-page,.future-main){background:#f6f6f7;color:#343438;padding:28px 30px 40px;font-family:Arial,sans-serif;font-size:12px;min-width:0}
+.jsf-minimal :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,
+ .jsf-projects,.jsf-profile-page,.future-main) h1{font-size:23px;font-weight:400;letter-spacing:-.02em;line-height:1.3}
+.jsf-minimal :is(.dash-card,.dash-hero,.dash-metric,.dash-quick,.approval-page,.symbols-page,
+ .groups-main,.product-card,.product-row,.panel-head,.modal-head,.jsf-cat-tile,
+ .project-panel,.project-card,.project-stats,.jsf-profile-page,.future-main) :is(h2,h3,strong,b){font-weight:400}
+.jsf-minimal :is(.dash-eyebrow,.section-kicker,.kicker,.eyebrow,.project-kicker,
+ .jsf-profile-kicker,.future-kicker){font-size:10px;letter-spacing:.1em;font-weight:400;color:#87878d}
+.jsf-minimal :is(.dash-hero p,.category-section>p,.groups-section>p,.approval-head p,
+ .symbols-head p,.project-heading p,.jsf-profile-page>p,.future-main>p){font-size:12px;color:#787e83}
+.jsf-minimal :is(.dash-card,.dash-metric,.upload-panel,.arrow-panel,.symbol-card,
+ .groups-featured-manager,.jsf-cat-tile,.product-card,.project-card,.project-panel,
+ .project-stats>div,.approval-list,.approval-detail,.jsf-profile-card,.future-main section){
+ background:#fff;border:1px solid #e2e2e5;border-radius:8px;box-shadow:0 2px 8px rgba(35,35,42,.035)
+}
+.jsf-minimal :is(.new-button,.panel-head button,.groups-featured-save,.project-primary,
+ .approval-actions .primary,.jsf-profile-card button,.modal-foot .save){
+ background:#343438;color:#fff;border:1px solid #343438;border-radius:6px;
+ padding:9px 13px;font-family:Arial,sans-serif;font-size:11px;font-weight:400;min-height:34px
+}
+.jsf-minimal :is(.new-button,.panel-head button,.groups-featured-save,.project-primary,
+ .approval-actions .primary,.jsf-profile-card button,.modal-foot .save):hover:not(:disabled){background:#464e54;transform:none}
+.jsf-minimal :is(.project-secondary,.approval-toolbar button,.approval-actions .secondary,
+ .upload-actions button,.symbol-actions button,.create-row button,.groups-cover-upload,
+ .groups-cover-remove,.upload-button,.actions button,.image-controls button,.door-preview-remove,
+ .modal-foot button,.jsf-planner-tools button,.jsf-sign-modal-header>button,.jsf-sign-config-top>button){
+ border:1px solid #dfdfe4;border-radius:6px;background:#fff;color:#666e75;
+ font-family:Arial,sans-serif;font-size:11px;font-weight:400;padding:8px 11px;box-shadow:none
+}
+.jsf-minimal :is(.upload-button,.groups-cover-upload){font-weight:400!important;font-size:11px!important}
+.jsf-minimal :is(.actions button,.image-controls button,.symbol-actions button,.project-secondary):hover:not(:disabled){background:#f3f3f5;transform:none}
+.jsf-minimal :is(.actions .danger-action,.symbol-actions button.danger,.groups-cover-remove,
+ .image-controls .remove-image,.door-preview-remove,.jsf-delete-marker){color:#945953}
+.jsf-minimal :is(.search,.dash-search){height:36px;border:1px solid #dfdfe4;border-radius:6px;background:#fff;color:#9999a0;box-shadow:0 1px 3px rgba(35,35,42,.04);font-size:12px}
+.jsf-minimal :is(.approval-toolbar input,.upload-actions input,.project-filters input,
+ .project-filters select,.project-form-grid input,.project-form-grid select,
+ .project-form-grid textarea,.project-upload input,.jsf-profile-card input,
+ .groups-featured-slots select,.tile-controls select,.tile-controls button,
+ .create-row input,.form-grid input,.form-grid select,.form-grid textarea,
+ .template-box select,.image-display-settings select,.door-text-grid input,.door-text-grid select,
+ .jsf-marker-form input,.jsf-marker-form select,.jsf-marker-form textarea,
+ .production-planning input,.production-planning select){
+ border-color:#dfdfe4;border-radius:6px;background:#fff;color:#343438;font-size:12px;font-weight:400
+}
+.jsf-minimal :is(.approval-toolbar input,.upload-actions input,.jsf-profile-card input){height:36px}
+.jsf-minimal :is(.project-form-grid label,.project-upload label,.jsf-profile-card label,
+ .groups-featured-slots label,.form-grid label>span,.field-box>span,.image-manager-head span,
+ .image-display-settings label>span,.template-box>div>span,.door-text-grid label>span,
+ .production-planning label,.jsf-marker-form label,.jsf-sign-extra){font-weight:400;color:#787e83;font-size:11px}
+.jsf-minimal input[type=checkbox],.jsf-minimal input[type=range]{accent-color:#74747e}
+/* Dashboard */
+.jsf-minimal .dash-topbar{height:48px;margin-bottom:18px;border-bottom-color:#e5e5e8}
+.jsf-minimal .dash-profile span{border-radius:6px;background:#f0f0f3;color:#6f6f79;font-size:11px}
+.jsf-minimal .dash-hero{height:auto;min-height:120px;background:transparent;margin:0;padding:4px 0 22px;gap:20px}
+.jsf-minimal .dash-hero h1{font-size:23px;line-height:1.4;margin:0}
+.jsf-minimal .dash-hero h1 strong{font-size:23px;font-weight:400;letter-spacing:-.02em}
+.jsf-minimal .dash-date{color:#87878d;font-size:11px}
+.jsf-minimal .dash-metrics{gap:12px;margin-bottom:20px}
+.jsf-minimal .dash-metric{min-height:100px;padding:16px;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;color:#343438}
+.jsf-minimal .dash-metric-label{font-size:11px;font-weight:400;min-height:0;color:#787e83}
+.jsf-minimal .dash-metric strong{font-size:24px;font-weight:400;line-height:1.2;margin:8px 0 4px}
+.jsf-minimal .dash-metric-copy>span{font-size:11px;color:#9999a0}
+.jsf-minimal .dash-icon{width:32px;height:32px;border-radius:6px;background:#f3f3f5;color:#7d7d86;font-size:16px}
+.jsf-minimal .dash-card h2{font-size:14px;font-weight:400}
+.jsf-minimal .dash-card-head{border-bottom-color:#e8e8eb;min-height:50px;flex-wrap:wrap;padding:12px 16px}
+.jsf-minimal .dash-card-head>div{flex-wrap:wrap}
+.jsf-minimal .dash-text-link{font-size:11px;font-weight:400;color:#666670}
+.jsf-minimal .dash-week-tag{font-size:10px;font-weight:400;border-radius:4px;background:#f3f3f5;color:#87878d}
+.jsf-minimal :is(.dash-week-table,.dash-table-wrap table){font-size:11px}
+.jsf-minimal :is(.dash-week-table th,.dash-table-wrap th){font-size:10px;font-weight:400;color:#87878d;border-color:#e8e8eb}
+.jsf-minimal .dash-week-order{font-weight:400;color:#55555e!important}
+.jsf-minimal :is(.dash-status,.project-status,.count-pill,.status,.row-status,.media em){border-radius:4px;background:#f3f3f5;color:#7b7b84;font-size:10px;font-weight:400}
+.jsf-minimal .dash-quick{border-radius:6px;min-height:50px;font-size:11px;font-weight:400;color:#55555e}
+/* Product catalogue, groups and editor chrome */
+.jsf-minimal .category-section{padding-top:22px}
+.jsf-minimal .category-section h1,.jsf-minimal .groups-section h1{margin:5px 0 8px}
+.jsf-minimal .jsf-cat-tile:hover{transform:none;box-shadow:0 3px 10px rgba(35,35,42,.065)}
+.jsf-minimal .jsf-cat-tile.active{border-color:#bcbcc5;box-shadow:0 2px 10px rgba(35,35,42,.055)}
+.jsf-minimal .jsf-cat-main{padding:13px;min-height:70px;color:#55555e}
+.jsf-minimal .jsf-cat-copy b{font-size:12px;font-weight:400}
+.jsf-minimal .jsf-cat-extra,.jsf-minimal .groups-cover-manager{background:#fafafa;border-color:#e8e8eb}
+.jsf-minimal .groups-cover-preview{background:#f3f3f5;border-color:#e2e2e5;border-radius:6px}
+.jsf-minimal .view-toggle{border-radius:6px;background:#f0f0f3;border-color:#e2e2e5}
+.jsf-minimal .view-toggle button{border-radius:4px;font-size:11px;font-weight:400}
+.jsf-minimal .panel-head h2,.jsf-minimal .groups-featured-manager h2{font-size:17px}
+.jsf-minimal .product-card:hover{transform:none;box-shadow:0 3px 10px rgba(35,35,42,.065)}
+.jsf-minimal :is(.media,.image-preview,.thumb,.symbol-image,.arrow-preview){background:#f8f8f9}
+.jsf-minimal :is(.info>b,.price-line,.row-copy b,.row-copy span){color:#666e75;font-weight:400}
+.jsf-minimal .info h3{font-size:13px;font-weight:400}
+.jsf-minimal .info p{font-size:11px}
+.jsf-minimal .actions{gap:5px;flex-wrap:wrap}
+.jsf-minimal .actions button{padding:6px 8px;font-size:10px}
+.jsf-minimal :is(.image-manager,.image-item,.field-box,.template-box,.hanging-rules,.door-text-settings,.empty,.image-empty,.product-row){border-radius:8px;border-color:#e2e2e5;background:#fafafa}
+.jsf-minimal :is(.image-item.primary,.image-item.card-selected){border-color:#bcbcc5;outline-color:#dedee4;box-shadow:none}
+.jsf-minimal :is(.card-image-badge,.image-controls .card-image-button.active){background:#f0f0f3;color:#666670;border-color:#d5d5dc;font-weight:400;border-radius:4px}
+.jsf-minimal .modal-bg{background:rgba(32,36,40,.44)}
+.jsf-minimal .modal{border-radius:8px;box-shadow:0 16px 48px rgba(32,36,40,.15)}
+.jsf-minimal .modal-head h2{font-size:18px}
+.jsf-minimal :is(.symbol-body>input,.arrow-card>b){font-weight:400;font-size:12px}
+.jsf-minimal :is(.upload-panel,.arrow-panel){padding:18px}
+.jsf-minimal :is(.arrow-card,.arrow-preview){border-radius:6px}
+.jsf-minimal .symbol-card:hover{transform:none;box-shadow:0 3px 10px rgba(35,35,42,.065)}
+/* Order approval uses the same hierarchy as placed orders. */
+.jsf-minimal .approval-head{align-items:center;margin-bottom:24px}
+.jsf-minimal .approval-count{border-radius:8px;box-shadow:0 2px 8px rgba(35,35,42,.035)}
+.jsf-minimal .approval-count strong{font-size:20px}
+.jsf-minimal .approval-layout{grid-template-columns:minmax(280px,340px) minmax(0,1fr);gap:20px}
+.jsf-minimal .approval-list{padding:0;gap:0}
+.jsf-minimal .approval-card{border:0;border-bottom:1px solid #ececef;background:#fff;border-radius:0;padding:16px}
+.jsf-minimal .approval-card.active{background:#f3f3f5;box-shadow:inset 2px 0 #85858e}
+.jsf-minimal .approval-card .ref,.jsf-minimal .detail-ref{color:#71787e;font-weight:400;font-size:11px}
+.jsf-minimal .approval-card>strong{font-size:13px}
+.jsf-minimal .detail-head h2{font-size:18px}
+.jsf-minimal .detail-grid{gap:24px}
+.jsf-minimal .info-block{padding:0;border:0;border-radius:0;background:transparent}
+.jsf-minimal .info-block :is(h3,b){font-weight:400}
+.jsf-minimal .message-box{border-radius:6px;background:#fafafa}
+.jsf-minimal .item-row{border-radius:6px;border-color:#e8e8eb}
+.jsf-minimal .item-index{background:#f3f3f5;color:#9999a0;font-weight:400;border-radius:4px}
+.jsf-minimal .order-total strong{font-size:18px}
+.jsf-minimal .production-planning{border-radius:8px;background:#fafafa;border-color:#e2e2e5}
+.jsf-minimal .production-planning h3{font-size:14px;font-weight:400}
+.jsf-minimal .planning-department strong{color:#7b7b84;font-weight:400}
+/* Projects, drawings and account settings. */
+.jsf-minimal .project-heading h1{margin:6px 0}
+.jsf-minimal .project-card{padding:20px}
+.jsf-minimal .project-card h2{font-size:15px}
+.jsf-minimal .project-card:hover{border-color:#bcbcc5;box-shadow:0 3px 10px rgba(35,35,42,.065)}
+.jsf-minimal .project-stats>div{padding:16px}
+.jsf-minimal .project-stats strong{font-size:22px}
+.jsf-minimal .project-panel h2{font-size:17px;margin-bottom:16px}
+.jsf-minimal :is(.project-back,.project-drawing small){color:#666670;font-size:11px}
+.jsf-minimal .project-drawing{border-radius:6px;background:#fafafa;border-color:#e2e2e5}
+.jsf-minimal :is(.jsf-planner-tools,.jsf-planner-scroll,.jsf-planner-side,.jsf-sign-modal,.jsf-sign-product){border-radius:8px;border-color:#e2e2e5}
+.jsf-minimal .jsf-planner-scroll{background:#ededf0}
+.jsf-minimal .jsf-planner-side h3{font-size:15px;font-weight:400}
+.jsf-minimal .jsf-planner-side p{font-size:12px;color:#87878d}
+.jsf-minimal .jsf-marker-list{background:#fafafa;border-radius:6px;color:#666e75}
+.jsf-minimal .jsf-sign-modal-backdrop{background:rgba(32,36,40,.44)}
+.jsf-minimal .jsf-sign-modal{box-shadow:0 16px 48px rgba(32,36,40,.15)}
+.jsf-minimal .jsf-sign-modal-header h2{font-size:18px;font-weight:400}
+.jsf-minimal .jsf-sign-categories button{border-radius:6px;background:#fff;color:#666e75;border-color:#dfdfe4;font-size:11px}
+.jsf-minimal .jsf-sign-categories button.active{background:#f0f0f3;color:#666670;border-color:#bcbcc5}
+.jsf-minimal .jsf-sign-product strong{font-size:12px;font-weight:400}
+.jsf-minimal .jsf-profile-card{padding:22px}
+.jsf-minimal .jsf-profile-card h2{font-size:16px;font-weight:400}
+.jsf-minimal .jsf-profile-card p{font-size:12px}
+.jsf-minimal .jsf-profile-card input[readonly]{background:#fafafa;color:#87878d}
+.jsf-minimal .future-main section strong{font-size:13px}
+.jsf-minimal :is(.flash,.symbols-message,.image-message,.project-success,.jsf-profile-alert.success){border-radius:6px;background:#f3f3f5;color:#666670;font-size:12px}
+.jsf-minimal :is(.flash.error,.project-error,.jsf-profile-alert.error,.groups-image-error){border-radius:6px;background:#fbf4f2;color:#945953;font-size:12px}
+/* These two pages use inline presentation styles; overrides are restricted to UI. */
+.jsf-minimal :is(.jsf-users-page,.jsf-role-workspace){padding:28px 30px 40px!important;color:#343438!important;font-family:Arial,sans-serif;font-size:12px}
+.jsf-minimal :is(.jsf-users-page,.jsf-role-workspace)>:is(span,div:first-child){color:#87878d!important;font-size:10px!important;font-weight:400!important;letter-spacing:.1em}
+.jsf-minimal :is(.jsf-users-page,.jsf-role-workspace) h1{font-size:23px!important;font-weight:400;letter-spacing:-.02em}
+.jsf-minimal :is(.jsf-users-page,.jsf-role-workspace) :is(strong,b){font-weight:400}
+.jsf-minimal .jsf-users-page section,.jsf-minimal .jsf-role-workspace section,.jsf-minimal .jsf-role-workspace>div>button{border-radius:8px!important;border-color:#e2e2e5!important;box-shadow:0 2px 8px rgba(35,35,42,.035);color:#55555e!important}
+.jsf-minimal .jsf-users-page section strong{font-size:14px!important}
+.jsf-minimal :is(.jsf-users-page,.jsf-role-workspace) button:not(.jsf-admin-profile-link){border-radius:6px!important;font-size:11px;font-weight:400}
+.jsf-minimal .jsf-users-page button,.jsf-minimal .jsf-role-workspace section button{background:#fff!important;border:1px solid #dfdfe4!important;color:#666670!important}
+.jsf-minimal .jsf-users-page select{border-radius:6px!important;border-color:#dfdfe4!important;font-size:12px}
+@media(max-width:1100px){.jsf-minimal .approval-layout{grid-template-columns:minmax(250px,300px) minmax(0,1fr)}.jsf-minimal .dash-bottom{grid-template-columns:1fr}}
+@media(max-width:900px){.jsf-minimal .approval-layout{grid-template-columns:1fr}.jsf-minimal .approval-list{max-height:360px}.jsf-minimal .detail-grid{grid-template-columns:1fr}}
+@media(max-width:720px){
+ .jsf-minimal :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,.jsf-projects,.jsf-profile-page,.future-main){padding:20px 14px}
+ .jsf-minimal :is(.jsf-users-page,.jsf-role-workspace){padding:20px 14px!important}
+ .jsf-minimal .dash-hero{margin:0;padding:4px 0 20px;min-height:0}
+ .jsf-minimal .dash-hero h1,.jsf-minimal .dash-hero h1 strong{font-size:23px}
+ .jsf-minimal .dash-metrics{grid-template-columns:1fr}
+ .jsf-minimal .dash-bottom{grid-template-columns:1fr}
+ .jsf-minimal .approval-toolbar{flex-wrap:wrap}.jsf-minimal .approval-toolbar input{min-width:150px}
+ .jsf-minimal .jsf-planner-top,.jsf-minimal .jsf-planner-tools{flex-wrap:wrap}
+ .jsf-minimal .project-filters input{min-width:0}
+}
+
+/* v6.6: Neutral white palette and the original dashboard photograph. */
+.jsf-minimal .dash-hero{
+ min-height:180px;margin:0 -30px 18px;padding:22px 30px 26px;
+ background:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.96) 26%,rgba(255,255,255,.75) 48%,rgba(255,255,255,.32) 74%,rgba(255,255,255,.22) 100%),var(--jsf-dashboard-image) center 26%/cover no-repeat;
+}
+.jsf-minimal .dash-hero-copy{max-width:65%;position:relative;z-index:1}
+.jsf-minimal .dash-date{position:relative;z-index:1;color:#73737c;background:rgba(255,255,255,.75);padding:5px 8px;border-radius:4px}
+@media(max-width:1050px){.jsf-minimal .dash-hero{flex-wrap:wrap;gap:12px}.jsf-minimal .dash-hero-copy{max-width:85%}}
+@media(max-width:720px){
+ .jsf-minimal .dash-hero{min-height:165px;margin:0 -14px 18px;padding:22px 14px;background-position:center,right 26%}
+ .jsf-minimal .dash-hero-copy{max-width:100%}
+}
+
+/* v6.7: align the workspace with order documents without green headings. */
+.jsf-admin-layout.jsf-minimal.dark,.jsf-minimal .jsf-admin-content,
+.jsf-minimal :is(.dash-main,.articles-main,.groups-main,.approval-page,.symbols-page,
+ .jsf-projects,.jsf-profile-page,.future-main){background:#fff;color:#252a27}
+.jsf-minimal :is(.dash-card,.dash-metric,.upload-panel,.arrow-panel,.symbol-card,
+ .groups-featured-manager,.jsf-cat-tile,.product-card,.project-card,.project-panel,
+ .project-stats>div,.approval-list,.approval-detail,.jsf-profile-card,.future-main section){
+ border-color:#e1e5e2;box-shadow:0 2px 8px rgba(25,35,30,.025)
+}
+.jsf-minimal :is(.dash-card-head h2,.dash-metric-label){
+ color:#404944;font-size:11px;font-weight:400;letter-spacing:.035em;text-transform:uppercase;
+}
+.jsf-minimal :is(.dash-text-link,.project-back,.project-drawing small,.planning-department strong){color:#626e67}
+.jsf-minimal :is(.dash-icon,.dash-week-tag,.dash-status,.dash-profile span){background:#f5f7f5;color:#748079}
+.jsf-minimal .dash-week-table th,.jsf-minimal .dash-table-wrap th{border-bottom-color:#536c5e}
+.jsf-minimal :is(.jsf-cat-extra,.groups-cover-manager,.image-manager,.template-box,
+ .hanging-rules,.door-text-settings,.production-planning,.message-box){background:#f7f8f7;border-color:#e1e5e2}
+.jsf-minimal .approval-card.active{background:#f7f8f7;box-shadow:inset 2px 0 #8e9d94}
+.jsf-minimal :is(.section-kicker,.kicker,.eyebrow,.project-kicker,.jsf-profile-kicker,
+ .future-kicker,.dash-eyebrow){color:#7a817d;font-weight:400}
+.jsf-minimal .jsf-planner-scroll{background:#f2f4f2}
+.jsf-minimal :is(.jsf-users-page,.jsf-role-workspace) :is(section,button){border-color:#e1e5e2!important}
+
+/* v6.8: one aligned action row on every product card. */
+.jsf-minimal .product-grid>.product-card{display:flex;flex-direction:column;min-width:0}
+.jsf-minimal .product-grid>.product-card>.media{flex-shrink:0}
+.jsf-minimal .product-grid>.product-card>.info{flex:1;min-width:0}
+.jsf-minimal .product-card>.actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin-top:auto;padding:8px 10px 12px;align-items:stretch}
+.jsf-minimal .product-card>.actions button{width:100%;min-width:0;height:34px;padding:0 4px;margin:0;font-size:10px;line-height:1;white-space:nowrap;text-align:center}

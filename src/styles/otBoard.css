@@ -1,0 +1,15 @@
+.jsf-ot-fields,.jsf-ot-configurator{display:grid;gap:14px;min-width:0;font:400 12px/1.5 Arial,sans-serif;color:#353535}
+.jsf-ot-fields label,.jsf-ot-configurator>label{display:grid;gap:6px;min-width:0;color:#706a63}
+.jsf-ot-fields input,.jsf-ot-fields select,.jsf-ot-configurator input,.jsf-ot-configurator select{box-sizing:border-box;width:100%;min-width:0;padding:10px 11px;border:1px solid #ded9d2;border-radius:5px;background:white;font:inherit;color:#353535}
+.jsf-ot-fields button{font:inherit;color:#353535;border:1px solid #ded9d2;border-radius:5px;background:white;padding:8px 11px;cursor:pointer;min-height:36px}
+.jsf-ot-fields button:disabled{opacity:.4;cursor:default}
+.jsf-ot-fields input:focus-visible,.jsf-ot-fields select:focus-visible,.jsf-ot-configurator input:focus-visible,.jsf-ot-configurator select:focus-visible,.jsf-ot-fields button:focus-visible{outline:2px solid #8b8071;outline-offset:2px}
+.jsf-ot-row-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(95px,.25fr);gap:12px}
+.jsf-ot-rows{display:grid;gap:10px;max-height:65vh;overflow:auto;overscroll-behavior:contain;padding:2px}
+.jsf-ot-row{padding:14px;border:1px solid #e9e6e1;border-radius:5px;background:white;min-width:0}
+.jsf-ot-row-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;font-size:11px;color:#817a72}
+.jsf-ot-row-heading>div{display:flex;gap:5px}
+.jsf-ot-row-heading button{font-size:11px;padding:4px 8px;min-height:30px}
+.jsf-ot-configurator p{margin:0;color:#817a72}
+@media(max-width:560px){.jsf-ot-row-fields{grid-template-columns:minmax(0,1fr)}.jsf-ot-rows{max-height:60vh}}
+@media(pointer:coarse){.jsf-ot-fields button,.jsf-ot-fields select,.jsf-ot-configurator input,.jsf-ot-configurator select{min-height:44px}}

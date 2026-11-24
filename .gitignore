@@ -1,0 +1,46 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+/release
+/jsf-flow.zip
+/.homepage-images-backup-*/
+/src/src/
+
+# misc
+.DS_Store
+.env
+.env.*
+!.env.example
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tmp
+server/node_modules
+server/catalog-v2.local.json
+server/catalog.local.json
+server/users.json
+server/orders.json
+server/order-number-reservations.json
+server/projects.json
+server/project-folders.json
+server/project-proof-workflow.json
+server/drawing-library.json
+server/badge-production-settings.json
+server/dibond-symbols.json
+server/article-production-files/
+server/dibond-symbol-assets/
+server/order-attachments/
+server/project-pdfs/
+server/project-proofs/
+server/project-sign-files/
+server/sign-artworks/

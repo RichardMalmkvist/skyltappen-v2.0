@@ -1,0 +1,29 @@
+/* Same form typography, spacing and controls as the public product page. */
+.jsf-sign-modal.jsf-calm-sign-editor {font:400 13px/1.5 Arial,sans-serif;color:#353535;background:#ffffff!important}
+.jsf-calm-sign-editor .jsf-sign-modal-header h2 {font:400 22px/1.4 Arial,sans-serif}
+.jsf-calm-sign-editor .jsf-sign-config-top h3 {font:400 18px/1.4 Arial,sans-serif;margin:4px 0}
+.jsf-calm-sign-editor :is(.jsf-sign-modal-header small,.jsf-sign-config-top small,.jsf-sign-config-top p) {color:#77716a}
+.jsf-calm-sign-editor .jsf-sign-config-grid {grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:28px;align-items:start}
+.jsf-calm-sign-editor .jsf-sign-preview {background:transparent;border:0;border-radius:0;box-shadow:none;padding:28px 18px;overflow:visible}
+.jsf-calm-sign-editor .jsf-sign-fields {border-left:1px solid #e9e6e1;padding-left:28px;gap:22px;min-width:0}
+.jsf-calm-sign-editor .jsf-sign-fields h3 {font:400 18px/1.4 Arial,sans-serif;margin:0}
+.jsf-calm-sign-editor .jsf-sign-fields :is(label,strong,b) {font:400 12px/1.5 Arial,sans-serif!important;color:#706b66!important}
+.jsf-calm-sign-editor .jsf-sign-fields div[style*="font-weight"] {font-weight:400!important}
+.jsf-calm-sign-editor .jsf-sign-fields :is(input,select,textarea) {width:100%;max-width:100%;box-sizing:border-box;background:#fff!important;border:1px solid #dcd8d2!important;border-radius:3px!important;box-shadow:none!important;color:#353535!important;font:400 13px/1.5 Arial,sans-serif!important;padding:12px 14px!important;min-height:44px}
+.jsf-calm-sign-editor .jsf-sign-fields button {border-radius:3px!important;font:400 12px/1.5 Arial,sans-serif!important;color:#494540!important}
+.jsf-calm-sign-editor .jsf-sign-fields button[aria-pressed] {border-color:#dcd8d2!important;background:#fff!important;box-shadow:none!important}
+.jsf-calm-sign-editor .jsf-sign-fields button[aria-pressed="true"] {background:#f0f0f0!important;border-color:#aaa39a!important}
+.jsf-calm-sign-editor .jsf-sign-fields button[aria-pressed] > span {background:#ededed!important;color:#77716a!important}
+.jsf-calm-sign-editor .jsf-sign-fields button[aria-pressed="true"] > span {background:#77716a!important;color:#fff!important}
+.jsf-calm-sign-editor :is(.jsf-sign-config-top>button,.jsf-sign-modal-header>button,.jsf-sign-modal-footer>button) {border-radius:3px!important;font:400 12px/1.5 Arial,sans-serif!important;box-shadow:none!important}
+.jsf-calm-sign-editor .jsf-sign-modal-header,.jsf-calm-sign-editor .jsf-sign-modal-footer {border-color:#e9e6e1}
+@media(max-width:750px) {
+  .jsf-calm-sign-editor .jsf-sign-config-grid {grid-template-columns:minmax(0,1fr)}
+  .jsf-calm-sign-editor .jsf-sign-fields {border-left:0;border-top:1px solid #e9e6e1;padding:25px 0 0}
+  .jsf-calm-sign-editor .jsf-sign-preview {padding:15px 8px}
+  .jsf-calm-sign-editor .jsf-sign-modal-footer {flex-wrap:wrap}
+}
+@media(pointer:coarse) {
+  .jsf-calm-sign-editor .jsf-sign-fields :is(input,select,textarea) {font-size:16px!important}
+  .jsf-calm-sign-editor button {min-height:44px}
+}

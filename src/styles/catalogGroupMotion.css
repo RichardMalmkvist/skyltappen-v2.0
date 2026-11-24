@@ -1,0 +1,11 @@
+/* Card motion is started on entry into the viewport, independently of hover. */
+.jsf-calm-products-grid > .jsf-card-reveal-pending { opacity: 0; }
+/* Avoid simultaneous parent and child animations moving in opposite directions. */
+.jsf-disclosure-content,
+.jsf-namebadge-group-products { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .jsf-calm-products-grid > .jsf-card-reveal-pending { opacity: 1; }
+}
+@media print {
+  .jsf-calm-products-grid > .jsf-card-reveal-pending { opacity: 1; }
+}
