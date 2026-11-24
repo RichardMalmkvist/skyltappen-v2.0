@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# skyltappen-v2.0
+
+Ny skyltapp för Region Jönköpings län. Se [startguiden](START_HERE.md) för lokal utveckling, dataimport och driftsättning.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
