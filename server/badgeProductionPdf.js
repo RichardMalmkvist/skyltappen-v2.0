@@ -1,5 +1,6 @@
 const {BRA_LIV_LAYOUT,normalizeBraLivForm,isBraLivBadge,hasBraLivOrganization}=require('../src/data/braLivNameBadges');
 const PDFDocument=require('pdfkit');
+const fontkit=require('fontkit');
 const SVGtoPDF=require('svg-to-pdfkit');
 const path=require('path'),fs=require('fs');
 const {badgeKind,addressForOrder,badgeAddressLines}=require('../src/data/badgeProduction');
@@ -8,12 +9,61 @@ const BADGE_CUT_INSET_MM=0.2;
 const PRESETS={'0261':'braliv_0261','0262':'braliv_0262','0263':'braliv_0263','0264':'braliv_0264','0201':'rjl_0201','0202':'rjl_0202','0205':'rjl_0205','0207':'rjl_0207','0208':'ftv_0208','0209':'ftv_0209','0210':'ftv_0210','0211':'energy_0211','0250':'school_0250','0251':'school_0251','0252':'school_0252','0253':'school_0253','0310':'jlt_0310'};
 const fonts=path.join(__dirname,'../src/assets/fonts');
 const logos=path.join(__dirname,'../src/assets/logos');
+const outlineFonts=new Map();
+const labelFont=path.join(path.dirname(require.resolve('pdfjs-dist/package.json')),'standard_fonts','LiberationSans-Regular.ttf');
+const badgeFonts={
+ GothamMedium:path.join(fonts,'gotham-narrow-medium.woff'),
+ GothamLight:path.join(fonts,'gotham-light.woff'),
+};
+
+function outlineLine(text,fontPath){
+ if(!outlineFonts.has(fontPath))outlineFonts.set(fontPath,fontkit.openSync(fontPath));
+ const font=outlineFonts.get(fontPath),run=font.layout(text.normalize('NFC'));
+ if(run.glyphs.some(glyph=>glyph.id===0))throw new Error('Texten innehåller ett tecken som produktionsfonten saknar. Kontrollera texten före export.');
+ return {run,units:font.unitsPerEm};
+}
+
+function drawOutlinedLine(doc,line,x,baseline,size,color){
+ const {run,units}=line,scale=size/units;
+ doc.save().fillColor(color).translate(x,baseline).scale(scale,-scale);
+ let cursorX=0,cursorY=0;
+ for(const [index,glyph] of run.glyphs.entries()){
+  const position=run.positions[index],outline=glyph.path.toSVG();
+  if(outline)doc.save().translate(cursorX+position.xOffset,cursorY+position.yOffset).path(outline).fill().restore();
+  cursorX+=position.xAdvance;
+  cursorY+=position.yAdvance;
+ }
+ doc.restore();
+}
+
 function fitLine(doc,text,x,baseline,size,width,font,color){
  text=String(text || '').trim();if(!text)return;
- doc.font(font).fontSize(mm(size));const measured=doc.widthOfString(text);const finalSize=measured>mm(width)?size*mm(width)/measured*.995:size;
+ const line=outlineLine(text,badgeFonts[font]);
+ const measured=line.run.advanceWidth*size/line.units;
+ const finalSize=measured>width?size*width/measured*.995:size;
  // Match the fixed top edge used by the product preview when shrinking.
  const nextBaseline=baseline-size*.715+finalSize*.715;
- doc.fontSize(mm(finalSize)).fillColor(color).text(text,mm(x),mm(nextBaseline),{lineBreak:false,baseline:'alphabetic'});
+ drawOutlinedLine(doc,line,mm(x),mm(nextBaseline),mm(finalSize),color);
+}
+
+function drawAddress(doc,entry){
+ const addressLines=badgeAddressLines(entry.order);
+ const lines=addressLines.filter((text,index)=>text || index===3)
+  .flatMap(text=>String(text).split(/\r?\n/)).map(text=>outlineLine(text,labelFont));
+ const width=mm(entry.width-12),height=mm(entry.height-12),gap=1;
+ const longest=Math.max(...lines.map(line=>line.run.advanceWidth/line.units));
+ doc.font('Helvetica');
+ let size=11;
+ const fit=()=>{
+  doc.fontSize(size);
+  return longest*size<=width && doc.currentLineHeight(true)*lines.length+gap*(lines.length-1)<=height;
+ };
+ while(size>6&&!fit())size--;
+ if(!fit())throw new Error('Adresslappen är för liten för '+entry.address.recipient+'. Öka måtten.');
+ const lineHeight=doc.currentLineHeight(true)+gap;
+ // Keep the baseline used by the Helvetica address template.
+ const firstBaseline=mm(6)+size*.718;
+ lines.forEach((line,index)=>drawOutlinedLine(doc,line,mm(6),firstBaseline+index*lineHeight,size,'#111111'));
 }
 function logo(doc,file,x,y,w,h){
  const printFile=({'ftv.svg':'ftv-print.svg','region.svg':'region-print.svg'})[file]||file;
@@ -88,21 +138,17 @@ async function createProductionPDF(orders,kind,settings,labelCounts={}){
  if(entries.length>5000)throw new Error('Välj högst 5 000 exemplar per export.');
  const doc=new PDFDocument({autoFirstPage:false,compress:true,info:{Title:kind==='labels'?'Adresslappar JSF Flow':'Namnbrickor JSF Flow',Creator:'JSF Flow'}});
  const chunks=[];const done=new Promise((resolve,reject)=>{doc.on('data',d=>chunks.push(d));doc.on('end',()=>resolve(Buffer.concat(chunks)));doc.on('error',reject);});
- doc.registerFont('GothamMedium',path.join(fonts,'gotham-narrow-medium.woff'));
- doc.registerFont('GothamLight',path.join(fonts,'gotham-light.woff'));
  try{
   for(const page of makeLayout(entries,settings)){
    doc.addPage({size:[mm(page.width),mm(page.height)],margin:0});
    for(const entry of page.entries){doc.save().translate(mm(entry.x),mm(entry.y));
     if(kind==='labels'){
-     const a=entry.address;const lines=badgeAddressLines(entry.order);
-     const text=lines.filter((s,i)=>s || i===3).join('\n');const fontSize=11;
-     doc.font('Helvetica').fontSize(fontSize);const w=mm(entry.width-12),h=mm(entry.height-12);
-     let size=fontSize;while(size>6 && (doc.heightOfString(text,{width:w})>h || lines.some(l=>doc.widthOfString(l)>w))){doc.fontSize(--size);}
-     if(doc.heightOfString(text,{width:w})>h || lines.some(l=>doc.widthOfString(l)>w))throw new Error('Adresslappen är för liten för '+a.recipient+'. Öka måtten.');
-     doc.fillColor('#111111').text(text,mm(6),mm(6),{width:w,height:h,lineGap:1});contour(doc,entry.width,entry.height,0);
+     drawAddress(doc,entry);contour(doc,entry.width,entry.height,0);
     }else{const shape=drawBadge(doc,entry.item);contour(doc,shape.width,shape.height,shape.radius,BADGE_CUT_INSET_MM);}
-    if(Math.min(settings.gapMm,settings.marginMm)>=3)doc.font('Helvetica').fontSize(5).fillColor('#555555').text(entry.order.orderNumber || entry.order.submissionNumber || '',0,mm(entry.height+.5),{lineBreak:false});
+    const reference=entry.order.orderNumber || entry.order.submissionNumber;
+    if(reference&&Math.min(settings.gapMm,settings.marginMm)>=3){
+     drawOutlinedLine(doc,outlineLine(String(reference),labelFont),0,mm(entry.height+.5)+5*.718,5,'#555555');
+    }
     doc.restore();
    }
   }doc.end();return await done;

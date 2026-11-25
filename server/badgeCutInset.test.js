@@ -12,7 +12,8 @@ async function paths(bytes){
   const paths=list.argsArray.filter((_,i)=>list.fnArray[i]===OPS.constructPath);
   const strokes=paths.filter(([paint])=>paint===OPS.stroke);
   const fills=paths.filter(([paint])=>paint===OPS.fill);
-  return {strokes,fills,pageCount:doc.numPages};
+  const text=await page.getTextContent();
+  return {strokes,fills,text:text.items,pageCount:doc.numPages};
  }finally{await loading.destroy();}
 }
 test('all 13 name badge models retain full print dimensions but cut 0.2 mm inside every edge',async()=>{
@@ -33,4 +34,18 @@ test('each copy gets its own inset contour while address label cutting remains a
  const result=await paths(await createProductionPDF([badge],'badges',settings));assert.equal(result.strokes.length,2);for(const cut of result.strokes)near(toMm(cut[2][0]),.2);
  const order={delivery:{recipient:'Test',company:'Region',address:'Testgatan 1',postalCode:'551 11',city:'Jonkoping'}};
  const labels=await paths(await createProductionPDF([order],'labels',settings));assert.equal(labels.strokes.length,1);const [left,top,right,bottom]=labels.strokes[0][2].map(toMm);near(left,0);near(top,0);near(right,settings.labelWidthMm);near(bottom,settings.labelHeightMm);
+});
+
+test('badge names, address lines and order references are vector paths without PDF text objects',async()=>{
+ const order={orderNumber:'0026127-00',delivery:{recipient:'Åsa Öberg',department:'Vårdcentralen',address:'Ängsvägen 7',house:'B',postalCode:'551 11',city:'Jönköping'},cart:[{
+  articleNumber:'0207',nameBadgePreset:'rjl_0207',name:'Åsa Öberg',title:'Sjuksköterska',orgLine1:'Vårdcentralen',orgLine2:'Jönköping',quantity:1,
+ }]};
+ for(const kind of ['badges','labels']){
+  const bytes=await createProductionPDF([order],kind,validSettings());
+  const {strokes,fills,text}=await paths(bytes);
+  assert.deepEqual(text,[],kind);
+  assert.ok(fills.length>30,kind+' glyph outlines');
+  assert.equal(strokes.length,1);
+  assert.match(bytes.toString('latin1'),/CutContour/);
+ }
 });
